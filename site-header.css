@@ -1,20 +1,40 @@
 .site-brand {
-  margin-block: 0 1.4rem;
+  margin: 0 0 1.65rem;
+  padding: 1rem 1.15rem .85rem;
+  border-top: 3px solid #bc9050;
+  border-radius: .2rem .2rem .45rem .45rem;
+  background: #174743;
+  color: #f9f5ea;
 }
 .site-brand .site-name {
   display: block;
   width: fit-content;
-  margin: 0 0 .3rem;
-  color: #653b55;
-  font: italic 400 clamp(1.45rem, 7.5vw, 4.25rem)/1.1 Baskervville, Georgia, serif;
-  letter-spacing: normal;
+  margin: 0;
+  color: #fff9e9;
+  font: 400 clamp(1.5rem, 4.5vw, 2.45rem)/1.1 Baskervville, Georgia, serif;
+  letter-spacing: .01em;
   text-decoration: none;
-  white-space: nowrap;
 }
-.site-brand a.site-name:hover {
-  text-decoration: underline;
-  text-underline-offset: .15em;
+.site-brand > p {
+  margin: .35rem 0 0;
+  color: #edf0dc;
+  font-size: .9rem;
 }
 .site-brand .site-nav {
-  margin: .9rem 0 0;
+  margin: .8rem 0 0;
+  padding-top: .6rem;
+  border-top: 1px solid #b7d2c866;
+}
+.site-brand .site-nav a {
+  color: #f9f5ea;
+  text-decoration: none;
+}
+.site-brand a:hover, .site-brand .site-nav a[aria-current="page"] {
+  color: #f8d99d;
+  text-decoration: underline;
+  text-underline-offset: .2em;
+}
+.site-brand a:focus-visible {
+  outline: 2px solid #f8d99d;
+  outline-offset: 3px;
 }

@@ -1,9 +1,11 @@
 .site-brand {
-  margin: 0 0 1.65rem;
+  position: relative;
+  isolation: isolate;
+  margin: 0 clamp(-2rem, -4vw, -.65rem) 1.65rem;
   padding: 1rem 1.15rem .85rem;
-  border-top: 3px solid #bc9050;
+  border-top: 3px solid #d7a86b;
   border-radius: .2rem .2rem .45rem .45rem;
-  background: #174743;
+  background: #67374f;
   color: #f9f5ea;
 }
 .site-brand .site-name {
@@ -23,7 +25,7 @@
 .site-brand .site-nav {
   margin: .8rem 0 0;
   padding-top: .6rem;
-  border-top: 1px solid #b7d2c866;
+  border-top: 1px solid #e4c6d580;
 }
 .site-brand .site-nav a {
   color: #f9f5ea;
@@ -37,4 +39,17 @@
 .site-brand a:focus-visible {
   outline: 2px solid #f8d99d;
   outline-offset: 3px;
+}
+
+.site-brand::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0 0 0 auto;
+  width: min(45%, 21rem);
+  opacity: .23;
+  background: url("banner-rackham.jpg") center 47% / cover no-repeat;
+  mask-image: linear-gradient(to right, transparent, black 65%);
+  mix-blend-mode: luminosity;
+  pointer-events: none;
 }

@@ -2,14 +2,14 @@
   --woodland-ink: #273a38;
   --woodland-leaf: #51694f;
   --woodland-bark: #795241;
-  --woodland-sky: #426675;
+  --woodland-sky: #805d51;
   --woodland-paper: #fbf8f0;
   --woodland-line: #d6d7c8;
   --jacket-width: clamp(4.6rem, 13vw, 5.5rem);
 }
 
 body {
-  background: linear-gradient(150deg, #f4eee1, var(--woodland-paper) 40%, #edf1e8 72%, #e5eef1);
+  background: linear-gradient(150deg, #f4eee1, var(--woodland-paper) 40%, #edf1e8 72%, #f0e6dc);
   color: var(--woodland-ink);
 }
 
@@ -104,7 +104,7 @@ main > section:nth-of-type(n) {
 }
 main > section:nth-of-type(3n + 2) {
   --accent: var(--woodland-sky);
-  --wash: #edf4f6;
+  --wash: #f5ece6;
 }
 main > section:nth-of-type(3n) {
   --accent: var(--woodland-bark);
@@ -175,9 +175,9 @@ main nav:is(.author-study-nav, [aria-label="Reading list topics"]) a:nth-child(n
 }
 
 main nav:is(.author-study-nav, [aria-label="Reading list topics"]) a:nth-child(3n + 2) {
-  background: #e8f0f2;
-  border-color: #a2b8c0;
-  color: #304b55;
+  background: #f4e7e2;
+  border-color: #c7a79a;
+  color: #64473e;
 }
 
 main nav:is(.author-study-nav, [aria-label="Reading list topics"]) a:nth-child(3n) {
@@ -218,8 +218,8 @@ main nav:is(.author-study-nav, [aria-label="Reading list topics"]) a:nth-child(3
 }
 
 .brand-illustrators {
-  --banner-colour: #e4eef5;
-  --banner-edge: #5d879e;
+  --banner-colour: #f5e5e1;
+  --banner-edge: #a4766b;
   --banner-x: 0%;
   --banner-y: 33.333333%;
 }
@@ -239,15 +239,15 @@ main nav:is(.author-study-nav, [aria-label="Reading list topics"]) a:nth-child(3
 }
 
 .brand-conferences {
-  --banner-colour: #e4edf0;
-  --banner-edge: #577b89;
+  --banner-colour: #eeecdf;
+  --banner-edge: #8b7c52;
   --banner-x: 0%;
   --banner-y: 66.666667%;
 }
 
 .brand-journals {
-  --banner-colour: #e9edf5;
-  --banner-edge: #697fa7;
+  --banner-colour: #f4e9d7;
+  --banner-edge: #a18358;
   --banner-x: 50%;
   --banner-y: 66.666667%;
 }
@@ -274,8 +274,8 @@ main nav:is(.author-study-nav, [aria-label="Reading list topics"]) a:nth-child(3
 }
 
 .brand-studies {
-  --banner-colour: #edf0f2;
-  --banner-edge: #7d8999;
+  --banner-colour: #f2eae2;
+  --banner-edge: #947e71;
   --banner-x: 100%;
   --banner-y: 100.000000%;
 }
@@ -283,3 +283,45 @@ main nav:is(.author-study-nav, [aria-label="Reading list topics"]) a:nth-child(3
 .site-brand { --banner-ratio: 5792 / 3258; }
 
 .organisation-logo.logo-on-dark { background: #283b46; padding: .3rem; }
+
+/* Fruit illustrations replace the bird and oak-acorn vignettes on these tabs. */
+.site-brand:is(.brand-authors, .brand-tools, .brand-academic)::before {
+  aspect-ratio: 1450 / 1449;
+  background-image: url("fruit-banner-atlas.webp");
+  background-size: 300% 100%;
+  background-position: var(--fruit-x) center;
+}
+.brand-authors { --fruit-x: 0%; }
+.brand-tools { --fruit-x: 50%; }
+.brand-academic { --fruit-x: 100%; }
+.creator-laureate { color: var(--woodland-bark); font-size: .9rem; margin-bottom: .5rem; }
+
+body:has(.brand-home) {
+  background: #f8f5ec;
+}
+main:has(> .brand-home)::before,
+main:has(> .brand-home)::after {
+  display: none;
+}
+main:has(> .brand-home) > section {
+  border-color: #d9cfbd;
+}
+main:has(> .brand-home) .presentation-list article:nth-child(n) {
+  background: #f2ede1;
+  border-color: #d8cbb6;
+  border-left-color: #887459;
+}
+main:has(> :is(.brand-tools, .brand-awards)) {
+  width: min(58rem, 100% - 2.5rem);
+}
+.site-brand:is(.brand-tools, .brand-awards) + header {
+  margin: 0 0 1.4rem;
+  padding-bottom: 1.15rem;
+}
+.site-brand:is(.brand-tools, .brand-awards) + header h1 {
+  margin: 0 0 .65rem;
+}
+.site-brand:is(.brand-tools, .brand-awards) + header p {
+  margin: 0;
+  max-width: 66ch;
+}

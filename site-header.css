@@ -5,7 +5,7 @@
   --woodland-sky: #805d51;
   --woodland-paper: #fbf8f0;
   --woodland-line: #d6d7c8;
-  --jacket-width: clamp(4.6rem, 13vw, 5.5rem);
+  --jacket-width: clamp(5.7rem, 16vw, 7rem);
 }
 
 body {
@@ -390,8 +390,7 @@ main:has(> :is(.brand-tools, .brand-awards)) {
   font: 1.35rem/1 system-ui, sans-serif;
   text-decoration: none;
 }
-.site-brand .saved-books-button,
-.save-book-button {
+.save-book-button, .saved-books-actions button, #saved-books-list button {
   border: 1px solid #738477;
   border-radius: .45rem;
   background: #fffefa;
@@ -401,17 +400,19 @@ main:has(> :is(.brand-tools, .brand-awards)) {
   font: inherit;
   cursor: pointer;
 }
-.site-brand .saved-books-button { margin-top: .75rem; }
+.book-title-row { display: flex; align-items: flex-start; gap: .15rem; }
+.book-title-row h3 { min-width: 0; overflow-wrap: anywhere; }
 .save-book-button {
-  align-self: start;
+  flex: 0 0 44px;
   min-width: 44px;
-  margin: .4rem .4rem 0 0;
-  font-size: 1.45rem;
+  margin: -.45rem 0 0;
+  padding: 0;
+  border-color: transparent;
+  background: transparent;
+  font-size: 1rem;
 }
-.save-book-button[aria-pressed="true"] { color: #a1264b; border-color: #a1264b; }
-.saved-books-dialog ol { padding-inline-start: 1.4rem; }
-.saved-books-dialog li { margin-block: .55rem; }
-.saved-books-dialog li button { margin-inline-start: .65rem; }
+.save-book-button[aria-pressed="true"] { color: #a1264b; }
+.save-book-button:focus-visible { outline: 2px solid #315b48; outline-offset: -4px; }
 
 .share-site {
   display: flex;
@@ -464,3 +465,21 @@ main:has(> :is(.brand-tools, .brand-awards)) {
 #share-status { margin: 0; flex-basis: 100%; font-size: .87rem; }
 #share-status:empty { display: none; }
 #share-url { width: min(100%, 25rem); }
+
+.saved-books-page { margin: 0; background: #faf8f2; color: #18352a; font: 1rem/1.55 system-ui, sans-serif; }
+.saved-books-page main { max-width: 70rem; width: calc(100% - 2rem); margin: 1.5rem auto 4rem; }
+.saved-books-actions { display: flex; flex-wrap: wrap; gap: .5rem; }
+.saved-books-actions button:disabled { opacity: .55; cursor: default; }
+#saved-books-list li { margin-block: .55rem; }
+#saved-books-list li button { margin-inline-start: .65rem; }
+#saved-books-empty:focus { outline: none; }
+.saved-book-attribution a { color: inherit; overflow-wrap: anywhere; }
+
+@media print {
+  .saved-books-page { background: white; color: black; }
+  .saved-books-page main { width: auto; max-width: none; margin: 0; }
+  .saved-books-page :is(.site-brand, .return-to-top, .saved-book-help, .saved-books-actions, #saved-books-list button) { display: none !important; }
+  .saved-books-page #visitor-saved-books { background: white; border: 0; padding: 0; }
+  .saved-books-page a { color: black; }
+  .saved-books-page li { break-inside: avoid; }
+}

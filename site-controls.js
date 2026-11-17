@@ -1,9 +1,17 @@
 (() => {
-  if (!window.HTMLDialogElement || !HTMLDialogElement.prototype.showModal) return;
-  const brand = document.querySelector('.site-brand');
-  if (!brand) return;
-
   const storageKey = 'picturebook-saved-books';
+  const siteHome = 'https://maggiemkchanuk.github.io/';
+  const siteName = 'Maggie M. K. Chan';
+
+  const navigation = document.querySelector('.site-nav');
+  const readingList = navigation?.querySelector('a[href="reading-lists.html"]');
+  if (readingList && !navigation.querySelector('a[href="saved-books.html"]')) {
+    const savedLink = document.createElement('a');
+    savedLink.href = 'saved-books.html';
+    savedLink.textContent = 'Visitors’ Saved Books';
+    readingList.after(savedLink);
+  }
+
   let saved = new Map();
   try {
     saved = new Map(JSON.parse(localStorage.getItem(storageKey) || '[]'));
@@ -11,19 +19,16 @@
     // The list remains available for the current page if storage is disabled.
   }
 
-  const open = document.createElement('button');
-  open.type = 'button';
-  open.className = 'saved-books-button';
-  brand.append(open);
-
-  const dialog = document.createElement('dialog');
-  dialog.className = 'buy-dialog saved-books-dialog';
-  dialog.setAttribute('aria-labelledby', 'saved-books-title');
-  dialog.innerHTML = '<header class="buy-dialog-header"><h2 id="saved-books-title">Saved books</h2><form method="dialog"><button class="buy-dialog-close" aria-label="Close saved books">×</button></form></header><p>Your saved books are stored in this browser.</p><p class="saved-books-empty">Use the heart beside a book to save it here.</p><ol></ol>';
-  document.body.append(dialog);
-  const list = dialog.querySelector('ol');
-  const empty = dialog.querySelector('.saved-books-empty');
+  const list = document.getElementById('saved-books-list');
+  const download = document.getElementById('download-saved-books');
+  const print = document.getElementById('print-saved-books');
   const buttons = new Map();
+
+  function validEntries() {
+    return [...saved].filter(([href, title]) =>
+      typeof href === 'string' && /^[a-z-]+\.html#[^\s]+$/.test(href) && typeof title === 'string'
+    );
+  }
 
   function updateButton(button, url) {
     const active = saved.has(url);
@@ -32,16 +37,19 @@
   }
 
   function render() {
-    open.textContent = saved.size ? `Saved books (${saved.size})` : 'Saved books';
-    empty.hidden = saved.size > 0;
+    for (const [url, button] of buttons) updateButton(button, url);
+    if (!list) return;
+
+    const books = validEntries();
+    const empty = document.getElementById('saved-books-empty');
+    empty.hidden = books.length > 0;
+    download.disabled = print.disabled = books.length === 0;
     list.replaceChildren();
-    for (const [href, title] of saved) {
-      if (typeof href !== 'string' || !/^[a-z-]+\.html#/.test(href) || typeof title !== 'string') continue;
+    for (const [href, title] of books) {
       const item = document.createElement('li');
       const link = document.createElement('a');
       link.href = href;
       link.textContent = title;
-      link.addEventListener('click', () => dialog.close());
       const remove = document.createElement('button');
       remove.type = 'button';
       remove.textContent = 'Remove';
@@ -49,7 +57,7 @@
       remove.addEventListener('click', () => {
         saved.delete(href);
         update();
-        (list.querySelector('button') || dialog.querySelector('.buy-dialog-close')).focus();
+        (list.querySelector('button') || list.previousElementSibling).focus();
       });
       item.append(link, remove);
       list.append(item);
@@ -62,8 +70,43 @@
     } catch {
       // Keep changes in this page when local storage is unavailable.
     }
-    for (const [url, button] of buttons) updateButton(button, url);
     render();
+  }
+
+  function exportList() {
+    const output = document.implementation.createHTMLDocument('My saved books');
+    output.documentElement.lang = 'en';
+    const charset = output.createElement('meta');
+    charset.setAttribute('charset', 'utf-8');
+    output.head.prepend(charset);
+    const style = output.createElement('style');
+    style.textContent = 'body{margin:2rem auto;padding:0 1rem;max-width:50rem;font:1rem/1.6 system-ui,sans-serif}li{margin:.45rem 0}a{color:inherit}';
+    output.head.append(style);
+    const title = output.createElement('h1');
+    title.textContent = 'My saved books';
+    const credit = output.createElement('p');
+    const home = output.createElement('a');
+    home.href = home.textContent = siteHome;
+    credit.append(`${siteName} · `, home);
+    const books = output.createElement('ol');
+    for (const [href, text] of validEntries()) {
+      const item = output.createElement('li');
+      const link = output.createElement('a');
+      link.href = new URL(href, siteHome).href;
+      link.textContent = text;
+      item.append(link);
+      books.append(item);
+    }
+    output.body.append(title, credit, books);
+    const blob = new Blob(['<!doctype html>\n', output.documentElement.outerHTML], {type: 'text/html;charset=utf-8'});
+    const url = URL.createObjectURL(blob);
+    const file = document.createElement('a');
+    file.href = url;
+    file.download = 'saved-books-maggie-m-k-chan.html';
+    document.body.append(file);
+    file.click();
+    file.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
   }
 
   const page = location.pathname.split('/').pop() || 'index.html';
@@ -83,26 +126,24 @@
     button.type = 'button';
     button.className = 'save-book-button';
     button.setAttribute('aria-label', `Save ${title}`);
-    updateButton(button, href);
     button.addEventListener('click', () => {
       if (saved.has(href)) saved.delete(href);
       else saved.set(href, title);
       update();
     });
-    (book.querySelector('.book-copy') || heading.parentElement).append(button);
+    const titleRow = document.createElement('div');
+    titleRow.className = 'book-title-row';
+    heading.before(titleRow);
+    titleRow.append(heading, button);
     buttons.set(href, button);
   }
 
-  open.addEventListener('click', () => {
-    render();
-    dialog.showModal();
-  });
-  dialog.addEventListener('close', () => open.focus());
+  download?.addEventListener('click', exportList);
+  print?.addEventListener('click', () => window.print());
   window.addEventListener('storage', event => {
     if (event.key !== storageKey) return;
     try {
       saved = new Map(JSON.parse(event.newValue || '[]'));
-      for (const [href, button] of buttons) updateButton(button, href);
       render();
     } catch {
       // Ignore malformed storage updates.

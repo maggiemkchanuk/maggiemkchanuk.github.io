@@ -1,7 +1,5 @@
 (() => {
   const amazonTag = 'maggiemkchanu-21';
-  const disclosure = 'As an Amazon Associate I earn from qualifying purchases.';
-  const disclosureMarkup = `${disclosure} Some Bookshop.org UK links may also earn me a commission. <a href="affiliate-disclosure.html">Affiliate disclosure</a>`;
 
   function addRetailer(list, name, href, action, sponsored) {
     const link = document.createElement('a');
@@ -71,12 +69,7 @@
       addRetailer(retailers, 'Amazon UK', amazonSearch, isbn ? 'Search by ISBN (Ad) ↗' : 'Search by title (Ad) ↗', true);
     }
     const commission = menu.querySelector('.buy-commission');
-    if (commission) commission.innerHTML = product ? disclosure : disclosureMarkup;
-  }
-
-  if (items.length) {
-    const notice = document.querySelector('.affiliate-notice p');
-    if (notice) notice.innerHTML = disclosureMarkup;
+    if (commission) commission.innerHTML = 'I may earn a commission on qualifying purchases. <a href="affiliate-disclosure.html">Affiliate disclosure</a>';
   }
 
   if (!window.HTMLDialogElement || !HTMLDialogElement.prototype.showModal) return;

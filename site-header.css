@@ -373,3 +373,42 @@ main:has(> :is(.brand-tools, .brand-awards)) {
 #reading-filters > div:first-child { grid-column: 1 / -1; }
 .reading-route nav { display:flex; flex-wrap:wrap; gap:.4rem 1rem; }
 @media(max-width:700px) { #reading-filters { grid-template-columns:minmax(0,1fr); } }
+
+.return-to-top {
+  position: fixed;
+  z-index: 10;
+  inset-inline-end: max(1rem, env(safe-area-inset-right));
+  inset-block-end: max(1rem, env(safe-area-inset-bottom));
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 1px solid #738477;
+  border-radius: 50%;
+  background: #fffefa;
+  color: #18352a;
+  font: 1.35rem/1 system-ui, sans-serif;
+  text-decoration: none;
+}
+.site-brand .saved-books-button,
+.save-book-button {
+  border: 1px solid #738477;
+  border-radius: .45rem;
+  background: #fffefa;
+  color: #18352a;
+  min-height: 44px;
+  padding: .2rem .7rem;
+  font: inherit;
+  cursor: pointer;
+}
+.site-brand .saved-books-button { margin-top: .75rem; }
+.save-book-button {
+  align-self: start;
+  min-width: 44px;
+  margin: .4rem .4rem 0 0;
+  font-size: 1.45rem;
+}
+.save-book-button[aria-pressed="true"] { color: #a1264b; border-color: #a1264b; }
+.saved-books-dialog ol { padding-inline-start: 1.4rem; }
+.saved-books-dialog li { margin-block: .55rem; }
+.saved-books-dialog li button { margin-inline-start: .65rem; }

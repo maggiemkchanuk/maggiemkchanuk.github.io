@@ -1,4 +1,78 @@
 (() => {
+  const amazonTag = 'maggiemkchanu-21';
+  const disclosure = 'As an Amazon Associate I earn from qualifying purchases.';
+  const disclosureMarkup = `${disclosure} Some Bookshop.org UK links may also earn me a commission. <a href="affiliate-disclosure.html">Affiliate disclosure</a>`;
+
+  function addRetailer(list, name, href, action, sponsored) {
+    const link = document.createElement('a');
+    link.className = 'buy-retailer';
+    link.href = href;
+    link.target = '_blank';
+    link.rel = sponsored ? 'sponsored noopener' : 'noopener';
+    const retailer = document.createElement('span');
+    retailer.className = 'buy-retailer-name';
+    retailer.textContent = name;
+    const label = document.createElement('span');
+    label.className = 'buy-retailer-price';
+    label.textContent = action;
+    link.append(retailer, label);
+    list.append(link);
+  }
+
+  for (const origin of document.querySelectorAll('.book-origin')) {
+    if (origin.textContent.startsWith('Original publication: ')) {
+      origin.textContent = origin.textContent.slice('Original publication: '.length);
+    }
+  }
+
+  const books = document.querySelectorAll('li.book-row, article[data-category]');
+  for (const book of books) {
+    const title = book.querySelector('h3')?.textContent.trim();
+    if (!title) continue;
+    let menu = book.querySelector('.buy-menu');
+    if (!menu) {
+      const wrapper = document.createElement('div');
+      wrapper.className = 'affiliate-purchases';
+      wrapper.innerHTML = '<details class="buy-options"><summary>Buy <span class="buy-chevron" aria-hidden="true">▾</span></summary><div class="buy-menu"><div class="buy-retailers"></div><p class="buy-commission"></p></div></details>';
+      wrapper.querySelector('summary').setAttribute('aria-label', `Buy ${title}`);
+      (book.querySelector('.book-copy') || book.querySelector('h3').parentElement).append(wrapper);
+      menu = wrapper.querySelector('.buy-menu');
+    }
+    menu.dataset.bookTitle = title;
+  }
+
+  for (const menu of document.querySelectorAll('.buy-menu')) {
+    const retailers = menu.querySelector('.buy-retailers');
+    if (!retailers) continue;
+    const bookshop = retailers.querySelector('a[href*="bookshop.org/"]');
+    const isbn = bookshop?.pathname.match(/\/(97[89]\d{10})\/?$/)?.[1];
+    const book = menu.closest('li.book-row, article');
+    const title = menu.dataset.bookTitle || book?.querySelector('h3')?.textContent.trim();
+    const creator = book?.querySelector('.credit')?.textContent.trim();
+    const search = isbn || [title, creator].filter(Boolean).join(' ');
+    if (!search) continue;
+
+    if (!bookshop && title) {
+      const bookshopSearch = new URL('https://uk.bookshop.org/search');
+      bookshopSearch.searchParams.set('keywords', title);
+      addRetailer(retailers, 'Bookshop.org UK', bookshopSearch, 'Search catalogue ↗', false);
+    }
+    if (!retailers.querySelector('a[href*="amazon.co.uk/"]')) {
+      const amazonSearch = new URL('https://www.amazon.co.uk/s');
+      amazonSearch.searchParams.set('k', search);
+      amazonSearch.searchParams.set('i', 'stripbooks');
+      amazonSearch.searchParams.set('tag', amazonTag);
+      addRetailer(retailers, 'Amazon UK', amazonSearch, isbn ? 'Search by ISBN (Ad) ↗' : 'Search by title (Ad) ↗', true);
+    }
+    const commission = menu.querySelector('.buy-commission');
+    if (commission) commission.innerHTML = disclosureMarkup;
+  }
+
+  if (books.length) {
+    const notice = document.querySelector('.affiliate-notice p');
+    if (notice) notice.innerHTML = disclosureMarkup;
+  }
+
   if (!window.HTMLDialogElement || !HTMLDialogElement.prototype.showModal) return;
 
   const dialog = document.createElement('dialog');

@@ -40,8 +40,8 @@ main h3 {
   padding: 1rem 1.15rem .85rem;
   border: 1px solid #d7cbb7;
   border-top: 3px solid var(--banner-edge, #a47950);
-  border-radius: .2rem .2rem .45rem .45rem;
-  background: var(--banner-colour, #f3ead9);
+  border-radius: var(--banner-corners, .2rem .2rem .45rem .45rem);
+  background: linear-gradient(110deg, #fff9 0%, transparent 80%), var(--banner-colour, #f3ead9);
   color: var(--woodland-ink);
 }
 
@@ -62,12 +62,17 @@ main h3 {
 }
 
 .site-brand .site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .45rem 1rem;
+  font: .9rem/1.45 system-ui, sans-serif;
   margin: .8rem 0 0;
   padding-top: .6rem;
   border-top: 1px solid #ac9f87;
 }
 
 .site-brand .site-nav a {
+  font-size: inherit;
   color: var(--woodland-ink);
   text-decoration: none;
 }
@@ -89,9 +94,9 @@ main h3 {
   z-index: -1;
   inset: 50% 0 auto auto;
   transform: translateY(-50%);
-  width: min(45%, 24rem);
+  width: min(var(--banner-width, 45%), var(--banner-max, 24rem));
   aspect-ratio: var(--banner-ratio, 1);
-  opacity: .61;
+  opacity: var(--banner-opacity, .68);
   background: url("nature-banner-atlas.webp") var(--banner-x, 0%) var(--banner-y, 0%) / 300% 400% no-repeat;
   mix-blend-mode: multiply;
   mask-image: linear-gradient(to right, transparent, black 68%);
@@ -192,15 +197,47 @@ main nav:is(.author-study-nav, [aria-label="Reading list topics"]) a:nth-child(3
   left: 50%;
   width: min(68rem, calc(100vw - 2rem));
   margin-inline: 0;
-  padding-inline: clamp(1.2rem, 3vw, 2.4rem);
+  padding: clamp(2rem, 6vw, 4.6rem) clamp(1.2rem, 4vw, 3rem) 1.15rem;
+  border-top-width: 5px;
+  box-shadow: 0 .65rem 2rem #50311e22;
   transform: translateX(-50%);
 }
 
 .brand-home {
-  --banner-colour: #f6e8db;
-  --banner-edge: #ab6e56;
-  --banner-x: 0%;
-  --banner-y: 0.000000%;
+  --banner-colour: #f3d9ae;
+  --banner-edge: #874c37;
+  --banner-corners: .35rem .35rem 1.5rem 1.5rem;
+}
+
+.site-brand.brand-home::before {
+  inset: 0 0 0 auto;
+  transform: none;
+  width: min(62%, 43rem);
+  aspect-ratio: auto;
+  background: url("banner-rackham.jpg") right top / cover no-repeat;
+  opacity: .58;
+  mask-image: linear-gradient(to right, transparent, black 52%);
+}
+
+.brand-home .site-name {
+  max-width: 14ch;
+  font-size: clamp(2.35rem, 6vw, 4.4rem);
+}
+
+.brand-home .site-nav {
+  margin-top: clamp(1.25rem, 4vw, 3.25rem);
+  padding: .7rem .85rem;
+  border: 1px solid #8f63444d;
+  border-radius: .45rem;
+  background: #fff9edf2;
+}
+
+@media (max-width: 600px) {
+  .site-brand.brand-home::before {
+    width: 82%;
+    background-position: center top;
+    opacity: .27;
+  }
 }
 
 .brand-reading {
@@ -285,7 +322,7 @@ main nav:is(.author-study-nav, [aria-label="Reading list topics"]) a:nth-child(3
 .organisation-logo.logo-on-dark { background: #283b46; padding: .3rem; }
 
 /* Fruit illustrations replace the bird and oak-acorn vignettes on these tabs. */
-.site-brand:is(.brand-authors, .brand-tools, .brand-academic)::before {
+.site-brand:is(.brand-authors, .brand-academic, .brand-tools:has(> .site-nav a[href="reading-tools.html"][aria-current="page"]))::before {
   aspect-ratio: 1450 / 1449;
   background-image: url("fruit-banner-atlas.webp");
   background-size: 300% 100%;
@@ -294,6 +331,39 @@ main nav:is(.author-study-nav, [aria-label="Reading list topics"]) a:nth-child(3
 .brand-authors { --fruit-x: 0%; }
 .brand-tools { --fruit-x: 50%; }
 .brand-academic { --fruit-x: 100%; }
+/* The four pages that share a base header class each use their own illustration. */
+.site-brand:has(> .site-nav a[href="saved-books.html"][aria-current="page"]) {
+  --banner-colour: #e8edf2;
+  --banner-edge: #5d748d;
+  --banner-x: 0%;
+  --banner-y: 0%;
+  --banner-corners: .3rem .3rem 1.15rem .3rem;
+}
+
+.site-brand:has(> .site-nav a[href="contact.html"][aria-current="page"]) {
+  --banner-colour: #e4eee6;
+  --banner-edge: #527762;
+  --banner-x: 100%;
+  --banner-y: 0%;
+  --banner-width: 52%;
+}
+
+.site-brand:has(> .site-nav a[href="educational-resources.html"][aria-current="page"]) {
+  --banner-colour: #f4e9cc;
+  --banner-edge: #97783b;
+  --banner-x: 50%;
+  --banner-y: 33.333333%;
+  --banner-corners: .3rem .3rem .3rem 1.2rem;
+}
+
+.site-brand:has(> .site-nav a[href="affiliate-disclosure.html"][aria-current="page"]) {
+  --banner-colour: #eee9df;
+  --banner-edge: #766c5a;
+  --banner-x: 50%;
+  --banner-y: 100%;
+  --banner-width: 36%;
+}
+
 .creator-laureate { color: var(--woodland-bark); font-size: .9rem; margin-bottom: .5rem; }
 
 body:has(.brand-home) {

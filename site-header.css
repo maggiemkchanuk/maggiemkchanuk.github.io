@@ -412,3 +412,55 @@ main:has(> :is(.brand-tools, .brand-awards)) {
 .saved-books-dialog ol { padding-inline-start: 1.4rem; }
 .saved-books-dialog li { margin-block: .55rem; }
 .saved-books-dialog li button { margin-inline-start: .65rem; }
+
+.share-site {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: .35rem;
+  margin-top: .8rem;
+}
+.share-site .share-label { margin-inline-end: .25rem; font-size: .9rem; }
+.share-site .share-button {
+  display: grid;
+  place-items: center;
+  min-width: 44px;
+  min-height: 44px;
+  border: 1px solid #738477;
+  border-radius: 50%;
+  background: #fffefa;
+  color: #18352a;
+  font: 700 1.05rem/1 system-ui, sans-serif;
+  text-decoration: none;
+  cursor: pointer;
+}
+.share-site .share-button:hover { background: #eef1e9; }
+.share-site .share-button:focus-visible { outline: 2px solid #315b48; outline-offset: 3px; }
+.share-site .instagram-icon {
+  position: relative;
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid currentColor;
+  border-radius: .3rem;
+  display: grid;
+  place-items: center;
+}
+.share-site .instagram-icon::before {
+  content: '';
+  width: .39rem;
+  height: .39rem;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+}
+.share-site .instagram-icon::after {
+  content: '';
+  position: absolute;
+  inset: 2px 2px auto auto;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  background: currentColor;
+}
+#share-status { margin: 0; flex-basis: 100%; font-size: .87rem; }
+#share-status:empty { display: none; }
+#share-url { width: min(100%, 25rem); }

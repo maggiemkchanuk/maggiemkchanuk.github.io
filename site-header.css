@@ -330,8 +330,26 @@ main:has(> :is(.brand-tools, .brand-awards)) {
 .affiliate-purchases { clear: both; margin-top: .65rem; padding-top: .55rem; border-top: 1px solid var(--woodland-line); }
 .affiliate-purchases .link-edition { font-size: .8rem; color: #465b52; overflow-wrap: anywhere; }
 .affiliate-purchases .affiliate-options { display: flex; flex-wrap: wrap; gap: .45rem 1rem; font-size: .9rem; }
-.affiliate-notice { margin: 1rem 0; padding: .8rem 1rem; border: 1px solid var(--woodland-line); border-radius: .35rem; background: var(--woodland-paper); font-size: .88rem; }
-.affiliate-notice p { margin: .3rem 0; }
+.affiliate-notice { margin: .65rem 0 1rem; padding: 0; color: #42594f; font-size: .76rem; line-height: 1.4; }
+.affiliate-notice p { margin: 0; }
+.buy-options > summary { display: inline-flex; align-items: center; justify-content: center; gap: .6rem; min-height: 44px; min-width: 7rem; padding: .3rem 1rem; box-sizing: border-box; border: 1px solid #738477; border-radius: .45rem; background: #f7f5ef; color: #18352a; cursor: pointer; list-style: none; font: inherit; }
+.buy-options > summary::-webkit-details-marker { display: none; }
+.buy-options > summary:focus-visible, .buy-dialog button:focus-visible, .buy-retailer:focus-visible { outline: 3px solid #315b48; outline-offset: 3px; }
+.buy-menu { margin-top: .6rem; padding: .8rem; border: 1px solid #cbd2c9; border-radius: .5rem; }
+.buy-retailer { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1rem .2rem; color: #18352a; text-decoration: none; border-bottom: 1px solid #d8ddd5; }
+.buy-retailer:hover { background: #f3f5ef; }
+.buy-retailer-name { font-weight: 600; }
+.buy-retailer-price { font-size: .85rem; text-align: right; }
+.buy-edition, .buy-commission { color: #42594f; font-size: .78rem; line-height: 1.5; margin: .8rem 0 0; }
+.buy-commission { padding-top: .8rem; border-top: 1px solid #d8ddd5; }
+.buy-dialog { width: calc(100% - 2rem); max-width: 34rem; max-height: 85dvh; box-sizing: border-box; overflow: auto; padding: 1.2rem; border: 0; border-radius: .9rem; background: #fffefa; color: #18352a; box-shadow: 0 1rem 4rem #0004; }
+.buy-dialog::backdrop { background: #0006; backdrop-filter: blur(2px); }
+.buy-dialog-header { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.buy-dialog-header h2 { margin: 0; font-size: 1.15rem; overflow-wrap: anywhere; }
+.buy-dialog-close { flex: none; width: 44px; height: 44px; border: 0; border-radius: 50%; background: #eef1e9; color: #18352a; font-size: 1.6rem; cursor: pointer; }
+@media (max-width: 700px) {
+  .buy-dialog { margin: auto 0 0; width: 100%; max-width: none; border-radius: 1rem 1rem 0 0; padding-bottom: max(1.2rem, env(safe-area-inset-bottom)); }
+}
 .book-row[hidden], .cards article[hidden], main > section[hidden] { display: none !important; }
 .catalog-controls > * { min-width: 0; }
 .catalog-controls select { width: 100%; max-width: 100%; }

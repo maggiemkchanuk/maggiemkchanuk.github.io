@@ -539,3 +539,52 @@ main:has(> :is(.brand-tools, .brand-awards)) {
   .saved-books-page a { color: black; }
   .saved-books-page li { break-inside: avoid; }
 }
+
+/* Use the same navigation geometry on every page. */
+html { overflow-y: scroll; }
+main:has(> .site-brand) {
+  --navigation-width: min(72rem, calc(100vw - 2rem));
+  margin-top: 1rem;
+}
+main:has(> .site-brand) > :is(.site-brand, .site-actions) {
+  box-sizing: border-box;
+  width: var(--navigation-width);
+  margin-inline: calc((100% - var(--navigation-width)) / 2);
+}
+main > .site-brand {
+  padding: 1rem 1.15rem .85rem;
+  border-radius: .3rem;
+}
+main > .site-brand .site-name {
+  font-family: Georgia, serif;
+  font-size: clamp(1.5rem, 4.5vw, 2.45rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: .01em;
+}
+main > .site-brand .site-nav {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: .25rem .65rem;
+  margin-top: .8rem;
+  font: 500 .9rem/1.45 system-ui, sans-serif;
+}
+main > .site-brand .site-nav a {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  min-height: 44px;
+  margin: 0;
+  padding: .3rem 0;
+  font: inherit;
+  overflow-wrap: anywhere;
+}
+@media (max-width: 1050px) {
+  main > .site-brand .site-nav { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+@media (max-width: 700px) {
+  main > .site-brand .site-nav { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 480px) {
+  main > .site-brand .site-nav { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}

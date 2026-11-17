@@ -14,6 +14,11 @@
 
   const header = navigation?.closest('.site-brand');
   if (header) {
+    if (!header.querySelector(':scope > p')) {
+      const description = document.createElement('p');
+      description.textContent = 'Children’s literature, literacy and education';
+      navigation.before(description);
+    }
     const bookmark = document.createElement('details');
     bookmark.className = 'site-bookmark';
     const label = document.createElement('summary');

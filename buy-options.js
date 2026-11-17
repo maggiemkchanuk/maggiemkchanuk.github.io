@@ -95,6 +95,28 @@
     if (disclosure) notice.append(disclosure);
   }
 
+  // Keep purchase controls with the image rather than in the descriptive text.
+  for (const book of items) {
+    const purchase = book.querySelector('.affiliate-purchases');
+    if (!purchase) continue;
+    let jacket = book.querySelector('.book-jacket');
+    if (!jacket) {
+      const image = book.querySelector(':scope > .cover-image, :scope > .cover, :scope > .catalog-cover, :scope > figure:has(img)');
+      if (image) {
+        jacket = document.createElement('div');
+        jacket.className = 'book-jacket';
+        image.before(jacket);
+        const fallback = image.nextElementSibling;
+        jacket.append(image);
+        if (fallback?.matches('.cover-pending, .catalog-cover')) jacket.append(fallback);
+      }
+    }
+    if (jacket) {
+      jacket.append(purchase);
+      book.classList.add('purchase-below-cover');
+    }
+  }
+
   if (!window.HTMLDialogElement || !HTMLDialogElement.prototype.showModal) return;
 
   const dialog = document.createElement('dialog');
@@ -130,3 +152,4 @@
   });
   dialog.addEventListener('close', () => trigger?.focus());
 })();
+

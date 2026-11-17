@@ -542,6 +542,11 @@ main:has(> :is(.brand-tools, .brand-awards)) {
 
 /* Align all page headers while retaining the original compact navigation. */
 html { overflow-y: scroll; }
+/* Compact purchase controls sit directly below their book or product image. */
+.purchase-below-cover > .book-jacket { flex: 0 0 var(--jacket-width); min-width: 0; width: var(--jacket-width); }
+.book-jacket > .affiliate-purchases { margin-top: .5rem; padding-top: 0; border: 0; }
+.book-jacket .buy-options > summary { min-width: 0; width: 100%; min-height: 2rem; padding: .2rem .4rem; gap: .3rem; font-size: .85rem; }
+.book-jacket .buy-menu { width: min(26rem, calc(100vw - 5rem)); box-sizing: border-box; }
 main:has(> .site-brand) {
   --navigation-width: min(68rem, calc(100vw - 2rem));
   margin-top: 1rem;
@@ -551,3 +556,4 @@ main:has(> .site-brand) > :is(.site-brand, .site-actions) {
   width: var(--navigation-width);
   margin-inline: calc((100% - var(--navigation-width)) / 2);
 }
+

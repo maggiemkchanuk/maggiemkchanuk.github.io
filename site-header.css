@@ -557,3 +557,33 @@ main:has(> .site-brand) > :is(.site-brand, .site-actions) {
   margin-inline: calc((100% - var(--navigation-width)) / 2);
 }
 
+
+
+/* Keep the save heart beside the book title, never in its own line. */
+.book-title-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 44px;
+  align-items: start;
+  column-gap: .35rem;
+  width: 100%;
+  min-width: 0;
+}
+.book-title-row > h3 {
+  min-width: 0;
+  width: auto;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+.book-title-row > .save-book-button {
+  grid-column: 2;
+  justify-self: end;
+  align-self: start;
+  display: inline-grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  min-height: 44px;
+  margin: -.25rem 0 0;
+  padding: 0;
+  line-height: 1;
+}

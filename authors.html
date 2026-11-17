@@ -264,23 +264,27 @@ body{background:linear-gradient(120deg,#f4e6dc,#f9f6eb 38%,#edf1e6 70%,#e8edf5)}
 <a class="return-to-top" href="#page-top" aria-label="Back to top" title="Back to top">↑</a></main><script>
 const filter = document.getElementById('filter-books');
 const count = document.getElementById('book-count');
-const sections = [...document.querySelectorAll('main > section')];
-const normalise = text => text.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[’']/g, '');
-filter.addEventListener('input', () => {
+const sections = [...document.querySelectorAll('main > section.author-study, main > section.creator-directory-entry')];
+const normalise = text => (text || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[’']/g, '');
+function filterAuthorBooks() {
   const terms = normalise(filter.value).trim().split(/\s+/).filter(Boolean);
   let found = 0;
   for (const section of sections) {
-    const topic = section.querySelector('h2').textContent;
+    const author = section.querySelector('h2')?.textContent || '';
+    const biography = [...section.querySelectorAll(':scope > p')].map(el => el.textContent).join(' ');
+    const authorMatches = terms.every(term => normalise(author + ' ' + biography).includes(term));
     let matches = 0;
-    for (const book of section.querySelectorAll('li')) {
-      const contents = normalise(topic + ' ' + [...book.querySelectorAll('h3,p')].map(el => el.textContent).join(' '));
-      book.hidden = !terms.every(term => contents.includes(term));
-      if (!book.hidden) matches++;
+    for (const book of section.querySelectorAll('li.book-row')) {
+      const bookText = normalise(book.textContent);
+      const show = !terms.length || authorMatches || terms.every(term => normalise(author + ' ' + bookText).includes(term));
+      book.hidden = !show;
+      if (show) matches++;
     }
-    section.hidden = section.classList.contains('creator-directory-entry') ? !terms.every(term => normalise(section.textContent).includes(term)) : matches === 0;
+    section.hidden = matches === 0;
     found += matches;
   }
-  count.textContent = found ? found + (found === 1 ? ' reading-list entry' : ' reading-list entries') : 'No matching books.';
-});
-
+  count.textContent = found ? found + (found === 1 ? ' book entry' : ' book entries') : 'No matching books.';
+}
+filter.addEventListener('input', filterAuthorBooks);
+filterAuthorBooks();
 </script></body></html>

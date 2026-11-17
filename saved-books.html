@@ -6,6 +6,24 @@
 <title>Visitors’ Saved Books | Maggie M. K. Chan</title>
 <link rel="stylesheet" href="site-header.css?v=20261117-compact-buy">
 <script src="site-controls.js?v=4" defer></script>
+<style>
+/* Keep the visitors' list in line with the rest of the reading pages. */
+.saved-books-page { color: #18352a; background: linear-gradient(120deg,#f4e6dc,#f9f6eb 38%,#edf1e6 70%,#e8edf5); }
+.saved-books-page main { font-size: 1rem; line-height: 1.6; }
+.saved-books-page main > header:not(.site-brand) h1 {
+  font: normal clamp(2.3rem, 6vw, 4.1rem)/1.15 Georgia, serif;
+  color: #653b55;
+  letter-spacing: -.02em;
+  margin: .9rem 0 1rem;
+}
+.saved-books-page #visitor-saved-books { font-size: 1rem; }
+.saved-books-page #saved-books-list { padding-left: 1.5rem; }
+.saved-books-page #saved-books-list li { font-size: 1rem; line-height: 1.55; }
+.saved-books-page .saved-books-actions button { font-size: .92rem; }
+@media (max-width: 520px) {
+  .saved-books-page main { margin-top: 1.5rem; padding-inline: 1rem; }
+}
+</style>
 </head>
 <body class="saved-books-page">
 <main id="page-top">

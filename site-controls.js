@@ -12,7 +12,8 @@
     readingList.after(savedLink);
   }
 
-  if (navigation) {
+  const header = navigation?.closest('.site-brand');
+  if (header) {
     const bookmark = document.createElement('details');
     bookmark.className = 'site-bookmark';
     const label = document.createElement('summary');
@@ -23,7 +24,13 @@
     home.textContent = 'Open the homepage';
     instructions.append(home, ' and press Ctrl+D on Windows or Command+D on Mac. On a phone or tablet, use Add Bookmark in the browser’s Share or menu button.');
     bookmark.append(label, instructions);
-    navigation.after(bookmark);
+    let actions = header.nextElementSibling;
+    if (!actions?.classList.contains('site-actions')) {
+      actions = document.createElement('div');
+      actions.className = 'site-actions';
+      header.after(actions);
+    }
+    actions.prepend(bookmark);
   }
 
   let saved = new Map();

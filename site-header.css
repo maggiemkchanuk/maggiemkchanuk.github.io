@@ -346,14 +346,14 @@ main:has(> .brand-home) .presentation-list article:nth-child(n) {
 main:has(> :is(.brand-tools, .brand-awards)) {
   width: min(58rem, 100% - 2.5rem);
 }
-.site-brand:is(.brand-tools, .brand-awards) + header {
+:is(.site-brand:is(.brand-tools, .brand-awards), .site-brand:is(.brand-tools, .brand-awards) + .site-actions) + header {
   margin: 0 0 1.4rem;
   padding-bottom: 1.15rem;
 }
-.site-brand:is(.brand-tools, .brand-awards) + header h1 {
+:is(.site-brand:is(.brand-tools, .brand-awards), .site-brand:is(.brand-tools, .brand-awards) + .site-actions) + header h1 {
   margin: 0 0 .65rem;
 }
-.site-brand:is(.brand-tools, .brand-awards) + header p {
+:is(.site-brand:is(.brand-tools, .brand-awards), .site-brand:is(.brand-tools, .brand-awards) + .site-actions) + header p {
   margin: 0;
   max-width: 66ch;
 }
@@ -446,12 +446,21 @@ main:has(> :is(.brand-tools, .brand-awards)) {
 .save-book-button[aria-pressed="true"] { color: #a1264b; }
 .save-book-button:focus-visible { outline: 2px solid #315b48; outline-offset: -4px; }
 
+.site-brand:has(+ .site-actions) { margin-bottom: 0; }
+.site-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: .65rem 1.25rem;
+  padding: .65rem 0;
+  margin: 0 0 1rem;
+  border-bottom: 1px solid var(--woodland-line);
+}
 .share-site {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
   gap: .35rem;
-  margin-top: .8rem;
 }
 .share-site .share-label { margin-inline-end: .25rem; font-size: .9rem; }
 .share-site .share-button {
@@ -469,31 +478,6 @@ main:has(> :is(.brand-tools, .brand-awards)) {
 }
 .share-site .share-button:hover { background: #eef1e9; }
 .share-site .share-button:focus-visible { outline: 2px solid #315b48; outline-offset: 3px; }
-.share-site .instagram-icon {
-  position: relative;
-  width: 1rem;
-  height: 1rem;
-  border: 2px solid currentColor;
-  border-radius: .3rem;
-  display: grid;
-  place-items: center;
-}
-.share-site .instagram-icon::before {
-  content: '';
-  width: .39rem;
-  height: .39rem;
-  border: 1px solid currentColor;
-  border-radius: 50%;
-}
-.share-site .instagram-icon::after {
-  content: '';
-  position: absolute;
-  inset: 2px 2px auto auto;
-  width: 2px;
-  height: 2px;
-  border-radius: 50%;
-  background: currentColor;
-}
 #share-status { margin: 0; flex-basis: 100%; font-size: .87rem; }
 #share-status:empty { display: none; }
 #share-url { width: min(100%, 25rem); }
@@ -506,7 +490,6 @@ main:has(> :is(.brand-tools, .brand-awards)) {
 #saved-books-list li button { margin-inline-start: .65rem; }
 #saved-books-empty:focus { outline: none; }
 .site-bookmark {
-  margin-top: .65rem;
   font: .9rem/1.45 system-ui, sans-serif;
 }
 .site-bookmark summary {
@@ -531,6 +514,7 @@ main:has(> :is(.brand-tools, .brand-awards)) {
 .saved-book-attribution a { color: inherit; overflow-wrap: anywhere; }
 
 @media print {
+  .site-actions { display: none !important; }
   .saved-books-page { background: white; color: black; }
   .saved-books-page main { width: auto; max-width: none; margin: 0; }
   .saved-books-page :is(.site-brand, .return-to-top, .saved-book-help, .saved-books-actions, #saved-books-list button) { display: none !important; }

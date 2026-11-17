@@ -192,52 +192,11 @@ main nav:is(.author-study-nav, [aria-label="Reading list topics"]) a:nth-child(3
 }
 
 
-.site-brand.brand-home {
-  box-sizing: border-box;
-  left: 50%;
-  width: min(68rem, calc(100vw - 2rem));
-  margin-inline: 0;
-  padding: clamp(2rem, 6vw, 4.6rem) clamp(1.2rem, 4vw, 3rem) 1.15rem;
-  border-top-width: 5px;
-  box-shadow: 0 .65rem 2rem #50311e22;
-  transform: translateX(-50%);
-}
-
 .brand-home {
-  --banner-colour: #f3d9ae;
-  --banner-edge: #874c37;
-  --banner-corners: .35rem .35rem 1.5rem 1.5rem;
-}
-
-.site-brand.brand-home::before {
-  inset: 0 0 0 auto;
-  transform: none;
-  width: min(62%, 43rem);
-  aspect-ratio: auto;
-  background: url("banner-rackham.jpg") right top / cover no-repeat;
-  opacity: .58;
-  mask-image: linear-gradient(to right, transparent, black 52%);
-}
-
-.brand-home .site-name {
-  max-width: 14ch;
-  font-size: clamp(2.35rem, 6vw, 4.4rem);
-}
-
-.brand-home .site-nav {
-  margin-top: clamp(1.25rem, 4vw, 3.25rem);
-  padding: .7rem .85rem;
-  border: 1px solid #8f63444d;
-  border-radius: .45rem;
-  background: #fff9edf2;
-}
-
-@media (max-width: 600px) {
-  .site-brand.brand-home::before {
-    width: 82%;
-    background-position: center top;
-    opacity: .27;
-  }
+  --banner-colour: #f4e6d1;
+  --banner-edge: #8d4a34;
+  --banner-x: 100%;
+  --banner-y: 66.666667%;
 }
 
 .brand-reading {
@@ -292,8 +251,11 @@ main nav:is(.author-study-nav, [aria-label="Reading list topics"]) a:nth-child(3
 .brand-organisations {
   --banner-colour: #f3e6dd;
   --banner-edge: #a36853;
-  --banner-x: 100%;
-  --banner-y: 66.666667%;
+}
+
+.site-brand.brand-organisations::before {
+  aspect-ratio: 520 / 452;
+  background: url("banner-blossom.jpg") center / contain no-repeat;
 }
 
 .brand-consultancy {
@@ -543,6 +505,29 @@ main:has(> :is(.brand-tools, .brand-awards)) {
 #saved-books-list li { margin-block: .55rem; }
 #saved-books-list li button { margin-inline-start: .65rem; }
 #saved-books-empty:focus { outline: none; }
+.site-bookmark {
+  margin-top: .65rem;
+  font: .9rem/1.45 system-ui, sans-serif;
+}
+.site-bookmark summary {
+  width: fit-content;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: .2em;
+}
+.site-bookmark p {
+  max-width: 60ch;
+  margin: .45rem 0 0;
+  padding: .6rem .75rem;
+  border: 1px solid var(--woodland-line);
+  border-radius: .3rem;
+  background: var(--woodland-paper);
+}
+.site-bookmark summary:focus-visible {
+  outline: 2px solid #694530;
+  outline-offset: 3px;
+}
+
 .saved-book-attribution a { color: inherit; overflow-wrap: anywhere; }
 
 @media print {
@@ -550,6 +535,7 @@ main:has(> :is(.brand-tools, .brand-awards)) {
   .saved-books-page main { width: auto; max-width: none; margin: 0; }
   .saved-books-page :is(.site-brand, .return-to-top, .saved-book-help, .saved-books-actions, #saved-books-list button) { display: none !important; }
   .saved-books-page #visitor-saved-books { background: white; border: 0; padding: 0; }
+  .saved-book-attribution[hidden] { display: block !important; }
   .saved-books-page a { color: black; }
   .saved-books-page li { break-inside: avoid; }
 }

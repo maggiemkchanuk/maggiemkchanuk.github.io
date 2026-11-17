@@ -12,6 +12,20 @@
     readingList.after(savedLink);
   }
 
+  if (navigation) {
+    const bookmark = document.createElement('details');
+    bookmark.className = 'site-bookmark';
+    const label = document.createElement('summary');
+    label.textContent = 'Bookmark this website';
+    const instructions = document.createElement('p');
+    const home = document.createElement('a');
+    home.href = siteHome;
+    home.textContent = 'Open the homepage';
+    instructions.append(home, ' and press Ctrl+D on Windows or Command+D on Mac. On a phone or tablet, use Add Bookmark in the browser’s Share or menu button.');
+    bookmark.append(label, instructions);
+    navigation.after(bookmark);
+  }
+
   let saved = new Map();
   try {
     saved = new Map(JSON.parse(localStorage.getItem(storageKey) || '[]'));

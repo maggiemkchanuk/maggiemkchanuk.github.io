@@ -325,3 +325,13 @@ main:has(> :is(.brand-tools, .brand-awards)) {
   margin: 0;
   max-width: 66ch;
 }
+
+/* Disclosed book purchase options; original book descriptions remain above. */
+.affiliate-purchases { clear: both; margin-top: .65rem; padding-top: .55rem; border-top: 1px solid var(--woodland-line); }
+.affiliate-purchases .link-edition { font-size: .8rem; color: #465b52; overflow-wrap: anywhere; }
+.affiliate-purchases .affiliate-options { display: flex; flex-wrap: wrap; gap: .45rem 1rem; font-size: .9rem; }
+.affiliate-notice { margin: 1rem 0; padding: .8rem 1rem; border: 1px solid var(--woodland-line); border-radius: .35rem; background: var(--woodland-paper); font-size: .88rem; }
+.affiliate-notice p { margin: .3rem 0; }
+.book-row[hidden], .cards article[hidden], main > section[hidden] { display: none !important; }
+.catalog-controls > * { min-width: 0; }
+.catalog-controls select { width: 100%; max-width: 100%; }

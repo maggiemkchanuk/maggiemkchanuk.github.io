@@ -335,3 +335,6 @@ main:has(> :is(.brand-tools, .brand-awards)) {
 .book-row[hidden], .cards article[hidden], main > section[hidden] { display: none !important; }
 .catalog-controls > * { min-width: 0; }
 .catalog-controls select { width: 100%; max-width: 100%; }
+
+/* Keep long book titles within narrow catalogue columns. */
+.cards h3, .book-copy h3 { overflow-wrap: anywhere; }

@@ -338,3 +338,20 @@ main:has(> :is(.brand-tools, .brand-awards)) {
 
 /* Keep long book titles within narrow catalogue columns. */
 .cards h3, .book-copy h3 { overflow-wrap: anywhere; }
+
+/* Themed reading filters and publication labels. */
+#reading-filters { display: grid; grid-template-columns: minmax(0,2fr) repeat(2,minmax(0,1fr)); gap: .8rem; align-items: start; }
+#reading-filters > div { min-width: 0; }
+#reading-filters select { width: 100%; min-width: 0; box-sizing: border-box; padding: .65rem; font: inherit; border: 1px solid #9aa995; border-radius: .3rem; background: #fffdf8; color: #18352a; }
+.book-copy .book-origin, .book-copy .book-language, .book-copy .book-context { font-size: .82rem; color: #42594f; }
+.origin-note { font-size: .9rem; }
+.creator-site-index { margin: 1.5rem 0; line-height: 1.9; overflow-wrap: anywhere; }
+.creator-directory-entry { padding-block: .6rem; border-top: 1px solid var(--woodland-line); }
+@media (max-width: 700px) { #reading-filters { grid-template-columns: minmax(0,1fr); } }
+
+.book-copy .book-award, .book-copy .book-access, .book-copy .book-format { font-size: .84rem; color: #42594f; }
+.author-photo img, .presentation-photo img { display:block; max-width:100%; width:22rem; height:auto; object-fit:contain; }
+#reading-filters { grid-template-columns: repeat(3,minmax(0,1fr)); }
+#reading-filters > div:first-child { grid-column: 1 / -1; }
+.reading-route nav { display:flex; flex-wrap:wrap; gap:.4rem 1rem; }
+@media(max-width:700px) { #reading-filters { grid-template-columns:minmax(0,1fr); } }

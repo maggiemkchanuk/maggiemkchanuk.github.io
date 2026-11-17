@@ -25,8 +25,8 @@
     }
   }
 
-  const books = document.querySelectorAll('li.book-row, article[data-category]');
-  for (const book of books) {
+  const items = document.querySelectorAll('li.book-row, article[data-category], article[data-buy-isbn], article[data-buy-product]');
+  for (const book of items) {
     const title = book.querySelector('h3')?.textContent.trim();
     if (!title) continue;
     let menu = book.querySelector('.buy-menu');
@@ -45,30 +45,36 @@
     const retailers = menu.querySelector('.buy-retailers');
     if (!retailers) continue;
     const bookshop = retailers.querySelector('a[href*="bookshop.org/"]');
-    const isbn = bookshop?.pathname.match(/\/(97[89]\d{10})\/?$/)?.[1];
     const book = menu.closest('li.book-row, article');
+    const product = book?.hasAttribute('data-buy-product');
+    const isbn = bookshop?.pathname.match(/\/(97[89]\d{10})\/?$/)?.[1]
+      || book?.dataset.buyIsbn || book?.querySelector('.meta')?.textContent.match(/ISBN:?\s+(97[89]\d{10})/)?.[1];
     const title = menu.dataset.bookTitle || book?.querySelector('h3')?.textContent.trim();
     const creator = book?.querySelector('.credit')?.textContent.trim();
     const search = isbn || [title, creator].filter(Boolean).join(' ');
     if (!search) continue;
 
-    if (!bookshop && title) {
+    if (!product && !bookshop && title) {
       const bookshopSearch = new URL('https://uk.bookshop.org/search');
-      bookshopSearch.searchParams.set('keywords', title);
+      bookshopSearch.searchParams.set('keywords', isbn || title);
       addRetailer(retailers, 'Bookshop.org UK', bookshopSearch, 'Search catalogue ↗', false);
     }
-    if (!retailers.querySelector('a[href*="amazon.co.uk/"]')) {
+    const amazonProduct = product && book.querySelector('a[href*="amazon.co.uk/dp/"]');
+    if (amazonProduct) {
+      addRetailer(retailers, 'Amazon UK', amazonProduct.href, 'View current price (Ad) ↗', true);
+      amazonProduct.closest('p').remove();
+    } else if (!retailers.querySelector('a[href*="amazon.co.uk/"]')) {
       const amazonSearch = new URL('https://www.amazon.co.uk/s');
       amazonSearch.searchParams.set('k', search);
-      amazonSearch.searchParams.set('i', 'stripbooks');
+      if (!product) amazonSearch.searchParams.set('i', 'stripbooks');
       amazonSearch.searchParams.set('tag', amazonTag);
       addRetailer(retailers, 'Amazon UK', amazonSearch, isbn ? 'Search by ISBN (Ad) ↗' : 'Search by title (Ad) ↗', true);
     }
     const commission = menu.querySelector('.buy-commission');
-    if (commission) commission.innerHTML = disclosureMarkup;
+    if (commission) commission.innerHTML = product ? disclosure : disclosureMarkup;
   }
 
-  if (books.length) {
+  if (items.length) {
     const notice = document.querySelector('.affiliate-notice p');
     if (notice) notice.innerHTML = disclosureMarkup;
   }

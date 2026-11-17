@@ -83,6 +83,8 @@ main h3 {
   text-underline-offset: .2em;
 }
 
+.site-brand .site-nav a[aria-current="page"] { font-weight: 700; }
+
 .site-brand a:focus-visible {
   outline: 2px solid #694530;
   outline-offset: 3px;
@@ -331,6 +333,15 @@ main nav:is(.author-study-nav, [aria-label="Reading list topics"]) a:nth-child(3
 body:has(.brand-home) {
   background: #f8f5ec;
 }
+main:has(> .brand-home) {
+  --home-banner-width: min(68rem, calc(100vw - 2rem));
+  margin-top: clamp(.85rem, 2vw, 1.5rem);
+}
+main:has(> .brand-home) > :is(.brand-home, .site-actions) {
+  box-sizing: border-box;
+  width: var(--home-banner-width);
+  margin-inline: calc((100% - var(--home-banner-width)) / 2);
+}
 main:has(> .brand-home)::before,
 main:has(> .brand-home)::after {
   display: none;
@@ -482,8 +493,13 @@ main:has(> :is(.brand-tools, .brand-awards)) {
 #share-status:empty { display: none; }
 #share-url { width: min(100%, 25rem); }
 
-.saved-books-page { margin: 0; background: #faf8f2; color: #18352a; font: 1rem/1.55 system-ui, sans-serif; }
-.saved-books-page main { max-width: 70rem; width: calc(100% - 2rem); margin: 1.5rem auto 4rem; }
+/* Match the Picturebook Reading List page's content width and gutters. */
+.saved-books-page { margin: 0; font: 1rem/1.6 system-ui, sans-serif; }
+.saved-books-page main {
+  max-width: 62rem;
+  margin: 3rem auto 4rem;
+  padding-inline: 1.25rem;
+}
 .saved-books-actions { display: flex; flex-wrap: wrap; gap: .5rem; }
 .saved-books-actions button:disabled { opacity: .55; cursor: default; }
 #saved-books-list li { margin-block: .55rem; }
@@ -516,7 +532,7 @@ main:has(> :is(.brand-tools, .brand-awards)) {
 @media print {
   .site-actions { display: none !important; }
   .saved-books-page { background: white; color: black; }
-  .saved-books-page main { width: auto; max-width: none; margin: 0; }
+  .saved-books-page main { width: auto; max-width: none; margin: 0; padding: 0; }
   .saved-books-page :is(.site-brand, .return-to-top, .saved-book-help, .saved-books-actions, #saved-books-list button) { display: none !important; }
   .saved-books-page #visitor-saved-books { background: white; border: 0; padding: 0; }
   .saved-book-attribution[hidden] { display: block !important; }

@@ -1,5 +1,6 @@
 (() => {
   const amazonTag = 'maggiemkchanu-21';
+  const bookshopStore = 'https://uk.bookshop.org/shop/maggiemkchanuk';
 
   function addRetailer(list, name, href, action, sponsored) {
     const link = document.createElement('a');
@@ -52,10 +53,10 @@
     const search = isbn || [title, creator].filter(Boolean).join(' ');
     if (!search) continue;
 
-    if (!product && !bookshop && title) {
-      const bookshopSearch = new URL('https://uk.bookshop.org/search');
-      bookshopSearch.searchParams.set('keywords', isbn || title);
-      addRetailer(retailers, 'Bookshop.org UK', bookshopSearch, 'Search catalogue ↗', false);
+    if (bookshop) {
+      bookshop.rel = 'sponsored noopener';
+    } else if (!product && title) {
+      addRetailer(retailers, 'Bookshop.org UK', bookshopStore, 'Search from my Bookshop (Ad) ↗', true);
     }
     const amazonProduct = product && book.querySelector('a[href*="amazon.co.uk/dp/"]');
     if (amazonProduct) {
@@ -70,6 +71,28 @@
     }
     const commission = menu.querySelector('.buy-commission');
     if (commission) commission.innerHTML = 'I may earn a commission on qualifying purchases. <a href="affiliate-disclosure.html">Affiliate disclosure</a>';
+  }
+
+  for (const link of document.querySelectorAll('a[href]')) {
+    const url = new URL(link.href, location.href);
+    if (url.hostname === 'uk.bookshop.org') {
+      if (!url.pathname.startsWith('/a/18760/') && url.pathname !== '/shop/maggiemkchanuk') {
+        url.searchParams.set('affiliate', '18760');
+        link.href = url.href;
+      }
+      link.rel = 'sponsored noopener';
+    }
+    if (url.hostname === 'www.amazon.co.uk' || url.hostname === 'amazon.co.uk') {
+      url.searchParams.set('tag', amazonTag);
+      link.href = url.href;
+      link.rel = 'sponsored noopener';
+    }
+  }
+
+  for (const notice of document.querySelectorAll('.affiliate-notice p')) {
+    const disclosure = notice.querySelector('a[href="affiliate-disclosure.html"]');
+    notice.replaceChildren('As an Amazon Associate I earn from qualifying purchases. I may also earn a commission from qualifying purchases through my Bookshop.org UK affiliate links. ');
+    if (disclosure) notice.append(disclosure);
   }
 
   if (!window.HTMLDialogElement || !HTMLDialogElement.prototype.showModal) return;

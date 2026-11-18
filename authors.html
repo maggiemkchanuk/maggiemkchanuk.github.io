@@ -312,4 +312,38 @@ filterAuthorBooks();
  if (main) new MutationObserver(records => { if (records.some(r=>[...r.addedNodes].some(n=>n.nodeType===1 && n.matches?.('section.author-study, section.illustrator-study')))) sortCreators(); }).observe(main,{childList:true});
 })();
 </script>
+
+<script>
+/* Book Manager integration: approved new-books.json records are reflected in creator directories. */
+(async function syncManagedCreatorBooks(){
+ try {
+  const response = await fetch('data/new-books.json',{cache:'no-cache'});
+  if(!response.ok) return;
+  const records = await response.json(); if(!Array.isArray(records)) return;
+  const isAuthor = document.title.startsWith('Authors');
+  const normalise = value => String(value||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]/g,'');
+  const profiles = [...document.querySelectorAll('section.author-study,section.illustrator-study')];
+  for(const book of records){
+   if(!book || book.status!=='published' || !book.title || !book.description) continue;
+   const creator = isAuthor ? book.author : book.illustrator;
+   if(!creator) continue;
+   const profile = profiles.find(p => normalise(p.querySelector('h2')?.textContent)===normalise(creator));
+   if(!profile) continue; // Do not invent a creator biography from incomplete manager metadata.
+   let list=profile.querySelector('ul'); if(!list){list=document.createElement('ul');profile.append(list);}
+   if([...list.querySelectorAll('h3')].some(h=>normalise(h.textContent)===normalise(book.title)))continue;
+   const li=document.createElement('li');li.className='book-row';
+   const jacket=document.createElement('div');jacket.className='book-jacket';
+   if(book.cover && /^\/?book-covers\/[\w.\/-]+$/i.test(book.cover)){
+    const img=document.createElement('img');img.className='cover-image';img.src=book.cover;img.alt='Cover of '+book.title;img.loading='lazy';img.width=96;img.height=144;img.onerror=()=>{img.remove();jacket.textContent='Cover pending verification';};jacket.append(img);
+   } else jacket.textContent='Cover pending verification';
+   const copy=document.createElement('div');copy.className='book-copy';
+   const title=document.createElement('h3');title.textContent=book.title;copy.append(title);
+   const credit=document.createElement('p');credit.className='credit';credit.textContent=[book.author,book.illustrator&&('Illustrated by '+book.illustrator)].filter(Boolean).join(' · ');copy.append(credit);
+   const meta=document.createElement('p');meta.className='edition';meta.textContent=[book.year||'Year pending',book.publisher||'Publisher pending',book.isbn&&('ISBN '+book.isbn)].filter(Boolean).join(' · ');copy.append(meta);
+   const description=document.createElement('p');description.textContent=book.description;copy.append(description);
+   li.append(jacket,copy);list.append(li);
+  }
+ }catch(error){console.warn('Creator bibliography sync unavailable',error);}
+})();
+</script>
 </body></html>

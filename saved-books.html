@@ -4,33 +4,38 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Visitors’ Saved Books | Maggie M. K. Chan</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baskervville:ital@1&amp;display=swap">
 <link rel="stylesheet" href="site-header.css?v=20261117-compact-buy">
 <script src="site-controls.js?v=6" defer></script>
 <style>
 /* Keep the visitors' list in line with the rest of the reading pages. */
 .saved-books-page { color: #18352a; background: linear-gradient(120deg,#f4e6dc,#f9f6eb 38%,#edf1e6 70%,#e8edf5); }
-.saved-books-page main { font-size: 1rem; line-height: 1.6; }
+.saved-books-page main { font-size: .94rem; line-height: 1.55; }
+.saved-books-page .site-brand .site-name { font-family: Baskervville, Georgia, serif; font-size: clamp(1.5rem, 4.5vw, 2.45rem); }
+.saved-books-page .site-brand .site-nav { font-size: .9rem; line-height: 1.45; }
 .saved-books-page main > header:not(.site-brand) h1 {
-  font: normal clamp(2.3rem, 6vw, 4.1rem)/1.15 Georgia, serif;
+  font: normal clamp(1.65rem, 3.1vw, 2.05rem)/1.18 Georgia, serif;
   color: #653b55;
   letter-spacing: -.02em;
   margin: .9rem 0 1rem;
 }
-.saved-books-page #visitor-saved-books { font-size: 1rem; }
+.saved-books-page #visitor-saved-books { font-size: .94rem; }
 .saved-books-page #saved-books-list { padding-left: 1.5rem; }
-.saved-books-page #saved-books-list li { font-size: 1rem; line-height: 1.55; }
+.saved-books-page #saved-books-list li { font-size: .92rem; line-height: 1.5; }
 .saved-books-page .saved-book-entry { padding: .8rem 0; border-bottom: 1px solid #d7ddd2; }
 .saved-books-page .saved-book-heading { display: flex; gap: .75rem; align-items: baseline; justify-content: space-between; }
 .saved-books-page .saved-book-heading a { font-weight: 650; }
 .saved-books-page .saved-book-heading button { flex-shrink: 0; }
-.saved-books-page .saved-book-creators { font-size: .95rem; margin: .35rem 0 .15rem; }
+.saved-books-page .saved-book-creators { font-size: .88rem; margin: .35rem 0 .15rem; }
 .saved-books-page .saved-book-meta { color: #42594f; font-size: .9rem; margin: .25rem 0; }
-.saved-books-page .saved-book-description { font-size: .96rem; margin: .3rem 0 .55rem; }
+.saved-books-page .saved-book-description { font-size: .9rem; margin: .3rem 0 .55rem; }
 @media print {
   .saved-books-page .saved-books-actions, .saved-books-page .saved-book-heading button { display: none; }
   .saved-books-page #saved-books-list li { break-inside: avoid; }
 }
-.saved-books-page .saved-books-actions button { font-size: .92rem; }
+.saved-books-page .saved-books-actions button { font-size: .85rem; }
+.saved-books-page .saved-book-help { max-width: 48rem; font-size: .92rem; line-height: 1.55; }
+.saved-books-page .saved-book-heading a { font-size: .94rem; }
 @media (max-width: 520px) {
   .saved-books-page main { margin-top: 1.5rem; padding-inline: 1rem; }
 }

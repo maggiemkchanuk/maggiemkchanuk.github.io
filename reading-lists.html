@@ -488,7 +488,7 @@ function filterBooks() {
  for (const section of sections) {
   let matches = 0;
   for (const book of section.querySelectorAll('li.book-row')) {
-   const contents = searchableBooks.get(book);
+   const contents = searchableBooks.get(book) || normalise(section.querySelector('h2').textContent + ' ' + book.textContent);
    const origin = book.dataset.originCountry || 'unverified';
    const aw = book.dataset.award || ''; const awardMatch = !awardFilter.value || (awardFilter.value === 'Carnegie' ? /Carnegie|Greenaway/.test(aw) : aw.includes(awardFilter.value));
    book.hidden = !awardMatch || !terms.every(term => contents.includes(term)) || (countryFilter.value && !origin.split('/').map(v => v.trim()).includes(countryFilter.value)) || (languageFilter.value && (book.dataset.language || 'English') !== languageFilter.value);
@@ -540,6 +540,8 @@ filterBooks();
         } catch (_) {}
       }
       li.append(jacket,copy); list.append(li); existing.add(key);
+      const searchable = document.querySelector('#book-search, #book-filter, input[type="search"]');
+      if (searchable) searchable.dispatchEvent(new Event('input'));
     }
   } catch (error) { console.warn('Book Manager entries unavailable',error); }
 })();

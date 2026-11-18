@@ -1,0 +1,56 @@
+media:
+  input: book-covers
+  output: /book-covers
+  rename: safe
+  extensions: [jpg, jpeg, png, webp]
+content:
+  - name: new-books
+    label: Book Manager - New Picturebooks
+    type: file
+    path: data/new-books.json
+    format: json
+    list: true
+    fields:
+      - name: title
+        label: Book title
+        type: string
+        required: true
+      - name: author
+        label: Author
+        type: string
+      - name: illustrator
+        label: Illustrator
+        type: string
+      - name: year
+        label: Publication year
+        type: string
+      - name: publisher
+        label: Publisher
+        type: string
+      - name: isbn
+        label: ISBN for this edition
+        type: string
+      - name: origin
+        label: Original publication country or region (verified)
+        type: string
+      - name: language
+        label: Language
+        type: string
+      - name: category
+        label: Reading list category ID
+        type: string
+      - name: description
+        label: Original short description
+        type: text
+      - name: cover
+        label: Book cover (upload or select)
+        type: image
+      - name: purchase_url
+        label: Verified purchase link (optional)
+        type: string
+      - name: source_url
+        label: Publisher or catalogue source
+        type: string
+      - name: status
+        label: Publication status (draft or published)
+        type: string

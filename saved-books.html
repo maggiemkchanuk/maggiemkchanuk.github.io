@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Visitors’ Saved Books | Maggie M. K. Chan</title>
 <link rel="stylesheet" href="site-header.css?v=20261117-compact-buy">
-<script src="site-controls.js?v=4" defer></script>
+<script src="site-controls.js?v=5" defer></script>
 <style>
 /* Keep the visitors' list in line with the rest of the reading pages. */
 .saved-books-page { color: #18352a; background: linear-gradient(120deg,#f4e6dc,#f9f6eb 38%,#edf1e6 70%,#e8edf5); }
@@ -19,6 +19,16 @@
 .saved-books-page #visitor-saved-books { font-size: 1rem; }
 .saved-books-page #saved-books-list { padding-left: 1.5rem; }
 .saved-books-page #saved-books-list li { font-size: 1rem; line-height: 1.55; }
+.saved-books-page .saved-book-entry { padding: .8rem 0; border-bottom: 1px solid #d7ddd2; }
+.saved-books-page .saved-book-heading { display: flex; gap: .75rem; align-items: baseline; justify-content: space-between; }
+.saved-books-page .saved-book-heading a { font-weight: 650; }
+.saved-books-page .saved-book-heading button { flex-shrink: 0; }
+.saved-books-page .saved-book-meta { color: #42594f; font-size: .9rem; margin: .25rem 0; }
+.saved-books-page .saved-book-description { font-size: .96rem; margin: .3rem 0 .55rem; }
+@media print {
+  .saved-books-page .saved-books-actions, .saved-books-page .saved-book-heading button { display: none; }
+  .saved-books-page #saved-books-list li { break-inside: avoid; }
+}
 .saved-books-page .saved-books-actions button { font-size: .92rem; }
 @media (max-width: 520px) {
   .saved-books-page main { margin-top: 1.5rem; padding-inline: 1rem; }
@@ -31,9 +41,9 @@
 <header><h1>Visitors’ Saved Books</h1></header>
 <section id="visitor-saved-books" aria-label="Saved book list">
 <p class="saved-book-attribution" hidden>Maggie M. K. Chan · <a href="https://maggiemkchanuk.github.io/">https://maggiemkchanuk.github.io/</a></p>
-<p class="saved-book-help">Select the heart next to a book’s title to save it here. Your list is stored in this browser.</p>
+<p class="saved-book-help">Select the heart beside a book title to save it here. Each saved entry includes its publication details and a short description when available. Your list is stored in this browser.</p>
 <div class="saved-books-actions">
-<button id="download-saved-books" type="button" disabled>Download list</button>
+<button id="download-saved-books" type="button" disabled>Download book list</button>
 <button id="print-saved-books" type="button" disabled>Print / Save as PDF</button>
 </div>
 <p id="saved-books-empty" tabindex="-1">Your saved list is empty.</p>

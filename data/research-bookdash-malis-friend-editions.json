@@ -64,5 +64,18 @@
     "South African Sign Language"
   ],
   "last_checked": "2026-11-18",
-  "status": "research_verified_metadata_pending_cover_and_edition_dates"
+  "status": "research_verified_metadata_pending_cover_and_edition_dates",
+  "edition_integrity_audit": {
+    "checked_on": "2026-11-18",
+    "edition_count": 7,
+    "distinct_isbn_count": 7,
+    "isbn13_checksum": "all 7 pass ISBN-13 mathematical checksum; this does not independently authenticate publisher/edition attribution",
+    "live_catalogue_presence": "not yet present in reading-lists.html at inspection",
+    "public_listing_ready": false,
+    "blocking_checks": [
+      "Verify an edition-specific clear front-cover image and permission/hosting approach",
+      "Confirm publication year for each language edition rather than reuse 2018 creation-event year",
+      "Check original composition language and translation relationships before publishing"
+    ]
+  }
 }

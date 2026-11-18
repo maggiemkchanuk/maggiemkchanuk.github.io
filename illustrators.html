@@ -112,4 +112,29 @@ filter.addEventListener('input', () => {
   count.textContent = found ? found + (found === 1 ? ' reading-list entry' : ' reading-list entries') : 'No matching books.';
 });
 
-</script></body></html>
+</script>
+<script>
+/* Creator directory: sort by family name after page load and after future additions. */
+(function () {
+ const familyNames = {'Baek Heena':'Baek','Yu Rong':'Yu','Chih-Yuan Chen':'Chen','Hsu-Kung Liu':'Liu'};
+ const key = name => familyNames[name] || name.replace(/\s*\([^)]*\)/g,'').trim().split(/\s+/).pop();
+ const collator = new Intl.Collator('en',{sensitivity:'base'});
+ let sorting = false;
+ function sortCreators() {
+  if (sorting) return;
+  const main = document.querySelector('main'); if (!main) return;
+  const profiles = [...main.querySelectorAll(':scope > section.author-study, :scope > section.illustrator-study')];
+  if (!profiles.length) return;
+  sorting = true;
+  profiles.sort((a,b) => collator.compare(key(a.querySelector('h2')?.textContent || ''),key(b.querySelector('h2')?.textContent || '')) || collator.compare(a.querySelector('h2')?.textContent || '',b.querySelector('h2')?.textContent || ''));
+  for (const profile of profiles) main.appendChild(profile);
+  const links = [...document.querySelectorAll('nav a[href^="#"]')].filter(a => profiles.some(p => '#'+p.id === a.getAttribute('href')));
+  if (links.length) { const nav = links[0].parentElement; links.sort((a,b)=>collator.compare(key(a.textContent),key(b.textContent)) || collator.compare(a.textContent,b.textContent)); links.forEach(link=>nav.appendChild(link)); }
+  sorting = false;
+ }
+ sortCreators();
+ const main = document.querySelector('main');
+ if (main) new MutationObserver(records => { if (records.some(r=>[...r.addedNodes].some(n=>n.nodeType===1 && n.matches?.('section.author-study, section.illustrator-study')))) sortCreators(); }).observe(main,{childList:true});
+})();
+</script>
+</body></html>

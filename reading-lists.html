@@ -358,6 +358,28 @@ const countryFilter = document.getElementById('country-books');
 const languageFilter = document.getElementById('language-books');
 const count = document.getElementById('book-count');
 const awardFilter = document.getElementById('award-books');
+// Within each thematic list, show the newest verified publication years first.
+// Unknown dates stay at the bottom in their existing relative order.
+function listedYear(book) {
+ const explicit = book.dataset.year;
+ if (/^(?:18|19|20)\d{2}$/.test(explicit || '')) return Number(explicit);
+ const edition = book.querySelector('.edition')?.textContent || '';
+ const withoutIsbn = edition.replace(/\bISBN(?:-13)?\s*:?\s*97[89][\d -]{10,17}/gi, '');
+ const match = withoutIsbn.match(/(?:^|[^\d])((?:18|19|20)\d{2})(?!\d)/);
+ return match ? Number(match[1]) : 0;
+}
+function sortByPublicationYear() {
+ for (const section of document.querySelectorAll('main > section')) {
+  const books = [...section.querySelectorAll(':scope > ul > li.book-row')];
+  if (books.length < 2) continue;
+  const list = books[0].parentElement;
+  books.map((node, index) => ({node, index, year: listedYear(node)}))
+   .sort((a,b) => b.year - a.year || a.index - b.index)
+   .forEach(({node}) => list.appendChild(node));
+ }
+}
+sortByPublicationYear();
+
 const sections = [...document.querySelectorAll('main > section')].filter(s => s.querySelector('li.book-row'));
 const normalise = text => text.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[’']/g, '');
 const searchableBooks = new Map(sections.flatMap(section => {

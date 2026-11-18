@@ -43,13 +43,14 @@
   const clean = value => (value || '').replace(/\s+/g, ' ').trim();
   const validHref = href => typeof href === 'string' && /^[a-z-]+\.html#[^\s]+$/.test(href);
   const normaliseRecord = value => {
-    if (typeof value === 'string') return {title: value, year: '', publisher: '', description: ''};
+    if (typeof value === 'string') return {title: value, year: '', publisher: '', description: '', creators: ''};
     if (!value || typeof value !== 'object') return null;
     return {
       title: clean(value.title),
       year: /^(?:18|19|20)\d{2}$/.test(String(value.year || '')) ? String(value.year) : '',
       publisher: clean(value.publisher),
-      description: clean(value.description)
+      description: clean(value.description),
+      creators: clean(value.creators)
     };
   };
   let saved = new Map();
@@ -94,7 +95,8 @@
       paragraphs.find(p => !p.className &&
         !p.closest('.affiliate-purchases') &&
         clean(p.textContent).length > 35)?.textContent || '');
-    return {title, year: /^(?:18|19|20)\d{2}$/.test(year) ? year : '', publisher, description};
+    const creators = clean(book.dataset.creators || copy.querySelector(':scope > .credit')?.textContent || book.querySelector('.credit')?.textContent || '');
+    return {title, year: /^(?:18|19|20)\d{2}$/.test(year) ? year : '', publisher, description, creators};
   }
 
   function updateButton(button, url) {
@@ -112,7 +114,10 @@
     const description = doc.createElement('p');
     description.className = 'saved-book-description';
     description.textContent = record.description || 'Description not available in the source entry.';
-    item.append(meta, description);
+    const creators = doc.createElement('p');
+    creators.className = 'saved-book-creators';
+    creators.textContent = 'Author / illustrator credits: ' + (record.creators || 'Not listed in the source entry');
+    item.append(creators, meta, description);
   }
 
   function render() {
@@ -218,7 +223,8 @@
           const next = {title: fresh.title || old.title,
             year: fresh.year || old.year,
             publisher: fresh.publisher || old.publisher,
-            description: fresh.description || old.description};
+            description: fresh.description || old.description,
+            creators: fresh.creators || old.creators};
           if (JSON.stringify(next) !== JSON.stringify(old)) {
             saved.set(href, next);
             changed = true;

@@ -540,8 +540,9 @@ filterBooks();
         } catch (_) {}
       }
       li.append(jacket,copy); list.append(li); existing.add(key);
-      const searchable = document.querySelector('#book-search, #book-filter, input[type="search"]');
-      if (searchable) searchable.dispatchEvent(new Event('input'));
+      // Refresh sorting and all active filters after asynchronous CMS additions.
+      sortByPublicationYear();
+      filterBooks();
     }
   } catch (error) { console.warn('Book Manager entries unavailable',error); }
 })();

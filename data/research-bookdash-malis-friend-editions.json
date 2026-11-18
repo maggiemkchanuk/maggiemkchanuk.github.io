@@ -1,0 +1,68 @@
+{
+  "work_id": "bookdash-malis-friend-2018",
+  "original_work_title": "Mali’s Friend",
+  "country_of_creation": "South Africa",
+  "creation_event": "Book Dash 12: Jozi, October 2018",
+  "creation_year": 2018,
+  "original_language": "unconfirmed; event and English edition verified, original composition language not explicitly stated",
+  "writer": "Rujeko Moyo",
+  "illustrator": "Ellen Heydenrych",
+  "designer": "Rox Jaden Palmer",
+  "editor": "Margot Bertelsmann",
+  "publisher": "Book Dash",
+  "visual_literary_note": "Mali's preference for solitary play is respected in a friendship narrative that makes room for a child to connect on their own terms. Review actual spreads before adding a more specific visual analysis.",
+  "licence": "CC BY 4.0 (Book Dash catalogue statement)",
+  "free_reading": true,
+  "cover_status": "pending edition-specific clean front-cover verification; not ready for live catalogue",
+  "publication_date_note": "2018 is verified creation-event year, not independently confirmed publication date of each language edition",
+  "editions": [
+    {
+      "title": "Mali’s Friend",
+      "language": "English",
+      "isbn": "9781928442844",
+      "source_url": "https://bookdash.org/books/malis-friend/"
+    },
+    {
+      "title": "Umhlobo kaMali",
+      "language": "isiXhosa",
+      "isbn": "9781776230204",
+      "source_url": "https://bookdash.org/books/umhlobo-kamali/"
+    },
+    {
+      "title": "Umngani kaMali",
+      "language": "isiZulu",
+      "isbn": "9781776230211",
+      "source_url": "https://bookdash.org/books/umngani-kamali/"
+    },
+    {
+      "title": "Mali se maat",
+      "language": "Afrikaans",
+      "isbn": "9781776230150",
+      "source_url": "https://bookdash.org/books/mali-se-maat/"
+    },
+    {
+      "title": "Motswalle wa Mali",
+      "language": "Sesotho",
+      "isbn": "9781776230174",
+      "source_url": "https://bookdash.org/books/motswalle-wa-mali/"
+    },
+    {
+      "title": "Mogwera wa Mali",
+      "language": "Sepedi",
+      "isbn": "9781776230167",
+      "source_url": "https://bookdash.org/books/mogwera-wa-mali/"
+    },
+    {
+      "title": "Tsala ya ga Mali",
+      "language": "Setswana",
+      "isbn": "9781776230198",
+      "source_url": "https://bookdash.org/books/tsala-ya-ga-mali/"
+    }
+  ],
+  "additional_editions_pending": [
+    "Xitsonga",
+    "South African Sign Language"
+  ],
+  "last_checked": "2026-11-18",
+  "status": "research_verified_metadata_pending_cover_and_edition_dates"
+}

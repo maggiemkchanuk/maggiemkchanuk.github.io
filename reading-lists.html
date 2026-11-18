@@ -500,4 +500,48 @@ function filterBooks() {
 }
 [filter, countryFilter, languageFilter, awardFilter].forEach(el => el.addEventListener('input', filterBooks));
 filterBooks();
-</script></body></html>
+</script>
+<script>
+/* Book Manager entries: existing catalogue remains untouched. */
+(async function loadManagedBooks() {
+  try {
+    const response = await fetch('data/new-books.json', {cache: 'no-cache'});
+    if (!response.ok) return;
+    const records = await response.json();
+    if (!Array.isArray(records)) return;
+    const existing = new Set([...document.querySelectorAll('li.book-row h3')].map(el => el.textContent.trim().toLocaleLowerCase()));
+    const allowedCategories = new Set([...document.querySelectorAll('section[id]')].map(el => el.id));
+    for (const book of records) {
+      if (!book || book.status !== 'published' || !book.title || !book.description) continue;
+      const key = String(book.title).trim().toLocaleLowerCase();
+      if (existing.has(key)) continue;
+      const section = document.getElementById(allowedCategories.has(book.category) ? book.category : 'shared-reading');
+      const list = section && section.querySelector('ul');
+      if (!list) continue;
+      const li = document.createElement('li'); li.className = 'book-row';
+      if (book.origin) li.dataset.originCountry = book.origin;
+      if (book.language) li.dataset.language = book.language;
+      const jacket = document.createElement('div'); jacket.className = 'book-jacket';
+      if (book.cover && /^\\/?book-covers\\/[\\w.\\/-]+$/i.test(book.cover)) {
+        const img = document.createElement('img'); img.className = 'cover-image'; img.src = book.cover; img.alt = 'Cover of ' + book.title; img.loading = 'lazy'; img.width = 96; img.height = 144;
+        img.onerror = () => { img.remove(); jacket.textContent = 'Cover pending'; };
+        jacket.append(img);
+      } else jacket.textContent = 'Cover pending';
+      const copy = document.createElement('div'); copy.className = 'book-copy';
+      const heading = document.createElement('h3'); heading.textContent = book.title; copy.append(heading);
+      const credit = document.createElement('p'); credit.className = 'credit'; credit.textContent = [book.author, book.illustrator && ('Illustrated by ' + book.illustrator)].filter(Boolean).join(' · '); copy.append(credit);
+      const description = document.createElement('p'); description.textContent = book.description; copy.append(description);
+      const meta = document.createElement('p'); meta.className = 'meta'; meta.textContent = [book.publisher, book.year, book.isbn && ('ISBN ' + book.isbn)].filter(Boolean).join(' · '); copy.append(meta);
+      if (book.origin) { const origin = document.createElement('p'); origin.className = 'book-origin'; origin.textContent = book.origin; copy.append(origin); }
+      for (const [field,label] of [['source_url','Publisher or catalogue source'],['purchase_url','Purchase link']]) {
+        try { const url = new URL(book[field], location.href); if (!['https:','http:'].includes(url.protocol) || !book[field]) continue;
+          const link = document.createElement('a'); link.href = url.href; link.textContent = label; link.target = '_blank'; link.rel = 'noopener noreferrer sponsored';
+          const p = document.createElement('p'); p.append(link); copy.append(p);
+        } catch (_) {}
+      }
+      li.append(jacket,copy); list.append(li); existing.add(key);
+    }
+  } catch (error) { console.warn('Book Manager entries unavailable',error); }
+})();
+</script>
+</body></html>

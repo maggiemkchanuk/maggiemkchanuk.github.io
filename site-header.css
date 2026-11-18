@@ -587,3 +587,11 @@ main:has(> .site-brand) > :is(.site-brand, .site-actions) {
   padding: 0;
   line-height: 1;
 }
+
+/* Keep the header in normal document flow across Safari page navigation. */
+.site-brand { box-sizing: border-box; }
+.site-brand > p { min-height: 1.45em; }
+.site-brand .site-nav { align-content: start; }
+@media (max-width: 700px) {
+  .site-brand .site-nav { column-gap: .85rem; }
+}

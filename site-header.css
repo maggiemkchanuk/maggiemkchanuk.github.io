@@ -1809,3 +1809,32 @@ html body main header.site-brand nav.accessible-nav summary:focus-visible {
  width:100% !important; max-width:100% !important;
  }
 }
+
+/* Accessible in-flow submenu: expanding a category pushes content down, never covers it. */
+html body main#page-top > header.site-brand > nav.accessible-nav > details[open],
+html body main > header.site-brand > nav.accessible-nav > details[open] {
+ display:flex !important; flex:0 0 100% !important; width:100% !important;
+ flex-direction:column !important; align-items:flex-start !important;
+ position:static !important; height:auto !important; max-height:none !important;
+}
+html body main#page-top > header.site-brand > nav.accessible-nav > details[open] > .site-nav-more-panel,
+html body main > header.site-brand > nav.accessible-nav > details[open] > .site-nav-more-panel {
+ display:flex !important; position:static !important;
+ inset:auto !important; top:auto !important; left:auto !important; right:auto !important;
+ transform:none !important; flex-flow:row wrap !important;
+ width:100% !important; max-width:100% !important; height:auto !important;
+ max-height:none !important; overflow:visible !important;
+ margin:0 !important; padding:.5rem 0 .75rem !important;
+ border:0 !important; border-top:2px solid #9b8b5b !important;
+ border-radius:0 !important; box-shadow:none !important;
+ background:transparent !important;
+}
+html body main header.site-brand nav.accessible-nav > details:not([open]) > .site-nav-more-panel {
+ display:none !important;
+}
+@media(max-width:700px) {
+ html body main#page-top > header.site-brand > nav.accessible-nav > details[open] > .site-nav-more-panel,
+ html body main > header.site-brand > nav.accessible-nav > details[open] > .site-nav-more-panel {
+  position:static !important; max-height:none !important; overflow:visible !important;
+ }
+}

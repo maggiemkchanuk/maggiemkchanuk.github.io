@@ -2766,3 +2766,57 @@ html body main > .profile > p {
   margin-bottom:.65rem;
  }
 }
+
+/* Navigation layout repair: dropdowns participate in document flow instead of
+   covering page text. Desktop header grows only while a menu is open. */
+@media(min-width:701px){
+ html body main header.site-brand:has(nav.accessible-nav > details[open]) nav.accessible-nav,
+ html body main header.site-brand nav.accessible-nav:has(>details[open]){
+  height:auto !important;min-height:38px !important;align-items:flex-start !important;
+ }
+ html body main header.site-brand nav.accessible-nav > details[open]{
+  flex-basis:100% !important;width:100% !important;height:auto !important;
+ }
+ html body main header.site-brand nav.accessible-nav > details[open] > .site-nav-more-panel{
+  position:static !important;display:flex !important;flex-wrap:wrap !important;
+  width:100% !important;max-width:100% !important;min-width:0 !important;
+  margin:.45rem 0 .2rem !important;padding:.55rem .7rem !important;
+  gap:.35rem 1rem !important;box-sizing:border-box !important;
+ }
+ html body main header.site-brand nav.accessible-nav > details[open] > .site-nav-more-panel > a{
+  flex:0 1 auto !important;font-size:.76rem !important;
+ }
+}
+/* A predictable two-column dropdown on phones; no single-item overflow rows. */
+@media(max-width:700px){
+ html body main header.site-brand nav.accessible-nav.mobile-open details[open] > .site-nav-more-panel{
+  display:grid !important;grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  grid-auto-flow:row !important;align-items:start !important;
+  gap:.15rem .4rem !important;
+ }
+ html body main header.site-brand nav.accessible-nav.mobile-open details[open] > .site-nav-more-panel > a{
+  display:block !important;grid-column:auto !important;min-width:0 !important;
+  width:auto !important;max-width:100% !important;
+  font-size:.76rem !important;line-height:1.3 !important;
+  padding:.45rem .3rem !important;overflow-wrap:anywhere !important;
+ }
+}
+/* Unified editorial paragraph rhythm; exclude book cards and compact metadata. */
+html body main > p,
+html body main > section > p,
+html body main .about-copy > p,
+html body main .reading-intro > p{
+ line-height:1.5;
+ margin-top:.5rem;
+ margin-bottom:.7rem;
+}
+@media(max-width:700px){
+ html body main > p,
+ html body main > section > p,
+ html body main .about-copy > p,
+ html body main .reading-intro > p{
+  line-height:1.48;
+  margin-top:.42rem;
+  margin-bottom:.65rem;
+ }
+}

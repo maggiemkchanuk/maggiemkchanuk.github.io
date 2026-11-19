@@ -820,3 +820,27 @@ html body header.site-brand .site-nav > a[aria-current="page"] {
   font-size: 1rem !important;
 }
 html body :is(p,li,dd,dt,blockquote) { line-height: 1.65; }
+
+/* Cambridge-inspired serif wordmark only; keep CLPE typography everywhere else. */
+html body header.site-brand > .site-name,
+html body header.site-brand > h1.site-name,
+html body header.site-brand > a.site-name {
+  font-family: Georgia, "Times New Roman", serif !important;
+  font-style: normal !important;
+  font-weight: 400 !important;
+  font-stretch: normal !important;
+  text-transform: uppercase !important;
+  letter-spacing: .025em !important;
+  font-size: clamp(1.35rem, 3.2vw, 2.8rem) !important;
+  line-height: 1.12 !important;
+  white-space: nowrap !important;
+  max-width: 100% !important;
+}
+@media (max-width: 620px) {
+  html body header.site-brand > .site-name,
+  html body header.site-brand > h1.site-name,
+  html body header.site-brand > a.site-name {
+    font-size: clamp(.95rem, 4.1vw, 1.6rem) !important;
+    letter-spacing: .005em !important;
+  }
+}

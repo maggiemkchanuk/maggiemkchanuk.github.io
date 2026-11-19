@@ -3123,3 +3123,14 @@ html body main header.site-brand .site-nav-more-panel a {
   text-transform:none!important;letter-spacing:0!important;
  }
 }
+
+/* Final shared brand ink: enforce the approved green on every page, including
+   the homepage #page-top and dynamically generated navigation. */
+html body main#page-top > header.site-brand > :is(h1.site-name,a.site-name),
+html body main > header.site-brand > :is(h1.site-name,a.site-name),
+html body main#page-top > header.site-brand > nav.accessible-nav :is(a,summary),
+html body main > header.site-brand > nav.accessible-nav :is(a,summary),
+html body main#page-top > header.site-brand > nav.site-nav-grouped :is(a,summary),
+html body main > header.site-brand > nav.site-nav-grouped :is(a,summary){
+ color:#315b48!important;
+}

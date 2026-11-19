@@ -1707,3 +1707,22 @@ html body main header.site-brand nav.accessible-nav .site-nav-more-panel a:hover
   position:static !important; width:100% !important; max-height:none !important;
  }
 }
+
+/* Keep submenu below the whole row, not beside its trigger. */
+html body main#page-top > header.site-brand > nav.accessible-nav .site-nav-more-panel,
+html body main > header.site-brand > nav.accessible-nav .site-nav-more-panel {
+ position:absolute !important; top:100% !important; left:0 !important;
+ right:auto !important; width:100% !important; max-width:100% !important;
+ z-index:500 !important; padding:.8rem !important;
+ border:1px solid #b8b0b9 !important; border-radius:0 0 .4rem .4rem !important;
+ background:#fffdfa !important; box-shadow:0 .5rem 1.1rem #0002 !important;
+ box-sizing:border-box !important;
+}
+@media(max-width:700px) {
+ html body main#page-top > header.site-brand > nav.accessible-nav .site-nav-more-panel,
+ html body main > header.site-brand > nav.accessible-nav .site-nav-more-panel {
+ position:absolute !important; top:100% !important; left:0 !important;
+ right:auto !important; width:100% !important; max-width:100% !important;
+ max-height:65vh !important; overflow:auto !important;
+ }
+}

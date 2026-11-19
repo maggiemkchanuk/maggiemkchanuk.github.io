@@ -731,3 +731,32 @@ main#page-top > header.site-brand:is(.brand-authors, .brand-consultancy) > .site
   margin: .65rem 0 0 !important;
   padding: .5rem 0 0 !important;
 }
+
+/* Restore standard-width typography throughout the site; no condensed display fonts. */
+body header.site-brand .site-name,
+body header.site-brand h1.site-name,
+body header.site-brand a.site-name {
+  font-family: Georgia, "Times New Roman", serif !important;
+  font-style: italic !important;
+  font-weight: 700 !important;
+  letter-spacing: normal !important;
+}
+body header.site-brand .site-nav,
+body header.site-brand .site-nav > a,
+body header.site-brand .site-nav > a[aria-current="page"] {
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif !important;
+  font-size: 1rem !important;
+  font-weight: 600 !important;
+  font-stretch: normal !important;
+  letter-spacing: normal !important;
+}
+body main :is(h1,h2,h3,h4,h5,h6),
+body main :is(h1,h2,h3,h4,h5,h6) :is(strong,b),
+body main#page-top > h1 + p {
+  font-family: Georgia, "Times New Roman", serif !important;
+  font-stretch: normal !important;
+  letter-spacing: normal !important;
+}
+body main#page-top > h1 + p {
+  font-family: Inter, system-ui, sans-serif !important;
+}

@@ -604,29 +604,26 @@ main:has(> .site-brand) > :is(.site-brand, .site-actions) {
 }
 
 
-/* Shared, identical navigation on every page; avoid page-specific grids and font-weight shifts. */
+/* Stable navigation columns across pages: prevents Authors from drifting when a tab becomes active. */
 .site-brand .site-nav {
-  display:flex!important;
-  flex-wrap:wrap!important;
-  align-items:center!important;
-  justify-content:flex-start!important;
-  gap:.42rem .95rem!important;
+  display:grid!important;
+  grid-template-columns:repeat(4,minmax(0,1fr))!important;
+  align-items:stretch!important;
+  gap:.35rem .65rem!important;
   width:100%!important;
   box-sizing:border-box!important;
-  font:.9rem/1.45 system-ui,sans-serif!important;
 }
 .site-brand .site-nav > a {
-  display:inline-block!important;
-  flex:0 0 auto!important;
+  display:flex!important;
+  align-items:center!important;
   min-width:0!important;
-  padding:0!important;
-  margin:0!important;
-  font:inherit!important;
+  padding:.18rem .25rem!important;
+  box-sizing:border-box!important;
   font-weight:400!important;
-  white-space:nowrap!important;
+  line-height:1.35!important;
+  overflow-wrap:anywhere!important;
 }
-.site-brand .site-nav > a[aria-current="page"] {
-  font-weight:400!important;
-  text-decoration:underline!important;
-  text-underline-offset:.2em;
+.site-brand .site-nav > a[aria-current="page"] { font-weight:400!important; }
+@media(max-width:640px) {
+  .site-brand .site-nav { grid-template-columns:repeat(2,minmax(0,1fr))!important; }
 }

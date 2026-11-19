@@ -22,7 +22,12 @@
     for (const row of rows) {
       const copy = row.querySelector(':scope > .book-copy');
       const purchase = copy?.querySelector(':scope > .affiliate-purchases');
-      const anchor = copy?.querySelector(':scope > .edition, :scope > .book-origin, :scope > .credit, :scope > h3');
+      // Use the last metadata element in document order, not the first selector
+      // match: querySelector() otherwise often puts Buy above the book title.
+      const metadata = copy ? [...copy.children].filter(el =>
+        el.matches('h3, .credit, .edition, .book-origin, .book-meta, .publication-details')
+      ) : [];
+      const anchor = metadata.at(-1);
       if (purchase && anchor && anchor.nextElementSibling !== purchase) anchor.after(purchase);
     }
   };

@@ -2718,3 +2718,15 @@ html body main#page-top > header.site-brand > a.site-name {
   max-width:min(22rem,calc(100vw - 2rem)) !important;
  }
 }
+
+/* 2026-11-19: modest cross-page section-intro spacing refinement.
+   Restrict to direct section children so catalogue cards, navigation,
+   dropdowns and book metadata retain their individual spacing. */
+html body main > section > h2 + p,
+html body main > section > h3 + p {
+ margin-top:.45rem;
+}
+html body main > section > h2 + ul,
+html body main > section > h3 + ul {
+ margin-top:.45rem;
+}

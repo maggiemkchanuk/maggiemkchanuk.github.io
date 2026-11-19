@@ -9,7 +9,7 @@
   for (const element of document.querySelectorAll('p, div, small')) {
     if (element.children.length && ![...element.children].every(child => child.tagName === 'A' || child.tagName === 'SPAN')) continue;
     const raw = element.textContent.trim();
-    if (!/^As an Amazon Associate I earn from qualifying purchases\\./i.test(raw)) continue;
+    if (!/^As an Amazon Associate I earn from qualifying purchases\./i.test(raw)) continue;
     const link = element.querySelector('a[href*="affiliate-disclosure"], a[href*="affiliate"]');
     element.replaceChildren(document.createTextNode(affiliateCopy + ' '));
     if (link) element.append(link);

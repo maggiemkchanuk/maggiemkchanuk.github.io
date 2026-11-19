@@ -1157,3 +1157,46 @@ body :is(summary, .bookmark-toggle, .bookmark-link, .bookmark-this-site, .bookma
   font-weight: 500 !important;
   font-size: 1.12rem !important;
 }
+
+/* 2026-11-19: full-width shared navigation and matching intro type. */
+body main#page-top > header.site-brand,
+body main > header.site-brand {
+  width: calc(100vw - 2.5rem) !important;
+  max-width: 86rem !important;
+  min-height: 12rem !important;
+}
+body header.site-brand > nav.site-nav {
+  justify-content: space-between !important;
+  column-gap: .9rem !important;
+  row-gap: .4rem !important;
+  font-size: 1.3rem !important;
+}
+body header.site-brand > nav.site-nav > a,
+body header.site-brand > nav.site-nav > a[aria-current="page"],
+body header.site-brand .site-nav > a,
+body header.site-brand .site-nav > a[aria-current="page"] {
+  font-size: 1.3rem !important;
+  font-weight: 700 !important;
+  line-height: 1.4 !important;
+}
+body main#page-top > h1 + p,
+body main > h1 + p {
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif !important;
+  font-weight: 400 !important;
+  font-size: clamp(1.25rem, 1.7vw, 1.5rem) !important;
+  line-height: 1.45 !important;
+  letter-spacing: .012em !important;
+}
+@media (max-width: 620px) {
+  body main#page-top > header.site-brand,
+  body main > header.site-brand {
+    width: calc(100vw - 1.5rem) !important;
+    min-height: 0 !important;
+  }
+  body header.site-brand > nav.site-nav { justify-content: flex-start !important; }
+  body header.site-brand > nav.site-nav,
+  body header.site-brand > nav.site-nav > a,
+  body header.site-brand > nav.site-nav > a[aria-current="page"] {
+    font-size: 1.12rem !important;
+  }
+}

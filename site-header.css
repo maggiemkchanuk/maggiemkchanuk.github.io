@@ -824,3 +824,32 @@ main a:not(.site-name):not(.site-nav a):focus-visible {
 .site-brand .site-name,
 .site-brand h1.site-name,
 .site-brand a.site-name { text-wrap: balance; }
+
+/* Navigation geometry: one viewport-based header width on all catalogue pages.
+   Prevent page-specific main widths and margins changing line breaks. */
+main#page-top:has(> header.site-brand:not(.brand-home)) {
+  margin-top: 2.4rem !important;
+}
+main#page-top > header.site-brand:not(.brand-home) {
+  box-sizing: border-box !important;
+  position: relative !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  width: min(58rem, calc(100vw - 2.5rem)) !important;
+  max-width: none !important;
+  margin: 0 0 1.65rem !important;
+  padding: 1rem 1.15rem .85rem !important;
+}
+main#page-top > header.site-brand:not(.brand-home) > .site-nav {
+  box-sizing: border-box !important;
+  display: flex !important;
+  flex-flow: row wrap !important;
+  justify-content: flex-start !important;
+  align-content: flex-start !important;
+  align-items: center !important;
+  width: 100% !important;
+  margin: .65rem 0 0 !important;
+  padding: .5rem 0 0 !important;
+  gap: .3rem .56rem !important;
+  font: 600 .84rem/1.4 Inter, system-ui, sans-serif !important;
+}

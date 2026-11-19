@@ -2922,21 +2922,13 @@ html body main header.site-brand nav.site-nav-grouped > a[aria-current="page"]{
  color:#315b48 !important;
 }
 
-/* 2026-11-19: quiet literary geometry inspired by overlapping translucent
-   squares in the UKLA title slide. Decoration only, never interactive. */
+/* Vintage Literary Botanical: let the existing bird and floral illustration
+   lead the header; retain subtle editorial rules and tiny diamonds in sections.
+   No geometric blocks in the site banner. */
 html body main > header.site-brand{
- background-image:
-  linear-gradient(135deg,transparent 0 64%,rgba(168,185,206,.20) 64% 76%,transparent 76%),
-  linear-gradient(135deg,transparent 0 75%,rgba(197,175,202,.17) 75% 86%,transparent 86%),
-  linear-gradient(45deg,transparent 0 72%,rgba(170,194,178,.15) 72% 84%,transparent 84%),
-  linear-gradient(135deg,transparent 0 66%,rgba(214,194,171,.15) 66% 78%,transparent 78%),
-  linear-gradient(110deg,rgba(255,255,255,.60),rgba(247,245,239,.28)) !important;
- background-size:clamp(8rem,20vw,15rem) 100%,clamp(7rem,16vw,12rem) 100%,clamp(5rem,10vw,8rem) 100%,clamp(4rem,8vw,6rem) 100%,100% 100% !important;
- background-position:right top,right top,left top,left top,center !important;
- background-repeat:no-repeat !important;
+ background-image:none !important;
+ background-color:var(--banner-colour,#f3ead9) !important;
 }
-/* A fine editorial rule and small diamond mark for page-level section titles.
-   Exclude book cards, article titles, nav labels and the brand name. */
 html body main > section > h2,
 html body main > section > header > h2{
  position:relative;
@@ -2947,21 +2939,15 @@ html body main > section > h2::after,
 html body main > section > header > h2::after{
  content:"";
  position:absolute;
- width:.43rem;height:.43rem;
- right:.18rem;bottom:-.25rem;
- background:#b9c9d9;
+ width:.36rem;height:.36rem;
+ right:.18rem;bottom:-.22rem;
+ background:#b8c7b5;
  transform:rotate(45deg);
  border:1px solid #f7f5ef;
 }
 @media(max-width:700px){
- html body main > header.site-brand{
-  background-size:6.5rem 100%,5rem 100%,3.4rem 100%,2.7rem 100%,100% 100% !important;
- }
  html body main > section > h2::after,
- html body main > section > header > h2::after{width:.34rem;height:.34rem;bottom:-.21rem}
-}
-@media(prefers-reduced-transparency:reduce){
- html body main > header.site-brand{background-image:none !important}
+ html body main > section > header > h2::after{width:.3rem;height:.3rem;bottom:-.18rem}
 }
 
 /* 2026-11-19: distinguish the five primary navigation groups.

@@ -870,16 +870,19 @@ const awardFilter = document.getElementById('award-books');
 function listedYear(book) {
  const explicit = book.dataset.year;
  if (/^(?:18|19|20)\d{2}$/.test(explicit || '')) return Number(explicit);
+ const published = book.querySelector('.edition time[datetime], .book-copy time[datetime]');
+ const dated = published?.getAttribute('datetime')?.match(/^(18|19|20)\d{2}/);
+ if (dated) return Number(dated[0]);
  const edition = book.querySelector('.edition')?.textContent || '';
  const withoutIsbn = edition.replace(/\bISBN(?:-13)?\s*:?\s*97[89][\d -]{10,17}/gi, '');
  const match = withoutIsbn.match(/(?:^|[^\d])((?:18|19|20)\d{2})(?!\d)/);
  return match ? Number(match[1]) : 0;
 }
 function sortByPublicationYear() {
- for (const section of document.querySelectorAll('main > section')) {
-  const books = [...section.querySelectorAll(':scope > ul > li.book-row')];
+ // Sort independently within every thematic list, not across categories.
+ for (const list of document.querySelectorAll('main > section ul')) {
+  const books = [...list.children].filter(node => node.matches('li.book-row'));
   if (books.length < 2) continue;
-  const list = books[0].parentElement;
   books.map((node, index) => ({node, index, year: listedYear(node)}))
    .sort((a,b) => b.year - a.year || a.index - b.index)
    .forEach(({node}) => list.appendChild(node));

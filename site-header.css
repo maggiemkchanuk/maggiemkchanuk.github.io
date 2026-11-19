@@ -861,3 +861,25 @@ html body header.site-brand > a.site-name {
     letter-spacing: 0 !important;
   }
 }
+
+/* Owner-approved final wordmark only: match About heading font, purple, italic, larger. */
+html body header.site-brand > .site-name,
+html body header.site-brand > h1.site-name,
+html body header.site-brand > a.site-name {
+  font-family: "Poppins", "Century Gothic", Arial, sans-serif !important;
+  font-style: italic !important;
+  font-weight: 600 !important;
+  text-transform: none !important;
+  color: #54377f !important;
+  font-size: clamp(2rem, 4.6vw, 3.8rem) !important;
+  letter-spacing: normal !important;
+  line-height: 1.12 !important;
+  white-space: nowrap !important;
+}
+@media (max-width: 620px) {
+  html body header.site-brand > .site-name,
+  html body header.site-brand > h1.site-name,
+  html body header.site-brand > a.site-name {
+    font-size: clamp(1.25rem, 5vw, 2rem) !important;
+  }
+}

@@ -54,8 +54,8 @@
     ]);
     const academic = group('Academic Resources', [
       ['academic-books.html', 'Academic Books'],
-      ['professional-bodies.html', 'Professional Bodies'],
       ['journals.html', 'Journals'],
+      ['professional-bodies.html', 'Professional Bodies'],
       ['conferences.html', 'Conferences']
     ]);
     const education = group('Educational Resources', [

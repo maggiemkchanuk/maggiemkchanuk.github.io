@@ -3,6 +3,18 @@
   const siteHome = 'https://maggiemkchanuk.github.io/';
   const siteName = 'Maggie M. K. Chan';
 
+  // Keep affiliate disclosures consistent on every page using this shared script.
+  // Only replace the short disclosure copy, never catalogue descriptions or links.
+  const affiliateCopy = 'As an Amazon Associate and an affiliate of Bookshop.org UK, I may earn a commission from qualifying purchases through affiliate links. This is at no additional cost to you.';
+  for (const element of document.querySelectorAll('p, div, small')) {
+    if (element.children.length && ![...element.children].every(child => child.tagName === 'A' || child.tagName === 'SPAN')) continue;
+    const raw = element.textContent.trim();
+    if (!/^As an Amazon Associate I earn from qualifying purchases\\./i.test(raw)) continue;
+    const link = element.querySelector('a[href*="affiliate-disclosure"], a[href*="affiliate"]');
+    element.replaceChildren(document.createTextNode(affiliateCopy + ' '));
+    if (link) element.append(link);
+  }
+
   const navigation = document.querySelector('.site-nav');
   const readingList = navigation?.querySelector('a[href="reading-lists.html"]');
   if (readingList && !navigation.querySelector('a[href="saved-books.html"]')) {

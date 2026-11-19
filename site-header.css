@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=Roboto+Condensed:ital,wght@1,500&display=swap');
 :root {
   --woodland-ink: #273a38;
@@ -1352,4 +1352,16 @@ html body main header.site-brand > nav.site-nav.site-nav-grouped .site-nav-more-
     max-height:55vh !important;
     grid-template-columns:repeat(2,minmax(0,1fr)) !important;
   }
+}
+
+/* Selected wordmark: Libre Baskerville Bold Italic; all other type remains unchanged. */
+html body main#page-top > header.site-brand > .site-name,
+html body main#page-top > header.site-brand > h1.site-name,
+html body main#page-top > header.site-brand > a.site-name,
+html body main > header.site-brand > .site-name {
+  font-family:"Libre Baskerville",Georgia,serif !important;
+  font-style:italic !important;
+  font-weight:700 !important;
+  letter-spacing:0 !important;
+  line-height:1.25 !important;
 }

@@ -883,3 +883,59 @@ html body header.site-brand > a.site-name {
     font-size: clamp(1.25rem, 5vw, 2rem) !important;
   }
 }
+
+/* Canonical typography and navigation across pages, 2026-11-19.
+   All content headings match the original About heading. */
+html body main :is(h1,h2,h3,h4,h5,h6),
+html body main :is(h1,h2,h3,h4,h5,h6) :is(strong,b,em) {
+  font-family: Georgia, "Times New Roman", serif !important;
+  font-style: normal !important;
+  font-weight: 400 !important;
+  letter-spacing: normal !important;
+}
+html body main header.site-brand > .site-name,
+html body main header.site-brand > h1.site-name,
+html body main header.site-brand > a.site-name {
+  font-family: "Poppins", Arial, sans-serif !important;
+  font-style: italic !important;
+  font-weight: 600 !important;
+  color: #54377f !important;
+  text-transform: none !important;
+  font-size: clamp(2rem, 4.6vw, 3.8rem) !important;
+  white-space: nowrap !important;
+}
+@media (min-width: 800px) {
+ html body main#page-top > header.site-brand,
+ html body main > header.site-brand,
+ html body main#page-top > header.site-brand:is(.brand-authors,.brand-consultancy) {
+   box-sizing: border-box !important;
+   width: calc(100vw - 3rem) !important;
+   max-width: 1600px !important;
+   left: 50% !important;
+   transform: translateX(-50%) !important;
+   margin: 0 0 1.65rem !important;
+ }
+ html body main header.site-brand > nav.site-nav {
+   box-sizing: border-box !important;
+   display: flex !important;
+   flex-flow: row wrap !important;
+   justify-content: flex-start !important;
+   align-items: center !important;
+   align-content: flex-start !important;
+   width: 100% !important;
+   max-width: none !important;
+   gap: .55rem 1.05rem !important;
+   margin: .65rem 0 0 !important;
+   padding: .5rem 0 0 !important;
+ }
+}
+html body main header.site-brand > nav.site-nav > a,
+html body main header.site-brand > nav.site-nav > a[aria-current="page"] {
+  font-family: "Poppins", Arial, sans-serif !important;
+  font-size: 1rem !important;
+  font-weight: 600 !important;
+  line-height: 1.5 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  white-space: nowrap !important;
+}

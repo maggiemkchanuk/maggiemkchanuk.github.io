@@ -2001,3 +2001,6 @@ html body main#page-top > header.site-brand .site-name {
  text-transform:none !important;
  letter-spacing:.012em !important;
 }
+
+/* Five top-level navigation categories after grouping About within Home. */
+@media(min-width:701px){html body main header.site-brand > nav.accessible-nav{grid-template-columns:repeat(5,max-content) !important;}}

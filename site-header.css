@@ -2440,3 +2440,38 @@ html body main#page-top > h1 {
  color:#526e64 !important;
  text-transform:none !important;
 }
+
+/* Single typography system: match the 'Send a message' heading sitewide. */
+html body main :is(h1,h2,h3,h4,h5,h6):not(.site-name),
+html body main :is(h1,h2,h3,h4,h5,h6):not(.site-name) :is(strong,b,em) {
+ font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif !important;
+ font-style:normal !important;
+ letter-spacing:0 !important;
+ text-transform:none !important;
+}
+html body main :is(h1,h2):not(.site-name) {font-weight:600 !important;}
+/* All navigation entries, including expandable group headings, match Contact. */
+html body main header.site-brand nav.accessible-nav > a,
+html body main header.site-brand nav.accessible-nav > details,
+html body main header.site-brand nav.accessible-nav > details > summary,
+html body main header.site-brand nav.accessible-nav .site-nav-more-panel a,
+html body main header.site-brand nav.site-nav a,
+html body main header.site-brand nav.site-nav summary {
+ font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif !important;
+ font-weight:600 !important;
+ font-style:normal !important;
+ letter-spacing:0 !important;
+ text-transform:none !important;
+}
+@media(max-width:700px){
+ html body main header.site-brand nav.accessible-nav.mobile-open > a,
+ html body main header.site-brand nav.accessible-nav.mobile-open > details,
+ html body main header.site-brand nav.accessible-nav.mobile-open > details > summary,
+ html body main header.site-brand nav.accessible-nav.mobile-open .site-nav-more-panel a {
+  font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif !important;
+  font-weight:600 !important;
+  font-style:normal !important;
+  text-transform:none !important;
+  letter-spacing:0 !important;
+ }
+}

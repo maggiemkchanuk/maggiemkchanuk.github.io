@@ -58,8 +58,8 @@
       ['conferences.html', 'Conferences']
     ]);
     const education = group('Educational Resources', [
-      ['educational-resources.html', 'Educational Resources Overview'],
-      ['reading-tools.html', 'Reading Tools']
+      ['reading-tools.html', 'Reading Tools'],
+      ['educational-resources.html', 'Others']
     ]);
     navigation.replaceChildren(makeLink('./', 'Home'), about, books, academic, education,
       makeLink('contact.html', 'Contact'));

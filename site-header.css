@@ -938,3 +938,28 @@ html body main header.site-brand > nav.site-nav > a[aria-current="page"] {
   margin: 0 !important;
   white-space: nowrap !important;
 }
+
+/* Final approved heading style: match About (Poppins Bold), including the site name. */
+html body main :is(h1,h2,h3,h4,h5,h6),
+html body main :is(h1,h2,h3,h4,h5,h6) :is(strong,b,em),
+html body header.site-brand > .site-name,
+html body header.site-brand > h1.site-name,
+html body header.site-brand > a.site-name,
+html body main header.site-brand > .site-name,
+html body main header.site-brand > h1.site-name,
+html body main header.site-brand > a.site-name {
+  font-family: "Poppins", Arial, sans-serif !important;
+  font-weight: 700 !important;
+  font-style: normal !important;
+  letter-spacing: normal !important;
+}
+html body header.site-brand > .site-name,
+html body header.site-brand > h1.site-name,
+html body header.site-brand > a.site-name,
+html body main header.site-brand > .site-name,
+html body main header.site-brand > h1.site-name,
+html body main header.site-brand > a.site-name {
+  color: #54377f !important;
+  text-transform: none !important;
+  font-size: clamp(2rem, 4.6vw, 3.8rem) !important;
+}

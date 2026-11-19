@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap');
 :root {
   --woodland-ink: #273a38;
   --woodland-leaf: #51694f;
@@ -867,4 +867,47 @@ main#page-top > header.site-brand:not(.brand-home) > .site-nav {
   color: #54377f !important;
   text-shadow: none !important;
   -webkit-text-stroke: 0 !important;
+}
+
+/* 2026-11-19: final lightweight wordmark and stable tab rows.
+   Prevent old page-specific header rules and active-link metrics from shifting navigation. */
+.site-brand .site-name,
+.site-brand h1.site-name,
+.site-brand a.site-name,
+.profile h1 {
+  font-family: Oswald, "Arial Narrow", sans-serif !important;
+  font-weight: 400 !important;
+  font-style: normal !important;
+  letter-spacing: .015em !important;
+}
+main#page-top > header.site-brand {
+  box-sizing: border-box !important;
+  width: min(58rem, calc(100vw - 2.5rem)) !important;
+  max-width: none !important;
+  padding: 1rem 1.15rem .85rem !important;
+}
+main#page-top > header.site-brand > .site-nav {
+  box-sizing: border-box !important;
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+  align-content: flex-start !important;
+  justify-content: flex-start !important;
+  align-items: center !important;
+  gap: .3rem .56rem !important;
+  width: 100% !important;
+  margin: .65rem 0 0 !important;
+  padding: .5rem 0 0 !important;
+  font: 600 .84rem/1.4 Inter, system-ui, sans-serif !important;
+}
+main#page-top > header.site-brand > .site-nav > a,
+main#page-top > header.site-brand > .site-nav > a[aria-current="page"] {
+  box-sizing: border-box !important;
+  flex: 0 0 auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  font: inherit !important;
+  white-space: nowrap !important;
+  color: #54377f !important;
+  text-decoration-thickness: 2px;
 }

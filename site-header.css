@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,700&family=Inter:wght@400;500;600;700;800&display=swap');
 :root {
   --woodland-ink: #273a38;
   --woodland-leaf: #51694f;
@@ -730,4 +730,71 @@ main#page-top > header.site-brand:is(.brand-authors, .brand-consultancy) {
 main#page-top > header.site-brand:is(.brand-authors, .brand-consultancy) > .site-nav {
   margin: .65rem 0 0 !important;
   padding: .5rem 0 0 !important;
+}
+
+/* Deep plum design system: two type families only, across shared site pages. */
+:root {
+  --woodland-ink: #30283e;
+  --woodland-leaf: #54377f;
+  --woodland-bark: #704265;
+  --woodland-sky: #63528b;
+  --woodland-line: #d9cfe3;
+  --woodland-paper: #fcf9ff;
+}
+body {
+  color: #30283e;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: linear-gradient(150deg, #f7f1fb, #fcf9ff 42%, #f3effa 76%, #f9f2f7);
+}
+.site-brand {
+  border-color: #d6c5e4;
+  border-top-color: #54377f;
+  background: linear-gradient(110deg, #ffffffc9, #f4eafaad 75%), var(--banner-colour, #f5edfa);
+  color: #30283e;
+}
+.site-brand .site-name,
+.site-brand h1.site-name,
+.site-brand a.site-name {
+  font-family: "Atkinson Hyperlegible", Inter, sans-serif !important;
+  font-weight: 700 !important;
+  font-style: italic !important;
+  letter-spacing: -.015em !important;
+  color: #54377f !important;
+}
+.site-brand > p {
+  font-family: Inter, system-ui, sans-serif !important;
+  color: #51445f !important;
+}
+.site-brand .site-nav {
+  font-family: Inter, system-ui, sans-serif !important;
+  font-weight: 600 !important;
+  border-top-color: #b9a4cb !important;
+}
+.site-brand .site-nav > a,
+.site-brand .site-nav > a[aria-current="page"] {
+  color: #54377f !important;
+  font-weight: 600 !important;
+}
+.site-brand .site-nav > a:hover,
+.site-brand .site-nav > a[aria-current="page"] {
+  color: #372055 !important;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: .25em;
+}
+main :is(h1,h2,h3,h4,h5,h6),
+main > header:not(.site-brand) :is(h1,h2,h3) {
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif !important;
+  font-style: normal;
+  font-weight: 700;
+}
+main > h1, main > header:not(.site-brand) > h1, main > .profile h1 {
+  color: #54377f !important;
+}
+main h2 { color: #54377f; }
+main h3 { color: #30283e; }
+main a:not(.site-name):not(.site-nav a) { text-decoration-color: #78559c; }
+main a:not(.site-name):not(.site-nav a):focus-visible {
+  outline: 3px solid #54377f;
+  outline-offset: 3px;
 }

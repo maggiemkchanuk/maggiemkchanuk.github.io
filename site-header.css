@@ -2168,3 +2168,52 @@ html body main > .site-actions > .site-bookmark > summary:focus-visible {
   right:0 !important;
  }
 }
+
+/* Desktop dropdown: anchored beneath its own trigger, no layout reflow. */
+@media (min-width:701px) {
+ html body main#page-top > header.site-brand > nav.accessible-nav,
+ html body main > header.site-brand > nav.accessible-nav {
+  display:flex !important; flex-flow:row nowrap !important;
+  justify-content:space-between !important; align-items:center !important;
+  gap:clamp(.4rem,1.2vw,1.2rem) !important;
+  padding:.65rem 0 !important; margin:.6rem 0 0 !important;
+  position:relative !important; min-height:0 !important;
+ }
+ html body main#page-top > header.site-brand > nav.accessible-nav:has(> details[open]),
+ html body main > header.site-brand > nav.accessible-nav:has(> details[open]) {
+  padding-bottom:.65rem !important;
+ }
+ html body main header.site-brand > nav.accessible-nav > details,
+ html body main#page-top > header.site-brand > nav.accessible-nav > details[open] {
+  position:relative !important; display:block !important;
+  flex:0 1 auto !important; min-width:0 !important;
+  margin:0 !important; padding:0 !important;
+ }
+ html body main header.site-brand > nav.accessible-nav > a {
+  flex:0 0 auto !important; margin:0 !important;
+ }
+ html body main header.site-brand > nav.accessible-nav > details[open] > .site-nav-more-panel,
+ html body main#page-top > header.site-brand > nav.accessible-nav > details[open] > .site-nav-more-panel {
+  position:absolute !important; inset:auto auto auto 0 !important;
+  top:calc(100% + .5rem) !important;
+  display:flex !important; flex-direction:column !important;
+  align-items:stretch !important; gap:0 !important;
+  width:max-content !important; min-width:13rem !important;
+  max-width:min(22rem,80vw) !important;
+  padding:.45rem !important; margin:0 !important;
+  background:#fffefa !important;
+  border:1px solid #d8d4c9 !important;
+  border-radius:4px !important;
+  box-shadow:0 8px 22px rgba(28,38,42,.12) !important;
+  z-index:100 !important;
+ }
+ html body main header.site-brand > nav.accessible-nav > details:nth-last-child(2)[open] > .site-nav-more-panel {
+  left:auto !important; right:0 !important;
+ }
+ html body main header.site-brand nav.accessible-nav .site-nav-more-panel a {
+  display:block !important; width:100% !important;
+  padding:.65rem .75rem !important; min-height:0 !important;
+  white-space:normal !important; text-align:left !important;
+  border:0 !important;
+ }
+}

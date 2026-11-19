@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 :root {
   --woodland-ink: #273a38;
   --woodland-leaf: #51694f;
@@ -693,7 +694,7 @@ main#page-top > header.site-brand:is(.brand-authors, .brand-consultancy) > .site
 
 
 /* 2026-11-19: accessible, modern navigation and consistent header alignment. */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
 .site-brand .site-nav {
   font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif !important;
   color: #34313d;

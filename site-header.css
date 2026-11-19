@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=Roboto+Condensed:ital,wght@1,500&display=swap');
 :root {
@@ -1955,5 +1956,26 @@ html body main header.site-brand > .site-mobile-menu-toggle {
  html body main header.site-brand > nav.accessible-nav > a {
   white-space:nowrap !important;
   font-size:clamp(.68rem,1.03vw,.91rem) !important;
+ }
+}
+
+/* Website name: Oswald, consistent on desktop and mobile. */
+html body header.site-brand .site-name,
+html body main header.site-brand .site-name,
+html body main#page-top > header.site-brand .site-name {
+ font-family:'Oswald','Arial Narrow',Arial,sans-serif !important;
+ font-style:normal !important;
+ font-weight:600 !important;
+ text-transform:uppercase !important;
+ letter-spacing:.025em !important;
+ line-height:1.14 !important;
+ max-width:100% !important;
+ white-space:normal !important;
+ overflow-wrap:normal !important;
+}
+@media(max-width:700px){
+ html body header.site-brand .site-name,
+ html body main header.site-brand .site-name {
+  font-size:clamp(1.65rem,7vw,2.7rem) !important;
  }
 }

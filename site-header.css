@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=Roboto+Condensed:ital,wght@1,500&display=swap');
 :root {
   --woodland-ink: #273a38;
   --woodland-leaf: #51694f;
@@ -1035,4 +1035,32 @@ html body main header.site-brand > a.site-name {
   letter-spacing: -.015em !important;
   color: #54377f !important;
   text-transform: none !important;
+}
+
+/* Wordmark-only: licensed Gabriel Sans Cond Medium Italic look-alike. */
+html body header.site-brand > .site-name,
+html body header.site-brand > h1.site-name,
+html body header.site-brand > a.site-name,
+html body main header.site-brand > .site-name,
+html body main header.site-brand > h1.site-name,
+html body main header.site-brand > a.site-name {
+  font-family: "Roboto Condensed", "Arial Narrow", sans-serif !important;
+  font-weight: 500 !important;
+  font-style: italic !important;
+  font-size: clamp(2.2rem, 4.65vw, 3.8rem) !important;
+  letter-spacing: .005em !important;
+  line-height: 1.16 !important;
+  text-transform: none !important;
+  color: #54377f !important;
+  white-space: nowrap !important;
+}
+@media (max-width: 620px) {
+ html body header.site-brand > .site-name,
+ html body header.site-brand > h1.site-name,
+ html body header.site-brand > a.site-name,
+ html body main header.site-brand > .site-name,
+ html body main header.site-brand > h1.site-name,
+ html body main header.site-brand > a.site-name {
+   font-size: clamp(1.35rem, 5.4vw, 2.1rem) !important;
+ }
 }

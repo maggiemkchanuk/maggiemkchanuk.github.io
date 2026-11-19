@@ -2970,3 +2970,47 @@ html body main > section > header > h2::after{
   column-gap:.45rem !important;
  }
 }
+
+/* 2026-11-19 cross-page spacing and mobile stability patch.
+   Preserve a fixed navigation footprint while shared JS replaces legacy links. */
+@media(max-width:700px){
+ html body main header.site-brand{
+  min-height:clamp(10rem,33vw,12rem) !important;
+ }
+ html body main header.site-brand nav.site-nav:not(.accessible-nav){
+  display:none !important;
+ }
+ html body main header.site-brand nav.accessible-nav:not(.mobile-open){
+  display:none !important;
+ }
+ html body main header.site-brand > .site-mobile-menu-toggle{
+  margin-top:.65rem !important;
+ }
+}
+/* Book rows: eliminate inherited blank paragraph margins and keep purchase
+   controls directly under the edition, never separated by long reviews. */
+html body main .book-row > .book-copy > :is(h3,.book-title-row){
+ margin-top:0 !important;
+ margin-bottom:.25rem !important;
+}
+html body main .book-row > .book-copy > :is(.credit,.edition,.book-origin){
+ margin-top:0 !important;
+ margin-bottom:.25rem !important;
+ line-height:1.4 !important;
+}
+html body main .book-row > .book-copy > .affiliate-purchases{
+ margin:.35rem 0 .45rem !important;
+ padding:0 !important;
+ align-self:flex-start !important;
+}
+html body main .book-row > .book-copy > .affiliate-purchases .buy-options{
+ margin:0 !important;
+}
+html body main .book-row > .book-copy > .affiliate-purchases + p{
+ margin-top:.45rem !important;
+}
+/* Creator pages: no phantom blank line between book title and creator credit. */
+html body main .book-row > .book-copy > h3 + .credit,
+html body main .book-row > .book-copy > .book-title-row + .credit{
+ margin-top:0 !important;
+}

@@ -2310,3 +2310,32 @@ html body main header.site-brand nav.site-nav a {
   letter-spacing: 0 !important;
   text-transform: none !important;
 }
+
+/* Mobile navigation repair: consistent Contact typography and compact readable rows. */
+@media (max-width:700px) {
+ html body main header.site-brand > .site-mobile-menu-toggle {
+  font:500 .9rem/1.3 Inter,system-ui,sans-serif !important;
+  letter-spacing:0 !important; text-transform:none !important;
+  background:#394b48 !important; min-height:44px !important;
+ }
+ html body main header.site-brand nav.accessible-nav.mobile-open {
+  padding:.4rem .65rem !important; gap:0 !important;
+ }
+ html body main header.site-brand nav.accessible-nav.mobile-open > a,
+ html body main header.site-brand nav.accessible-nav.mobile-open > details,
+ html body main header.site-brand nav.accessible-nav.mobile-open > details > summary {
+  font:500 .92rem/1.45 Inter,system-ui,sans-serif !important;
+  text-transform:none !important; letter-spacing:0 !important;
+  min-height:44px !important;
+ }
+ html body main header.site-brand nav.accessible-nav.mobile-open > a,
+ html body main header.site-brand nav.accessible-nav.mobile-open > details > summary {
+  display:flex !important; align-items:center !important;
+  padding:.55rem .55rem !important; box-sizing:border-box !important;
+ }
+ html body main header.site-brand nav.accessible-nav.mobile-open .site-nav-more-panel a {
+  font:400 .9rem/1.4 Inter,system-ui,sans-serif !important;
+  text-transform:none !important; letter-spacing:0 !important;
+  min-height:42px !important;
+ }
+}

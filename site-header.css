@@ -2475,3 +2475,18 @@ html body main header.site-brand nav.site-nav summary {
   letter-spacing:0 !important;
  }
 }
+
+/* Keep Authors' fruit illustration inside its banner, including after header compaction. */
+html body main > header.site-brand.brand-authors {position:relative !important;isolation:isolate !important;}
+html body main > header.site-brand.brand-authors::before {
+ top:50% !important;right:0 !important;bottom:auto !important;left:auto !important;
+ width:min(30%,15rem) !important;
+ max-height:calc(100% - 1rem) !important;
+ aspect-ratio:1 !important;
+ transform:translateY(-50%) !important;
+ background-size:300% 100% !important;
+ background-position:0% center !important;
+ background-repeat:no-repeat !important;
+ clip-path:inset(0 0 0 0) !important;
+}
+@media(max-width:700px){html body main > header.site-brand.brand-authors::before {width:min(33%,8rem) !important;opacity:.28 !important;}}

@@ -2821,27 +2821,6 @@ html body main .reading-intro > p{
  }
 }
 
-/* Navigation correction: open desktop dropdowns take up layout space rather than
-   covering the page heading and introductory paragraphs. */
-@media (min-width:701px) {
- html body main header.site-brand nav.accessible-nav:has(> details[open]) {
-  height:auto !important;
-  min-height:38px !important;
-  align-items:flex-start !important;
- }
- html body main header.site-brand nav.accessible-nav > details[open] > .site-nav-more-panel {
-  position:static !important;
-  display:flex !important;
-  flex-direction:column !important;
-  width:max-content !important;
-  max-width:min(22rem,80vw) !important;
-  margin-top:.35rem !important;
-  z-index:auto !important;
- }
- html body main header.site-brand nav.accessible-nav > details[open] {
-  height:auto !important;
- }
-}
 /* Mobile: dropdown options are distinctly smaller and lighter than primary tabs.
    Preserve the two-column option layout and comfortable touch targets. */
 @media (max-width:700px) {
@@ -2892,7 +2871,7 @@ html body main > .profile > p {
  html body main header.site-brand nav.accessible-nav.mobile-open details[open] > .site-nav-more-panel > a{
   display:flex!important;
   align-items:center!important;
-  font-size:.84rem!important;
+  font-size:.78rem!important;
   line-height:1.25!important;
   font-weight:500!important;
   min-height:2.35rem!important;

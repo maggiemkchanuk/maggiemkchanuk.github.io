@@ -129,7 +129,7 @@
   if (header) {
     if (!header.querySelector(':scope > p')) {
       const description = document.createElement('p');
-      description.textContent = 'Children’s literature, literacy and education';
+      description.textContent = 'Children’s literature, literacy and childhood';
       navigation.before(description);
     }
     const bookmark = document.createElement('details');

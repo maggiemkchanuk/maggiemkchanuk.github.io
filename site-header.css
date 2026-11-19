@@ -2730,3 +2730,20 @@ html body main > section > h2 + ul,
 html body main > section > h3 + ul {
  margin-top:.45rem;
 }
+
+/* Dropdown labels are subordinate to top-level tabs on desktop and mobile. */
+@media (min-width:701px) {
+ html body main header.site-brand nav.accessible-nav .site-nav-more-panel a,
+ html body main header.site-brand nav.site-nav-grouped .site-nav-more-panel a {
+  font-size:.76rem !important;
+  letter-spacing:.02em !important;
+ }
+}
+@media (max-width:700px) {
+ html body main header.site-brand nav.accessible-nav.mobile-open .site-nav-more-panel a,
+ html body main header.site-brand nav.accessible-nav.mobile-open details[open] > .site-nav-more-panel > a,
+ html body main header.site-brand nav.site-nav-grouped .site-nav-more-panel a {
+  font-size:.78rem !important;
+  letter-spacing:0 !important;
+ }
+}

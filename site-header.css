@@ -2552,3 +2552,35 @@ html body main header.site-brand nav.accessible-nav .site-nav-more-panel a {
   text-transform:uppercase !important;
  }
 }
+
+/* Mobile menu consistency and compact layout (2026-11-19). */
+@media (max-width:700px) {
+ html body main header.site-brand > button.site-mobile-menu-toggle {
+  display:flex !important;position:static !important;float:none !important;
+  margin:.65rem auto .5rem !important;justify-content:center !important;
+  align-items:center !important;width:fit-content !important;
+  min-width:8.5rem !important;max-width:90% !important;
+ }
+ html body main header.site-brand > nav.accessible-nav.mobile-open {
+  display:flex !important;flex-direction:column !important;
+  padding:.35rem .55rem !important;gap:0 !important;
+  margin:.35rem 0 0 !important;
+ }
+ html body main header.site-brand > nav.accessible-nav.mobile-open > a,
+ html body main header.site-brand > nav.accessible-nav.mobile-open > details,
+ html body main header.site-brand > nav.accessible-nav.mobile-open > details > summary {
+  margin:0 !important;min-height:0 !important;
+  padding:.6rem .65rem !important;
+  line-height:1.4 !important;
+  font-family:Inter,system-ui,sans-serif !important;
+  font-weight:600 !important;font-size:.9rem !important;
+  letter-spacing:.025em !important;text-transform:uppercase !important;
+ }
+ html body main header.site-brand > nav.accessible-nav.mobile-open > details {padding:0 !important;}
+ html body main header.site-brand > nav.accessible-nav.mobile-open > details > summary {display:flex !important;align-items:center !important;}
+ html body main header.site-brand > nav.accessible-nav.mobile-open .site-nav-more-panel a {
+  font-family:Inter,system-ui,sans-serif !important;
+  font-weight:600 !important;font-size:.88rem !important;
+  letter-spacing:.025em !important;text-transform:uppercase !important;
+ }
+}

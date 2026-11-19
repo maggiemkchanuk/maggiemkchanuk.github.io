@@ -760,3 +760,37 @@ body main#page-top > h1 + p {
 body main#page-top > h1 + p {
   font-family: Inter, system-ui, sans-serif !important;
 }
+
+/* Desktop: make the ACTUAL navigation/header span the page, not only the link text.
+   Applies equally to Authors and Consultancy; content typography unchanged. */
+@media (min-width: 800px) {
+  body main#page-top > header.site-brand,
+  body main > header.site-brand,
+  body main#page-top > header.site-brand:is(.brand-authors, .brand-consultancy) {
+    box-sizing: border-box !important;
+    position: relative !important;
+    left: 50% !important;
+    right: auto !important;
+    transform: translateX(-50%) !important;
+    width: calc(100vw - 3rem) !important;
+    max-width: 1600px !important;
+    margin: 0 0 1.65rem !important;
+    padding: 1rem clamp(1.2rem, 2.5vw, 2.5rem) .85rem !important;
+  }
+  body main#page-top > header.site-brand > nav.site-nav,
+  body main > header.site-brand > nav.site-nav,
+  body main#page-top > header.site-brand:is(.brand-authors, .brand-consultancy) > nav.site-nav {
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-flow: row wrap !important;
+    width: 100% !important;
+    max-width: none !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    align-content: flex-start !important;
+    column-gap: 1.2rem !important;
+    row-gap: .55rem !important;
+    margin: .65rem 0 0 !important;
+    padding: .5rem 0 0 !important;
+  }
+}

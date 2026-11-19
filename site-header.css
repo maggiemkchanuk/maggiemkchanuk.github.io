@@ -1064,3 +1064,88 @@ html body main header.site-brand > a.site-name {
    font-size: clamp(1.35rem, 5.4vw, 2.1rem) !important;
  }
 }
+
+/* 2026-11-19 stable typography and NAVIGATION RECOVERY.
+   Inter everywhere in content; medium headlines; only wordmark italic condensed. */
+html body {
+  font-family: "Inter", system-ui, -apple-system, sans-serif !important;
+}
+html body main :is(p,li,dd,dt,blockquote,figcaption,label,summary,td,th),
+html body main :is(p,li,dd,dt,blockquote,figcaption,label,summary,td,th) :is(a,span,strong,b,em,i),
+html body main :is(input,textarea,select,button) {
+  font-family: "Inter", system-ui, sans-serif !important;
+}
+html body main :is(h1,h2,h3,h4,h5,h6),
+html body main :is(h1,h2,h3,h4,h5,h6) :is(a,span,strong,b,em,i) {
+  font-family: "Inter", system-ui, sans-serif !important;
+  font-weight: 500 !important;
+  letter-spacing: normal !important;
+}
+html body main :is(h1,h2,h3,h4,h5,h6) em { font-style: italic !important; }
+html body main#page-top > header.site-brand > .site-name,
+html body main#page-top > header.site-brand > h1.site-name,
+html body main#page-top > header.site-brand > a.site-name,
+html body main > header.site-brand > .site-name {
+  font-family: "Roboto Condensed", "Arial Narrow", sans-serif !important;
+  font-weight: 500 !important;
+  font-style: italic !important;
+  color: #54377f !important;
+  font-size: clamp(2.2rem, 4.65vw, 3.8rem) !important;
+  letter-spacing: .005em !important;
+  text-transform: none !important;
+  white-space: nowrap !important;
+  line-height: 1.16 !important;
+}
+/* Explicitly set all grid tracks: previous styles left grid at a one-column default. */
+html body main#page-top > header.site-brand > nav.site-nav,
+html body main > header.site-brand > nav.site-nav {
+  box-sizing: border-box !important;
+  display: grid !important;
+  grid-template-columns: repeat(6, minmax(0, 1fr)) !important;
+  grid-template-rows: repeat(3, auto) !important;
+  grid-auto-flow: row !important;
+  grid-auto-columns: auto !important;
+  justify-content: stretch !important;
+  justify-items: stretch !important;
+  align-content: start !important;
+  align-items: stretch !important;
+  width: 100% !important;
+  max-width: none !important;
+  gap: .25rem .45rem !important;
+  margin: .65rem 0 0 !important;
+  padding: .55rem 0 0 !important;
+}
+html body main#page-top > header.site-brand > nav.site-nav > a,
+html body main#page-top > header.site-brand > nav.site-nav > a[aria-current="page"],
+html body main > header.site-brand > nav.site-nav > a {
+  box-sizing: border-box !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  margin: 0 !important;
+  padding: .35rem .3rem !important;
+  white-space: normal !important;
+  text-align: center !important;
+  font: 600 clamp(.85rem, 1vw, .99rem)/1.45 "Inter", system-ui, sans-serif !important;
+}
+@media (min-width: 650px) and (max-width: 999px) {
+ html body main#page-top > header.site-brand > nav.site-nav,
+ html body main > header.site-brand > nav.site-nav {
+    grid-template-columns: repeat(4, minmax(0,1fr)) !important;
+    grid-template-rows: none !important;
+ }
+}
+@media (max-width: 649px) {
+ html body main#page-top > header.site-brand > nav.site-nav,
+ html body main > header.site-brand > nav.site-nav {
+    grid-template-columns: repeat(2, minmax(0,1fr)) !important;
+    grid-template-rows: none !important;
+ }
+ html body main#page-top > header.site-brand > .site-name,
+ html body main#page-top > header.site-brand > h1.site-name,
+ html body main#page-top > header.site-brand > a.site-name {
+    font-size: clamp(1.35rem, 5.4vw, 2.1rem) !important;
+ }
+}

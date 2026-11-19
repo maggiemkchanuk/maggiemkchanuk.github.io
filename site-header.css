@@ -1092,13 +1092,6 @@ body header.site-brand > nav.site-nav > a[aria-current="page"] {
   color: #54377f !important;
   white-space: nowrap !important;
 }
-body main :is(h1,h2,h3,h4,h5,h6),
-body main :is(h1,h2,h3,h4,h5,h6) :is(b,strong) {
-  font-family: "Barlow Condensed", "Arial Narrow", sans-serif !important;
-  font-weight: 300 !important;
-  font-style: normal !important;
-  letter-spacing: .015em !important;
-}
 @media (max-width: 620px) {
   body main#page-top > header.site-brand,
   body main > header.site-brand {
@@ -1147,11 +1140,6 @@ body header.site-brand .site-nav > a[aria-current="page"] {
   line-height: 1.42 !important;
   letter-spacing: .015em !important;
 }
-body main :is(h1,h2,h3,h4,h5,h6),
-body main :is(h1,h2,h3,h4,h5,h6) :is(strong,b) {
-  font-family: "Barlow Condensed", "Arial Narrow", sans-serif !important;
-  font-weight: 700 !important;
-}
 body :is(summary, .bookmark-toggle, .bookmark-link, .bookmark-this-site, .bookmark-this-website) {
   font-family: "Barlow Condensed", "Arial Narrow", sans-serif !important;
   font-weight: 500 !important;
@@ -1178,14 +1166,6 @@ body header.site-brand .site-nav > a[aria-current="page"] {
   font-size: 1.3rem !important;
   font-weight: 700 !important;
   line-height: 1.4 !important;
-}
-body main#page-top > h1 + p,
-body main > h1 + p {
-  font-family: "Barlow Condensed", "Arial Narrow", sans-serif !important;
-  font-weight: 400 !important;
-  font-size: clamp(1.25rem, 1.7vw, 1.5rem) !important;
-  line-height: 1.45 !important;
-  letter-spacing: .012em !important;
 }
 @media (max-width: 620px) {
   body main#page-top > header.site-brand,

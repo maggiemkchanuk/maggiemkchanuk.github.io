@@ -690,3 +690,43 @@ main#page-top > header.site-brand:is(.brand-authors, .brand-consultancy) > .site
   padding:.5rem 0 0!important;
   text-align:left!important;
 }
+
+
+/* 2026-11-19: accessible, modern navigation and consistent header alignment. */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+.site-brand .site-nav {
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif !important;
+  color: #34313d;
+}
+.site-brand .site-nav > a,
+.site-brand .site-nav > a[aria-current="page"] {
+  color: #34313d !important;
+}
+.site-brand .site-nav > a:hover,
+.site-brand .site-nav > a[aria-current="page"] {
+  color: #54377f !important;
+  text-decoration-color: #54377f;
+}
+.site-brand .site-nav > a:focus-visible {
+  outline: 3px solid #54377f;
+  outline-offset: 4px;
+}
+.site-brand .site-name,
+.site-brand h1.site-name,
+.site-brand a.site-name {
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif !important;
+  font-style: normal !important;
+  font-weight: 800 !important;
+  letter-spacing: -.035em;
+}
+/* Authors and Consultancy had extra header geometry overrides.
+   Use the same brand positioning and navigation baseline as other pages. */
+main#page-top > header.site-brand:is(.brand-authors, .brand-consultancy) {
+  width: auto !important;
+  margin: 0 clamp(-2rem, -4vw, -.65rem) 1.65rem !important;
+  padding: 1rem 1.15rem .85rem !important;
+}
+main#page-top > header.site-brand:is(.brand-authors, .brand-consultancy) > .site-nav {
+  margin: .65rem 0 0 !important;
+  padding: .5rem 0 0 !important;
+}

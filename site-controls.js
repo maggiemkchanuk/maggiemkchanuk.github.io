@@ -47,7 +47,6 @@
     ]);
     const books = group('Book Resources', [
       ['reading-lists.html', 'Picturebook Reading List'],
-      ['saved-books.html', 'Visitors’ Saved Books'],
       ['authors.html', 'Authors'],
       ['illustrators.html', 'Illustrators'],
       ['book-awards.html', 'Book Awards']
@@ -63,7 +62,7 @@
       ['educational-resources.html', 'Others']
     ]);
     navigation.replaceChildren(homeMenu, books, academic, education,
-      makeLink('contact.html', 'Contact'));
+      makeLink('saved-books.html', 'Save Your Books'), makeLink('contact.html', 'Contact'));
     navigation.classList.remove('site-nav', 'site-nav-compact', 'site-nav-grouped');
     navigation.classList.add('accessible-nav');
     // Mobile-only disclosure: one MENU button reveals the full navigation.

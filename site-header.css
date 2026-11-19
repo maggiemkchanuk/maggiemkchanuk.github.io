@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=Roboto+Condensed:ital,wght@1,500&display=swap');
 :root {
@@ -2004,3 +2004,88 @@ html body main#page-top > header.site-brand .site-name {
 
 /* Five top-level navigation categories after grouping About within Home. */
 @media(min-width:701px){html body main header.site-brand > nav.accessible-nav{grid-template-columns:repeat(5,max-content) !important;}}
+
+/* Unified editorial identity — exact selector specificity overrides legacy wordmark rules. */
+html body main#page-top > header.site-brand > .site-name,
+html body main#page-top > header.site-brand > h1.site-name,
+html body main#page-top > header.site-brand > a.site-name,
+html body main > header.site-brand > .site-name,
+html body main > header.site-brand > h1.site-name,
+html body main > header.site-brand > a.site-name {
+ font-family:"Oswald","Arial Narrow",Arial,sans-serif !important;
+ font-weight:400 !important;
+ font-style:italic !important;
+ text-transform:none !important;
+ letter-spacing:.008em !important;
+ line-height:1.2 !important;
+ color:#37444a !important;
+ white-space:normal !important;
+ font-size:clamp(2rem,4vw,3.2rem) !important;
+}
+html body main > .site-actions {
+ display:flex !important;
+ align-items:center !important;
+ gap:.5rem 1rem !important;
+}
+html body main > .site-actions > .site-bookmark,
+html body main > .site-actions > .share-site {
+ font-family:Inter,Arial,sans-serif !important;
+ font-size:.875rem !important;
+ color:#37444a !important;
+}
+html body main > .site-actions > .site-bookmark > summary,
+html body main > .site-actions .share-label {
+ font:500 .875rem/1.4 Inter,Arial,sans-serif !important;
+ color:#37444a !important;
+ text-decoration:none !important;
+ letter-spacing:0 !important;
+}
+html body main > .site-actions > .site-bookmark > summary:hover,
+html body main > .site-actions > .site-bookmark > summary:focus-visible {
+ text-decoration:underline !important;
+}
+@media(max-width:700px) {
+ html body main#page-top > header.site-brand > .site-name,
+ html body main#page-top > header.site-brand > h1.site-name,
+ html body main > header.site-brand > .site-name,
+ html body main > header.site-brand > h1.site-name {
+  font-size:clamp(1.65rem,6.1vw,2.35rem) !important;
+ }
+ html body main > .site-actions {
+  display:flex !important;
+  flex-direction:column !important;
+  align-items:stretch !important;
+  gap:.3rem !important;
+ }
+ html body main > .site-actions > .site-bookmark {
+  width:100% !important;
+  margin:0 !important;
+ }
+ html body main > .site-actions > .share-site {
+  display:flex !important;
+  flex-wrap:nowrap !important;
+  align-items:center !important;
+  justify-content:flex-start !important;
+  width:100% !important;
+  gap:4px !important;
+  margin:0 !important;
+ }
+ html body main > .site-actions .share-label {
+  flex:0 0 auto !important;
+  margin-right:5px !important;
+  white-space:nowrap !important;
+  font-size:clamp(.72rem,3.4vw,.875rem) !important;
+ }
+ html body main > .site-actions .share-button {
+  flex:0 0 44px !important;
+  width:44px !important;
+  min-width:44px !important;
+  min-height:44px !important;
+  box-sizing:border-box !important;
+ }
+ html body main > .site-actions #share-status:not(:empty) {
+  position:absolute !important;
+  margin-top:3rem !important;
+  background:#fffefa !important;
+ }
+}

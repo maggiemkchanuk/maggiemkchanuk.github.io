@@ -1107,3 +1107,22 @@ body main :is(h1,h2,h3,h4,h5,h6) :is(b,strong) {
     padding: 1rem !important;
   }
 }
+
+
+/* 2026-11-19: larger, stronger condensed header lettering requested by owner. */
+body header.site-brand .site-name,
+body header.site-brand h1.site-name,
+body header.site-brand a.site-name {
+  font-size: clamp(2.25rem, 4.5vw, 3rem) !important;
+  font-weight: 500 !important;
+  line-height: 1.08 !important;
+}
+body header.site-brand > nav.site-nav {
+  font-size: 1.12rem !important;
+  font-weight: 500 !important;
+  line-height: 1.42 !important;
+}
+body header.site-brand > nav.site-nav > a,
+body header.site-brand > nav.site-nav > a[aria-current="page"] {
+  font-weight: 500 !important;
+}

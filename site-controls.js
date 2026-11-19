@@ -39,7 +39,8 @@
       });
       return details;
     };
-    const about = group('About', [
+    const homeMenu = group('Home', [
+      ['./#about', 'About'],
       ['./#publications', 'Publications'],
       ['./#presentations', 'Presentations'],
       ['consultancy.html', 'Consultancy']
@@ -61,7 +62,7 @@
       ['reading-tools.html', 'Reading Tools'],
       ['educational-resources.html', 'Others']
     ]);
-    navigation.replaceChildren(makeLink('./', 'Home'), about, books, academic, education,
+    navigation.replaceChildren(homeMenu, books, academic, education,
       makeLink('contact.html', 'Contact'));
     navigation.classList.remove('site-nav', 'site-nav-compact', 'site-nav-grouped');
     navigation.classList.add('accessible-nav');
@@ -80,7 +81,7 @@
       mobileToggle.setAttribute('aria-label', 'Open navigation menu');
       mobileToggle.textContent = '☰ MENU';
       navigation.classList.remove('mobile-open');
-      for (const details of [about, books, academic, education]) details.open = false;
+      for (const details of [homeMenu, books, academic, education]) details.open = false;
     };
     mobileToggle.addEventListener('click', () => {
       if (navigation.classList.contains('mobile-open')) closeMobile();
@@ -100,13 +101,13 @@
       if (window.matchMedia('(max-width: 700px)').matches) closeMobile();
     }));
     document.addEventListener('click', event => {
-      for (const details of [about, books, academic, education]) {
+      for (const details of [homeMenu, books, academic, education]) {
         if (!details.contains(event.target)) details.open = false;
       }
     });
-    for (const details of [about, books, academic, education]) {
+    for (const details of [homeMenu, books, academic, education]) {
       details.addEventListener('toggle', () => {
-        if (details.open) for (const other of [about, books, academic, education]) {
+        if (details.open) for (const other of [homeMenu, books, academic, education]) {
           if (other !== details) other.open = false;
         }
       });

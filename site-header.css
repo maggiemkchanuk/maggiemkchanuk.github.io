@@ -1302,3 +1302,54 @@ html body main header.site-brand .site-nav-more-panel a[aria-current="page"] {
   html body main header.site-brand .site-nav-more {margin-left:auto}
   html body main header.site-brand .site-nav-more-panel {right:0}
 }
+
+
+/* Five top-level sections; compact on phones and desktops. */
+html body main header.site-brand > nav.site-nav.site-nav-grouped {
+  display:flex !important;
+  flex-wrap:wrap !important;
+  justify-content:flex-start !important;
+  align-items:center !important;
+  gap:.35rem 1.1rem !important;
+}
+html body main header.site-brand > nav.site-nav.site-nav-grouped > a,
+html body main header.site-brand > nav.site-nav.site-nav-grouped > details {
+  display:inline-flex !important;
+  width:auto !important;
+  flex:0 0 auto !important;
+  align-items:center !important;
+  font:600 .94rem/1.35 Inter,system-ui,sans-serif !important;
+}
+html body main header.site-brand > nav.site-nav.site-nav-grouped > details {
+  position:relative !important;
+}
+html body main header.site-brand > nav.site-nav.site-nav-grouped > details > summary {
+  min-height:42px;
+}
+html body main header.site-brand > nav.site-nav.site-nav-grouped .site-nav-more-panel {
+  top:calc(100% + .3rem);
+}
+@media(max-width:700px) {
+  html body main header.site-brand > nav.site-nav.site-nav-grouped > a,
+  html body main header.site-brand > nav.site-nav.site-nav-grouped > details {
+    display:inline-flex !important;
+  }
+  html body main header.site-brand > nav.site-nav.site-nav-grouped {
+    gap:.25rem .65rem !important;
+  }
+  html body main header.site-brand > nav.site-nav.site-nav-grouped > a {
+    font-size:.88rem !important;
+  }
+  html body main header.site-brand > nav.site-nav.site-nav-grouped > details > summary {
+    padding:.3rem .45rem !important;
+  }
+  html body main header.site-brand > nav.site-nav.site-nav-grouped .site-nav-more-panel {
+    position:fixed !important;
+    left:1rem !important;
+    right:1rem !important;
+    top:auto !important;
+    width:auto !important;
+    max-height:55vh !important;
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  }
+}

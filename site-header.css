@@ -627,3 +627,31 @@ main > section li.book-row:not(:has(> .book-jacket)):not(.book-row--text) > .boo
   min-width:0;
 }
 main > section li.book-row > .book-copy { min-width:0; overflow-wrap:break-word; }
+
+/* Consistent bold, left-aligned navigation on every page.
+   Same weight for active/inactive links prevents Safari shifting Authors/Consultancy. */
+.site-brand .site-nav {
+  display:flex!important;
+  flex-wrap:wrap!important;
+  justify-content:flex-start!important;
+  align-items:center!important;
+  align-content:flex-start!important;
+  column-gap:.56rem!important;
+  row-gap:.3rem!important;
+  margin:.65rem 0 0!important;
+  padding-top:.5rem!important;
+  width:100%!important;
+  font:700 .84rem/1.4 system-ui,sans-serif!important;
+}
+.site-brand .site-nav > a,
+.site-brand .site-nav > a[aria-current="page"] {
+  display:inline-block!important;
+  flex:0 0 auto!important;
+  width:auto!important;
+  margin:0!important;
+  padding:0!important;
+  font-size:inherit!important;
+  font-weight:700!important;
+  line-height:inherit!important;
+  white-space:nowrap!important;
+}

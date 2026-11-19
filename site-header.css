@@ -2717,10 +2717,11 @@ html body main#page-top > header.site-brand > a.site-name {
  font-family: Georgia, "Times New Roman", serif !important;
  font-style: italic !important;
  font-weight: 700 !important;
- letter-spacing: .005em !important;
+ letter-spacing: .012em !important;
  line-height: 1.18 !important;
  text-shadow: none !important;
- -webkit-text-stroke: 0 !important;
+ /* Preserve Georgia Bold Italic while strengthening delicate strokes. */
+ -webkit-text-stroke: .25px currentColor !important;
 }
 
 /* Keep the rightmost desktop dropdown within the viewport on narrow laptops. */

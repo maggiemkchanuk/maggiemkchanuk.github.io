@@ -844,3 +844,20 @@ html body header.site-brand > a.site-name {
     letter-spacing: .005em !important;
   }
 }
+
+/* Larger, bolder Cambridge-inspired wordmark; retain a single line. */
+html body header.site-brand > .site-name,
+html body header.site-brand > h1.site-name,
+html body header.site-brand > a.site-name {
+  font-weight: 700 !important;
+  font-size: clamp(1.55rem, 4.2vw, 3.65rem) !important;
+  letter-spacing: .012em !important;
+}
+@media (max-width: 620px) {
+  html body header.site-brand > .site-name,
+  html body header.site-brand > h1.site-name,
+  html body header.site-brand > a.site-name {
+    font-size: clamp(1rem, 4.45vw, 1.75rem) !important;
+    letter-spacing: 0 !important;
+  }
+}

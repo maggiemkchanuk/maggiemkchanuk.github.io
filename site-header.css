@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500;6..96,600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=Roboto+Condensed:ital,wght@1,500&display=swap');
@@ -2218,47 +2219,6 @@ html body main > .site-actions > .site-bookmark > summary:focus-visible {
  }
 }
 
-/* Custom user-approved artwork (not a substitute font). Keep real text for assistive tech. */
-html body main#page-top > header.site-brand > .site-name,
-html body main#page-top > header.site-brand > h1.site-name,
-html body main > header.site-brand > .site-name,
-html body main > header.site-brand > h1.site-name {
- position:relative !important;
- display:block !important;
- width:min(100%,540px) !important;
- height:clamp(60px,8vw,92px) !important;
- margin-bottom:.35rem !important;
- overflow:hidden !important;
- color:transparent !important;
- font-size:1px !important;
- line-height:1 !important;
- text-shadow:none !important;
-}
-html body main#page-top > header.site-brand > .site-name::before,
-html body main#page-top > header.site-brand > h1.site-name::before,
-html body main > header.site-brand > .site-name::before,
-html body main > header.site-brand > h1.site-name::before {
- content:"" !important;
- position:absolute !important;
- inset:0 !important;
- display:block !important;
- background-image:url("site-wordmark.png") !important;
- background-repeat:no-repeat !important;
- background-size:100% auto !important;
- background-position:center center !important;
- mix-blend-mode:multiply !important;
- pointer-events:none !important;
-}
-@media(max-width:700px){
- html body main#page-top > header.site-brand > .site-name,
- html body main#page-top > header.site-brand > h1.site-name,
- html body main > header.site-brand > .site-name,
- html body main > header.site-brand > h1.site-name {
-  width:min(100%,420px) !important;
-  height:clamp(48px,12vw,74px) !important;
- }
-}
-
 /* Compact desktop navigation: keep five categories together, never distribute across full width. */
 @media(min-width:701px){
  html body main header.site-brand > nav.accessible-nav,
@@ -2395,4 +2355,44 @@ html body main header.site-brand nav.site-nav a {
   padding:.3rem .4rem !important;
   line-height:1.3 !important;
  }
+}
+
+/* 2026-11-19: render the name as real text; no overlaid wordmark or legacy ghost image. */
+html body main header.site-brand .site-name,
+html body main#page-top > header.site-brand > .site-name,
+html body main#page-top > header.site-brand > h1.site-name,
+html body main#page-top > header.site-brand > a.site-name {
+ font-family:"Bodoni Moda", Georgia, serif !important;
+ font-weight:600 !important;
+ font-style:normal !important;
+ font-size:clamp(1.8rem,4vw,3rem) !important;
+ line-height:1.2 !important;
+ letter-spacing:-.035em !important;
+ text-transform:none !important;
+ color:#171514 !important;
+ text-shadow:none !important;
+ background:none !important;
+ display:block !important;
+ width:auto !important;
+ max-width:100% !important;
+ height:auto !important;
+ min-height:0 !important;
+ overflow:visible !important;
+ white-space:normal !important;
+ margin:0 0 .25rem !important;
+}
+html body main header.site-brand .site-name::before,
+html body main header.site-brand .site-name::after {content:none !important;display:none !important;background:none !important;}
+@media(max-width:700px){
+ html body main header.site-brand .site-name {font-size:clamp(1.55rem,6vw,2.4rem) !important;}
+}
+/* Match all main categories and submenu entries to the Contact / Save to My List font. */
+html body main header.site-brand nav.accessible-nav > a,
+html body main header.site-brand nav.accessible-nav > details > summary,
+html body main header.site-brand nav.accessible-nav .site-nav-more-panel a {
+ font-family:Inter,system-ui,sans-serif !important;
+ font-weight:500 !important;
+ font-style:normal !important;
+ letter-spacing:0 !important;
+ text-transform:none !important;
 }

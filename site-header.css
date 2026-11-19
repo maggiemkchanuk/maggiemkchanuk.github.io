@@ -2217,3 +2217,44 @@ html body main > .site-actions > .site-bookmark > summary:focus-visible {
   border:0 !important;
  }
 }
+
+/* Custom user-approved artwork (not a substitute font). Keep real text for assistive tech. */
+html body main#page-top > header.site-brand > .site-name,
+html body main#page-top > header.site-brand > h1.site-name,
+html body main > header.site-brand > .site-name,
+html body main > header.site-brand > h1.site-name {
+ position:relative !important;
+ display:block !important;
+ width:min(100%,540px) !important;
+ height:clamp(60px,8vw,92px) !important;
+ margin-bottom:.35rem !important;
+ overflow:hidden !important;
+ color:transparent !important;
+ font-size:1px !important;
+ line-height:1 !important;
+ text-shadow:none !important;
+}
+html body main#page-top > header.site-brand > .site-name::before,
+html body main#page-top > header.site-brand > h1.site-name::before,
+html body main > header.site-brand > .site-name::before,
+html body main > header.site-brand > h1.site-name::before {
+ content:"" !important;
+ position:absolute !important;
+ inset:0 !important;
+ display:block !important;
+ background-image:url("site-wordmark.png") !important;
+ background-repeat:no-repeat !important;
+ background-size:100% auto !important;
+ background-position:center center !important;
+ mix-blend-mode:multiply !important;
+ pointer-events:none !important;
+}
+@media(max-width:700px){
+ html body main#page-top > header.site-brand > .site-name,
+ html body main#page-top > header.site-brand > h1.site-name,
+ html body main > header.site-brand > .site-name,
+ html body main > header.site-brand > h1.site-name {
+  width:min(100%,420px) !important;
+  height:clamp(48px,12vw,74px) !important;
+ }
+}

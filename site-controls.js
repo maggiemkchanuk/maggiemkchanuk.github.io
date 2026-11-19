@@ -40,7 +40,7 @@
       return details;
     };
     const about = group('About', [
-      ['./#about', 'About me'],
+      ['./#about', 'About'],
       ['./#publications', 'Publications'],
       ['./#presentations', 'Presentations'],
       ['consultancy.html', 'Consultancy']

@@ -48,30 +48,32 @@
     const books = group('Book Resources', [
       ['reading-lists.html', 'Picturebook Reading List'],
       ['saved-books.html', 'Visitors’ Saved Books'],
-      ['reading-tools.html', 'Reading Tools'],
       ['authors.html', 'Authors'],
       ['illustrators.html', 'Illustrators'],
-      ['book-awards.html', 'Book Awards'],
-      ['academic-books.html', 'Academic Books']
+      ['book-awards.html', 'Book Awards']
     ]);
     const academic = group('Academic Resources', [
-      ['educational-resources.html', 'Educational Resources'],
+      ['academic-books.html', 'Academic Books'],
       ['professional-bodies.html', 'Professional Bodies'],
       ['journals.html', 'Journals'],
       ['conferences.html', 'Conferences']
     ]);
-    navigation.replaceChildren(makeLink('./', 'Home'), about, books, academic,
+    const education = group('Educational Resources', [
+      ['educational-resources.html', 'Educational Resources Overview'],
+      ['reading-tools.html', 'Reading Tools']
+    ]);
+    navigation.replaceChildren(makeLink('./', 'Home'), about, books, academic, education,
       makeLink('contact.html', 'Contact'));
     navigation.classList.remove('site-nav', 'site-nav-compact', 'site-nav-grouped');
     navigation.classList.add('accessible-nav');
     document.addEventListener('click', event => {
-      for (const details of [about, books, academic]) {
+      for (const details of [about, books, academic, education]) {
         if (!details.contains(event.target)) details.open = false;
       }
     });
-    for (const details of [about, books, academic]) {
+    for (const details of [about, books, academic, education]) {
       details.addEventListener('toggle', () => {
-        if (details.open) for (const other of [about, books, academic]) {
+        if (details.open) for (const other of [about, books, academic, education]) {
           if (other !== details) other.open = false;
         }
       });

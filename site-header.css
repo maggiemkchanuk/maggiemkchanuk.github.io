@@ -2285,3 +2285,14 @@ html body main > header.site-brand > h1.site-name::before {
   white-space:nowrap !important;
  }
 }
+
+/* Shared page-title typography: match the Save Your Books and Contact headings. */
+html body main > header:not(.site-brand) > h1,
+html body main > header:not(.site-brand) h1,
+html body main > h1 {
+  font-family: Georgia, serif !important;
+  font-style: normal !important;
+  font-weight: 400 !important;
+  letter-spacing: -.02em !important;
+  line-height: 1.18 !important;
+}

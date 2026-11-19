@@ -2820,3 +2820,43 @@ html body main .reading-intro > p{
   margin-bottom:.65rem;
  }
 }
+
+/* Navigation correction: open desktop dropdowns take up layout space rather than
+   covering the page heading and introductory paragraphs. */
+@media (min-width:701px) {
+ html body main header.site-brand nav.accessible-nav:has(> details[open]) {
+  height:auto !important;
+  min-height:38px !important;
+  align-items:flex-start !important;
+ }
+ html body main header.site-brand nav.accessible-nav > details[open] > .site-nav-more-panel {
+  position:static !important;
+  display:flex !important;
+  flex-direction:column !important;
+  width:max-content !important;
+  max-width:min(22rem,80vw) !important;
+  margin-top:.35rem !important;
+  z-index:auto !important;
+ }
+ html body main header.site-brand nav.accessible-nav > details[open] {
+  height:auto !important;
+ }
+}
+/* Mobile: dropdown options are distinctly smaller and lighter than primary tabs.
+   Preserve the two-column option layout and comfortable touch targets. */
+@media (max-width:700px) {
+ html body main header.site-brand nav.accessible-nav.mobile-open > details[open] > .site-nav-more-panel > a,
+ html body main header.site-brand nav.accessible-nav.mobile-open details[open] > .site-nav-more-panel a {
+  font-size:.74rem !important;
+  font-weight:500 !important;
+  line-height:1.35 !important;
+  letter-spacing:0 !important;
+  text-transform:none !important;
+ }
+}
+/* Match the homepage's readable 1.5 line-height for general page prose. */
+html body main > p:not(.site-disclosure):not(.disclosure),
+html body main > section > p:not(.credit):not(.edition),
+html body main > .profile > p {
+ line-height:1.5;
+}

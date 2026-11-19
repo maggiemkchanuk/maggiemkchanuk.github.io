@@ -1,6 +1,14 @@
 <!doctype html>
 <html lang="en-GB">
-<head><style id="nav-prepaint-unified">html body main header.site-brand nav.site-nav:not(.accessible-nav){display:none!important;visibility:hidden!important}html body main header.site-brand nav.accessible-nav{visibility:visible!important}</style>
+<head><style id="nav-prepaint-unified">html body main header.site-brand nav.site-nav:not(.accessible-nav){display:none!important;visibility:hidden!important}html body main header.site-brand nav.accessible-nav{visibility:visible!important}
+/* Historic illustration sits beside the introduction without affecting the saved-list controls. */
+.saved-books-page .saved-books-intro{display:grid;grid-template-columns:minmax(0,1fr) minmax(10rem,13.5rem);gap:1.5rem;align-items:start}
+.saved-books-page .saved-books-art{margin:0;text-align:center}
+.saved-books-page .saved-books-art img{display:block;width:100%;height:auto;max-height:18rem;object-fit:contain;border-radius:.75rem;box-shadow:0 5px 18px rgba(24,53,42,.1)}
+.saved-books-page .saved-books-art figcaption{margin-top:.4rem;font-size:.73rem;line-height:1.4;color:#42594f}
+.saved-books-page .saved-books-art figcaption a{color:inherit}
+@media(max-width:600px){.saved-books-page .saved-books-intro{grid-template-columns:1fr;gap:.85rem}.saved-books-page .saved-books-art{width:min(12rem,58vw);margin:0 auto}}
+</style>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Save to My List | Maggie M. K. Chan</title>
@@ -47,7 +55,7 @@
 <header><h1>Save to My List</h1></header>
 <section id="visitor-saved-books" aria-label="Saved book list">
 <p class="saved-book-attribution" hidden>Maggie M. K. Chan · <a href="https://maggiemkchanuk.github.io/">https://maggiemkchanuk.github.io/</a></p>
-<p class="saved-book-help">Select the heart beside a book title to save it here. Each saved entry shows the author, publication details and a short description when available. Where an illustrator is credited, their name is also included. Missing information is clearly marked. Your list is stored in this browser.</p>
+<div class="saved-books-intro"><p class="saved-book-help">Select the heart beside a book title to save it here. Each saved entry shows the author, publication details and a short description when available. Where an illustrator is credited, their name is also included. Missing information is clearly marked. Your list is stored in this browser.</p><figure class="saved-books-art"><img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Secret%20Garden-Kirk-173.jpg?width=420" alt="Historic illustration from The Secret Garden, illustrated by Maria Louise Kirk" width="420" height="630" loading="lazy" decoding="async"><figcaption><em>The Secret Garden</em> (1911), M. L. Kirk · <a href="https://commons.wikimedia.org/wiki/File:Secret_Garden-Kirk-173.jpg" target="_blank" rel="noopener">Image source</a></figcaption></figure></div>
 <div class="saved-books-actions">
 <button id="download-saved-books" type="button" disabled>Download book list</button>
 <button id="print-saved-books" type="button" disabled>Print / Save as PDF</button>

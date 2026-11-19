@@ -2584,3 +2584,17 @@ html body main header.site-brand nav.accessible-nav .site-nav-more-panel a {
   letter-spacing:.025em !important;text-transform:uppercase !important;
  }
 }
+
+/* Unified tab ink: match the existing Contact navigation label. */
+html body main header.site-brand nav.accessible-nav > a,
+html body main header.site-brand nav.accessible-nav > details > summary,
+html body main header.site-brand nav.accessible-nav .site-nav-more-panel a,
+html body main header.site-brand nav.site-nav-grouped > a,
+html body main header.site-brand nav.site-nav-grouped > details > summary,
+html body main header.site-brand nav.site-nav-grouped .site-nav-more-panel a {
+ color:#4d555a !important;
+}
+html body main header.site-brand nav.accessible-nav a:hover,
+html body main header.site-brand nav.accessible-nav summary:hover,
+html body main header.site-brand nav.site-nav-grouped a:hover,
+html body main header.site-brand nav.site-nav-grouped summary:hover {color:#37444a !important;}

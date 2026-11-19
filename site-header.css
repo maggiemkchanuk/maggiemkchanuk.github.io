@@ -2860,3 +2860,45 @@ html body main > section > p:not(.credit):not(.edition),
 html body main > .profile > p {
  line-height:1.5;
 }
+
+/* 2026-11-19: compact mobile navigation, without enormous item spacing. */
+@media(max-width:700px){
+ html body main header.site-brand nav.accessible-nav.mobile-open{
+  padding:.3rem .45rem!important;
+  margin:.3rem 0 0!important;
+  gap:0!important;
+ }
+ html body main header.site-brand nav.accessible-nav.mobile-open > details{
+  margin:0!important;padding:0!important;
+ }
+ html body main header.site-brand nav.accessible-nav.mobile-open > details > summary,
+ html body main header.site-brand nav.accessible-nav.mobile-open > a{
+  font-size:.86rem!important;
+  line-height:1.25!important;
+  min-height:2.35rem!important;
+  padding:.38rem .45rem!important;
+  margin:0!important;
+ }
+ html body main header.site-brand nav.accessible-nav.mobile-open details[open] > .site-nav-more-panel{
+  position:static!important;
+  display:grid!important;
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  gap:0 .35rem!important;
+  padding:.2rem .35rem!important;
+  margin:.1rem 0 .3rem!important;
+  width:100%!important;max-width:100%!important;
+  min-height:0!important;
+ }
+ html body main header.site-brand nav.accessible-nav.mobile-open details[open] > .site-nav-more-panel > a{
+  display:flex!important;
+  align-items:center!important;
+  font-size:.84rem!important;
+  line-height:1.25!important;
+  font-weight:500!important;
+  min-height:2.35rem!important;
+  padding:.32rem .4rem!important;
+  margin:0!important;
+  overflow-wrap:normal!important;
+  word-break:normal!important;
+ }
+}

@@ -12,6 +12,40 @@
     readingList.after(savedLink);
   }
 
+
+  // Compact accessible navigation: preserve every existing destination.
+  if (navigation && !navigation.querySelector('.site-nav-more')) {
+    const links = [...navigation.querySelectorAll(':scope > a')];
+    const primaryHrefs = new Set(['./','./#about','./#publications','reading-lists.html','consultancy.html','contact.html']);
+    const more = document.createElement('details');
+    more.className = 'site-nav-more';
+    const summary = document.createElement('summary');
+    summary.textContent = 'Explore more';
+    const panel = document.createElement('div');
+    panel.className = 'site-nav-more-panel';
+    panel.setAttribute('aria-label', 'More website pages');
+    links.forEach(link => {
+      const copy = link.cloneNode(true);
+      panel.append(copy);
+      if (!primaryHrefs.has(link.getAttribute('href'))) link.remove();
+    });
+    more.append(summary, panel);
+    navigation.append(more);
+    const close = event => {
+      if (!more.contains(event.target)) more.open = false;
+    };
+    document.addEventListener('click', close);
+    more.addEventListener('keydown', event => {
+      if (event.key === 'Escape') {
+        more.open = false;
+        summary.focus();
+      }
+    });
+    const current = panel.querySelector('[aria-current="page"]');
+    if (current) summary.textContent = 'Explore more · ' + current.textContent;
+    navigation.classList.add('site-nav-compact');
+  }
+
   const header = navigation?.closest('.site-brand');
   if (header) {
     if (!header.querySelector(':scope > p')) {

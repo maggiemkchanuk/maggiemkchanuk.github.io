@@ -2961,3 +2961,24 @@ html body main > section > header > h2::after{
 @media(prefers-reduced-transparency:reduce){
  html body main > header.site-brand{background-image:none !important}
 }
+
+/* 2026-11-19: distinguish the five primary navigation groups.
+   Spacing applies to real tabs, not the decorative header illustration. */
+@media(min-width:701px){
+ html body main header.site-brand nav.accessible-nav,
+ html body main header.site-brand nav.site-nav-grouped{
+  column-gap:clamp(.85rem,1.8vw,1.65rem) !important;
+  row-gap:.45rem !important;
+ }
+ html body main header.site-brand nav.accessible-nav > a,
+ html body main header.site-brand nav.accessible-nav > details,
+ html body main header.site-brand nav.site-nav-grouped > a,
+ html body main header.site-brand nav.site-nav-grouped > details{
+  margin-inline:0 !important;
+ }
+}
+@media(max-width:700px){
+ html body main header.site-brand nav.accessible-nav.mobile-open{
+  column-gap:.45rem !important;
+ }
+}

@@ -62,7 +62,8 @@
     ]);
     navigation.replaceChildren(makeLink('./', 'Home'), about, books, academic,
       makeLink('contact.html', 'Contact'));
-    navigation.classList.add('site-nav-compact', 'site-nav-grouped');
+    navigation.classList.remove('site-nav', 'site-nav-compact', 'site-nav-grouped');
+    navigation.classList.add('accessible-nav');
     document.addEventListener('click', event => {
       for (const details of [about, books, academic]) {
         if (!details.contains(event.target)) details.open = false;

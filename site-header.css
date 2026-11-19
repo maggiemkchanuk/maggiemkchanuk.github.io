@@ -2666,3 +2666,23 @@ html body main > header.site-brand::after {
  html body main header.site-brand nav.accessible-nav.mobile-open {max-width:100% !important;box-sizing:border-box !important;}
  html body main header.site-brand nav.accessible-nav.mobile-open details {min-width:0 !important;max-width:100% !important;}
 }
+
+/* Prevent header reflow while deferred JS replaces the legacy navigation.
+   Reserve exactly one desktop navigation row before the accessible menu is built. */
+@media(min-width:701px){
+ html body main header.site-brand nav.site-nav:not(.accessible-nav){
+  display:block !important;
+  visibility:hidden !important;
+  height:38px !important;
+  min-height:38px !important;
+  max-height:38px !important;
+  overflow:hidden !important;
+  padding:0 !important;
+  margin:.2rem 0 0 !important;
+  border:0 !important;
+ }
+ html body main header.site-brand nav.accessible-nav{
+  min-height:38px !important;
+  box-sizing:border-box !important;
+ }
+}

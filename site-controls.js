@@ -66,6 +66,40 @@
       makeLink('contact.html', 'Contact'));
     navigation.classList.remove('site-nav', 'site-nav-compact', 'site-nav-grouped');
     navigation.classList.add('accessible-nav');
+    // Mobile-only disclosure: one MENU button reveals the full navigation.
+    const mobileToggle = document.createElement('button');
+    mobileToggle.type = 'button';
+    mobileToggle.className = 'site-mobile-menu-toggle';
+    mobileToggle.setAttribute('aria-expanded', 'false');
+    mobileToggle.setAttribute('aria-controls', 'site-mobile-navigation');
+    mobileToggle.setAttribute('aria-label', 'Open navigation menu');
+    mobileToggle.textContent = '☰ MENU';
+    navigation.id = 'site-mobile-navigation';
+    navigation.before(mobileToggle);
+    const closeMobile = () => {
+      mobileToggle.setAttribute('aria-expanded', 'false');
+      mobileToggle.setAttribute('aria-label', 'Open navigation menu');
+      mobileToggle.textContent = '☰ MENU';
+      navigation.classList.remove('mobile-open');
+      for (const details of [about, books, academic, education]) details.open = false;
+    };
+    mobileToggle.addEventListener('click', () => {
+      if (navigation.classList.contains('mobile-open')) closeMobile();
+      else {
+        navigation.classList.add('mobile-open');
+        mobileToggle.setAttribute('aria-expanded', 'true');
+        mobileToggle.setAttribute('aria-label', 'Close navigation menu');
+        mobileToggle.textContent = '× MENU';
+      }
+    });
+    navigation.addEventListener('keydown', event => {
+      if (event.key === 'Escape' && navigation.classList.contains('mobile-open')) {
+        closeMobile(); mobileToggle.focus();
+      }
+    });
+    navigation.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      if (window.matchMedia('(max-width: 700px)').matches) closeMobile();
+    }));
     document.addEventListener('click', event => {
       for (const details of [about, books, academic, education]) {
         if (!details.contains(event.target)) details.open = false;

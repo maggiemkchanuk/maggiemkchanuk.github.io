@@ -911,3 +911,21 @@ main#page-top > header.site-brand > .site-nav > a[aria-current="page"] {
   color: #54377f !important;
   text-decoration-thickness: 2px;
 }
+
+/* Shared heading typography: the same lightweight Oswald as the site wordmark.
+   Keep navigation, paragraph copy and controls in legible Inter. */
+main :is(h1,h2,h3,h4,h5,h6),
+main > header:not(.site-brand) :is(h1,h2,h3,h4,h5,h6),
+main section :is(h1,h2,h3,h4,h5,h6),
+main .cards article :is(h2,h3,h4),
+main .presentation-list :is(h2,h3,h4) {
+  font-family: Oswald, "Arial Narrow", sans-serif !important;
+  font-weight: 400 !important;
+  font-style: normal !important;
+  letter-spacing: .01em !important;
+  line-height: 1.24 !important;
+}
+main :is(h1,h2,h3,h4,h5,h6) strong,
+main :is(h1,h2,h3,h4,h5,h6) b {
+  font-weight: 400 !important;
+}

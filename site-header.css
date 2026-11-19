@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap');
 :root {
   --woodland-ink: #273a38;
   --woodland-leaf: #51694f;
@@ -852,4 +852,19 @@ main#page-top > header.site-brand:not(.brand-home) > .site-nav {
   padding: .5rem 0 0 !important;
   gap: .3rem .56rem !important;
   font: 600 .84rem/1.4 Inter, system-ui, sans-serif !important;
+}
+
+/* Janet Evans-inspired tall condensed wordmark, text remains selectable/accessibility friendly. */
+.site-brand .site-name,
+.site-brand h1.site-name,
+.site-brand a.site-name,
+.profile h1 {
+  font-family: Oswald, "Arial Narrow", "Liberation Sans Narrow", sans-serif !important;
+  font-weight: 600 !important;
+  font-style: normal !important;
+  letter-spacing: .005em !important;
+  line-height: 1.15 !important;
+  color: #54377f !important;
+  text-shadow: none !important;
+  -webkit-text-stroke: 0 !important;
 }

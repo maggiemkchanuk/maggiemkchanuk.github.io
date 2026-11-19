@@ -360,6 +360,21 @@ const filter = document.getElementById('academic-filter');
 const category = document.getElementById('academic-category');
 const count = document.getElementById('academic-count');
 const sections = [...document.querySelectorAll('main > section')];
+// Sort books newest first within each existing category, retaining original order
+// for matching years and undated records. Never infer dates from ISBNs or links.
+for (const section of sections) {
+  const container = section.querySelector(':scope > .cards');
+  if (!container) continue;
+  const books = [...container.children].filter(node => node.matches('article'));
+  const publicationYear = book => {
+    const meta = book.querySelector('.academic-copy-slot .meta')?.textContent || '';
+    const match = meta.match(/(?:^|[^0-9])((?:18|19|20)\\d{2})(?!\\d)/);
+    return match ? Number(match[1]) : -1;
+  };
+  books.sort((a, b) => publicationYear(b) - publicationYear(a));
+  container.append(...books);
+}
+
 const normalise = text => text.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[’']/g, '');
 function updateCatalogue() {
   const terms = normalise(filter.value).trim().split(/\s+/).filter(Boolean);

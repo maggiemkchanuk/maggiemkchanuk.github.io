@@ -43,31 +43,34 @@
       ['./#about', 'About me'],
       ['./#publications', 'Publications'],
       ['./#presentations', 'Presentations'],
-      ['conferences.html', 'Conferences']
+      ['consultancy.html', 'Consultancy']
     ]);
-    const resources = group('Resources', [
-      ['educational-resources.html', 'Resources overview'],
+    const books = group('Book Resources', [
       ['reading-lists.html', 'Picturebook Reading List'],
       ['saved-books.html', 'Visitors’ Saved Books'],
       ['reading-tools.html', 'Reading Tools'],
       ['authors.html', 'Authors'],
       ['illustrators.html', 'Illustrators'],
       ['book-awards.html', 'Book Awards'],
-      ['professional-bodies.html', 'Professional Bodies'],
-      ['journals.html', 'Journals'],
       ['academic-books.html', 'Academic Books']
     ]);
-    navigation.replaceChildren(makeLink('./', 'Home'), about, resources,
-      makeLink('consultancy.html', 'Consultancy'), makeLink('contact.html', 'Contact'));
+    const academic = group('Academic Resources', [
+      ['educational-resources.html', 'Educational Resources'],
+      ['professional-bodies.html', 'Professional Bodies'],
+      ['journals.html', 'Journals'],
+      ['conferences.html', 'Conferences']
+    ]);
+    navigation.replaceChildren(makeLink('./', 'Home'), about, books, academic,
+      makeLink('contact.html', 'Contact'));
     navigation.classList.add('site-nav-compact', 'site-nav-grouped');
     document.addEventListener('click', event => {
-      for (const details of [about, resources]) {
+      for (const details of [about, books, academic]) {
         if (!details.contains(event.target)) details.open = false;
       }
     });
-    for (const details of [about, resources]) {
+    for (const details of [about, books, academic]) {
       details.addEventListener('toggle', () => {
-        if (details.open) for (const other of [about, resources]) {
+        if (details.open) for (const other of [about, books, academic]) {
           if (other !== details) other.open = false;
         }
       });

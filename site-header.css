@@ -3044,7 +3044,7 @@ html body main .book-row > .book-copy > .book-title-row + .credit{
  }
 }
 
-/* 2026-11-19: match site wordmark and navigation ink to the About heading (#653b55).
+/* 2026-11-19: restore woodland green for site wordmark and navigation.
    Keep Georgia bold italic wordmark and existing focus/hover indicators. */
 html body main header.site-brand .site-name,
 html body main header.site-brand h1.site-name,
@@ -3054,5 +3054,5 @@ html body main header.site-brand nav.accessible-nav > details > summary,
 html body main header.site-brand nav.site-nav-grouped > a,
 html body main header.site-brand nav.site-nav-grouped > details > summary,
 html body main header.site-brand .site-nav-more-panel a {
- color:#653b55 !important;
+ color:#315b48 !important;
 }

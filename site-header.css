@@ -1218,3 +1218,87 @@ html body main > header.site-brand > .site-name {
     font-size: clamp(1.45rem, 5.5vw, 2.15rem) !important;
   }
 }
+
+
+/* Compact navigation replaces the former 18-link grid. */
+html body main header.site-brand > nav.site-nav.site-nav-compact {
+  display:flex !important;
+  flex-flow:row wrap !important;
+  grid-template-columns:none !important;
+  grid-template-rows:none !important;
+  justify-content:flex-start !important;
+  align-items:center !important;
+  gap:.4rem 1.25rem !important;
+  min-height:0 !important;
+  margin:.55rem 0 0 !important;
+  padding:.55rem 0 0 !important;
+}
+html body main header.site-brand > nav.site-nav.site-nav-compact > a {
+  display:inline-flex !important;
+  width:auto !important;
+  flex:0 0 auto !important;
+  min-height:40px !important;
+  padding:.3rem .1rem !important;
+  font:600 .92rem/1.4 Inter,system-ui,sans-serif !important;
+  white-space:nowrap !important;
+}
+html body main header.site-brand .site-nav-more {
+  position:relative;
+  flex:0 0 auto;
+  font:600 .92rem/1.4 Inter,system-ui,sans-serif;
+}
+html body main header.site-brand .site-nav-more > summary {
+  display:flex;
+  align-items:center;
+  min-height:44px;
+  padding:.3rem .8rem;
+  border:1px solid #8a817b;
+  border-radius:.4rem;
+  background:#fffdf9;
+  color:#34313d;
+  cursor:pointer;
+}
+html body main header.site-brand .site-nav-more > summary:focus-visible,
+html body main header.site-brand .site-nav-more-panel a:focus-visible {
+  outline:3px solid #54377f;
+  outline-offset:2px;
+}
+html body main header.site-brand .site-nav-more-panel {
+  position:absolute;
+  z-index:30;
+  top:calc(100% + .3rem);
+  right:0;
+  width:min(24rem,calc(100vw - 3rem));
+  max-height:min(65vh,32rem);
+  overflow:auto;
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:.2rem;
+  padding:.65rem;
+  border:1px solid #b8aa9c;
+  border-radius:.5rem;
+  background:#fffdf9;
+  box-shadow:0 .5rem 1.8rem #0002;
+}
+html body main header.site-brand .site-nav-more:not([open]) > .site-nav-more-panel {display:none}
+html body main header.site-brand .site-nav-more-panel a {
+  display:block;
+  padding:.55rem .4rem;
+  color:#34313d;
+  font:500 .88rem/1.35 Inter,system-ui,sans-serif;
+  text-decoration:none;
+  overflow-wrap:break-word;
+}
+html body main header.site-brand .site-nav-more-panel a:hover,
+html body main header.site-brand .site-nav-more-panel a[aria-current="page"] {
+  background:#f0eaf4;
+  text-decoration:underline;
+}
+@media(max-width:700px) {
+  html body main header.site-brand > nav.site-nav.site-nav-compact {gap:.25rem .7rem !important}
+  html body main header.site-brand > nav.site-nav.site-nav-compact > a {display:none !important}
+  html body main header.site-brand > nav.site-nav.site-nav-compact > a[href="./"],
+  html body main header.site-brand > nav.site-nav.site-nav-compact > a[href="reading-lists.html"] {display:inline-flex !important}
+  html body main header.site-brand .site-nav-more {margin-left:auto}
+  html body main header.site-brand .site-nav-more-panel {right:0}
+}

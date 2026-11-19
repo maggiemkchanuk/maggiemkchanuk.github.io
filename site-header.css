@@ -1838,3 +1838,66 @@ html body main header.site-brand nav.accessible-nav > details:not([open]) > .sit
   position:static !important; max-height:none !important; overflow:visible !important;
  }
 }
+
+/* Mobile menu inspired by editorial research websites: one gold disclosure. */
+html body main header.site-brand > .site-mobile-menu-toggle {
+ display:none !important;
+}
+@media(max-width:700px) {
+ html body main header.site-brand > .site-mobile-menu-toggle {
+  display:block !important; position:relative !important;
+  margin:.65rem 0 .35rem auto !important; padding:.7rem .95rem !important;
+  min-width:110px !important; min-height:48px !important;
+  border:0 !important; border-radius:0 !important;
+  background:#a58319 !important; color:#fff !important;
+  font:700 .94rem/1.3 Inter,Arial,sans-serif !important;
+  letter-spacing:.09em !important; cursor:pointer !important;
+ }
+ html body main header.site-brand > .site-mobile-menu-toggle:focus-visible {
+  outline:3px solid #243943 !important; outline-offset:3px !important;
+ }
+ html body main#page-top > header.site-brand > nav.accessible-nav,
+ html body main > header.site-brand > nav.accessible-nav {
+  display:none !important; position:static !important; width:100% !important;
+  margin:0 !important; padding:0 !important; border:0 !important;
+ }
+ html body main#page-top > header.site-brand > nav.accessible-nav.mobile-open,
+ html body main > header.site-brand > nav.accessible-nav.mobile-open {
+  display:flex !important; flex-direction:column !important;
+  flex-wrap:nowrap !important; align-items:stretch !important;
+  gap:0 !important; padding:1rem 1.15rem !important;
+  border:1px solid #e1dccc !important; border-top:4px solid #b29224 !important;
+  background:#fffefa !important; box-sizing:border-box !important;
+ }
+ html body main header.site-brand nav.accessible-nav.mobile-open > a,
+ html body main header.site-brand nav.accessible-nav.mobile-open > details {
+  display:block !important; flex:0 0 auto !important; width:100% !important;
+  min-height:48px !important; margin:0 !important; padding:0 !important;
+  border:0 !important; background:transparent !important;
+  font:700 1rem/1.45 Inter,Arial,sans-serif !important;
+  text-transform:uppercase !important; letter-spacing:.04em !important;
+ }
+ html body main header.site-brand nav.accessible-nav.mobile-open > a,
+ html body main header.site-brand nav.accessible-nav.mobile-open > details > summary {
+  display:flex !important; align-items:center !important;
+  min-height:48px !important; padding:.55rem .25rem !important;
+  color:#796016 !important; border:0 !important;
+  background:transparent !important; text-decoration:none !important;
+ }
+ html body main header.site-brand nav.accessible-nav.mobile-open > details[open] {
+  display:block !important; flex:0 0 auto !important; width:100% !important;
+ }
+ html body main header.site-brand nav.accessible-nav.mobile-open > details[open] > .site-nav-more-panel {
+  display:flex !important; flex-direction:column !important; align-items:stretch !important;
+  position:static !important; width:100% !important; max-width:100% !important;
+  padding:.1rem 0 .65rem 1rem !important; margin:0 !important;
+  border:0 !important; box-shadow:none !important; background:transparent !important;
+ }
+ html body main header.site-brand nav.accessible-nav.mobile-open .site-nav-more-panel a {
+  display:flex !important; align-items:center !important; width:100% !important;
+  min-height:44px !important; padding:.45rem .2rem !important;
+  border:0 !important; border-radius:0 !important; background:transparent !important;
+  color:#27343a !important; font:500 .95rem/1.4 Inter,Arial,sans-serif !important;
+  text-transform:none !important; letter-spacing:normal !important;
+ }
+}

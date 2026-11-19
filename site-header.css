@@ -1990,3 +1990,14 @@ html body main#page-top > header.site-brand .site-name {
  text-transform:none !important;
  letter-spacing:.005em !important;
 }
+
+/* Requested personal name treatment: Oswald Regular, mixed case, gently slanted. */
+html body header.site-brand .site-name,
+html body main header.site-brand .site-name,
+html body main#page-top > header.site-brand .site-name {
+ font-family:'Oswald','Arial Narrow',Arial,sans-serif !important;
+ font-weight:400 !important;
+ font-style:italic !important;
+ text-transform:none !important;
+ letter-spacing:.012em !important;
+}

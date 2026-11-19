@@ -1365,3 +1365,81 @@ html body main > header.site-brand > .site-name {
   letter-spacing:0 !important;
   line-height:1.25 !important;
 }
+
+/* Accessible, consistent header: strong contrast, readable literary wordmark. */
+html body main header.site-brand { overflow:visible !important; }
+html body main header.site-brand > .site-name,
+html body main header.site-brand > h1.site-name,
+html body main header.site-brand > a.site-name,
+html body main#page-top > header.site-brand > .site-name,
+html body main#page-top > header.site-brand > h1.site-name,
+html body main#page-top > header.site-brand > a.site-name {
+  font-family:Georgia,"Times New Roman",serif !important;
+  font-style:italic !important;
+  font-weight:700 !important;
+  font-size:clamp(1.85rem,3.5vw,3rem) !important;
+  line-height:1.25 !important;
+  letter-spacing:0 !important;
+  color:#54377f !important;
+}
+html body main header.site-brand > nav.site-nav.site-nav-grouped {
+  display:flex !important;
+  flex-direction:row !important;
+  flex-wrap:wrap !important;
+  justify-content:flex-start !important;
+  align-content:center !important;
+  align-items:center !important;
+  gap:.4rem .85rem !important;
+  width:100% !important;
+  min-height:0 !important;
+  height:auto !important;
+  margin:.75rem 0 0 !important;
+  padding:.6rem 0 0 !important;
+}
+html body main header.site-brand > nav.site-nav.site-nav-grouped > a,
+html body main header.site-brand > nav.site-nav.site-nav-grouped > details {
+  margin:0 !important;
+  padding:0 !important;
+  min-height:44px !important;
+  width:auto !important;
+  flex:0 0 auto !important;
+  font:600 .94rem/1.4 Inter,Arial,sans-serif !important;
+}
+html body main header.site-brand > nav.site-nav.site-nav-grouped > a {
+  display:inline-flex !important;
+  align-items:center !important;
+  padding:.4rem .65rem !important;
+  color:#34313d !important;
+}
+html body main header.site-brand > nav.site-nav.site-nav-grouped > details > summary {
+  border:0 !important;
+  background:transparent !important;
+  min-height:44px !important;
+  padding:.4rem .65rem !important;
+  font:inherit !important;
+  color:#34313d !important;
+  text-decoration:underline;
+  text-decoration-color:transparent;
+  text-underline-offset:.25em;
+}
+html body main header.site-brand > nav.site-nav.site-nav-grouped > details > summary:hover,
+html body main header.site-brand > nav.site-nav.site-nav-grouped > details[open] > summary {
+  background:#eee8f3 !important;
+  text-decoration-color:currentColor;
+}
+html body main header.site-brand > nav.site-nav.site-nav-grouped .site-nav-more-panel {
+  z-index:100 !important;
+}
+@media(max-width:700px) {
+  html body main header.site-brand > nav.site-nav.site-nav-grouped {
+    gap:.2rem .35rem !important;
+  }
+  html body main header.site-brand > nav.site-nav.site-nav-grouped > a,
+  html body main header.site-brand > nav.site-nav.site-nav-grouped > details {
+    font-size:.85rem !important;
+  }
+  html body main header.site-brand > nav.site-nav.site-nav-grouped > a,
+  html body main header.site-brand > nav.site-nav.site-nav-grouped > details > summary {
+    padding:.3rem .4rem !important;
+  }
+}

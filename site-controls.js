@@ -15,6 +15,28 @@
     if (link) element.append(link);
   }
 
+  // Keep every Buy control attached to its own book's metadata, rather than
+  // leaving it stranded after a long review or unrelated spacing.
+  const attachBookPurchases = root => {
+    const rows = root.querySelectorAll ? root.querySelectorAll('li.book-row, article.book-row, .book-row') : [];
+    for (const row of rows) {
+      const copy = row.querySelector(':scope > .book-copy');
+      const purchase = copy?.querySelector(':scope > .affiliate-purchases');
+      const anchor = copy?.querySelector(':scope > .edition, :scope > .book-origin, :scope > .credit, :scope > h3');
+      if (purchase && anchor && anchor.nextElementSibling !== purchase) anchor.after(purchase);
+    }
+  };
+  attachBookPurchases(document);
+  // Managed catalogue entries may be added after the initial page load.
+  const catalogueObserver = new MutationObserver(records => {
+    for (const record of records) for (const node of record.addedNodes) {
+      if (node.nodeType === 1 && (node.matches?.('.book-row') || node.querySelector?.('.book-row'))) {
+        attachBookPurchases(node.matches?.('.book-row') ? node.parentElement : node);
+      }
+    }
+  });
+  catalogueObserver.observe(document.body, {childList:true,subtree:true});
+
   const navigation = document.querySelector('.site-nav');
   const readingList = navigation?.querySelector('a[href="reading-lists.html"]');
   if (readingList && !navigation.querySelector('a[href="saved-books.html"]')) {

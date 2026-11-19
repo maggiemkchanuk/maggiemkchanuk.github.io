@@ -1149,3 +1149,51 @@ html body main > header.site-brand > nav.site-nav > a {
     font-size: clamp(1.35rem, 5.4vw, 2.1rem) !important;
  }
 }
+
+/* 2026-11-19: unified two-row desktop navigation and readable literary wordmark.
+   These overrides supersede earlier conflicting grid and header rules. */
+@media (min-width: 1000px) {
+  html body main#page-top > header.site-brand > nav.site-nav,
+  html body main > header.site-brand > nav.site-nav {
+    grid-template-columns: repeat(9, minmax(0, 1fr)) !important;
+    grid-template-rows: repeat(2, auto) !important;
+    grid-auto-rows: minmax(3.1rem, auto) !important;
+    gap: .25rem .35rem !important;
+  }
+  html body main#page-top > header.site-brand > nav.site-nav > a,
+  html body main > header.site-brand > nav.site-nav > a {
+    font-size: clamp(.77rem, .82vw, .9rem) !important;
+    line-height: 1.35 !important;
+    padding: .4rem .15rem !important;
+    overflow-wrap: normal !important;
+  }
+}
+html body main#page-top > header.site-brand:is(.brand-authors,.brand-consultancy) {
+  box-sizing: border-box !important;
+}
+html body main#page-top > header.site-brand:is(.brand-authors,.brand-consultancy) > nav.site-nav {
+  position: static !important;
+  left: auto !important;
+  transform: none !important;
+  text-align: center !important;
+}
+html body main#page-top > header.site-brand > .site-name,
+html body main#page-top > header.site-brand > h1.site-name,
+html body main#page-top > header.site-brand > a.site-name,
+html body main > header.site-brand > .site-name {
+  font-family: "Baskervville", Georgia, serif !important;
+  font-style: italic !important;
+  font-weight: 400 !important;
+  font-size: clamp(2rem, 4vw, 3.2rem) !important;
+  letter-spacing: 0 !important;
+  line-height: 1.2 !important;
+  color: #54377f !important;
+}
+@media (max-width: 649px) {
+  html body main#page-top > header.site-brand > .site-name,
+  html body main#page-top > header.site-brand > h1.site-name,
+  html body main#page-top > header.site-brand > a.site-name,
+  html body main > header.site-brand > .site-name {
+    font-size: clamp(1.35rem, 5vw, 1.95rem) !important;
+  }
+}

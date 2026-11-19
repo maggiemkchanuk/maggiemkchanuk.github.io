@@ -627,3 +627,28 @@ main:has(> .site-brand) > :is(.site-brand, .site-actions) {
   white-space:nowrap!important;
 }
 .site-brand .site-nav > a[aria-current="page"] {font-weight:400!important;}
+
+/* Authors/illustrators: missing jacket markup must not squeeze copy into the jacket column. */
+main > section li.book-row:not(:has(> .book-jacket)):not(.book-row--text)::before {
+  content:"Cover pending";
+  grid-column:1;
+  grid-row:1;
+  display:grid;
+  place-items:center;
+  box-sizing:border-box;
+  width:100%;
+  aspect-ratio:2/3;
+  padding:.3rem;
+  border:1px solid #b6ab94;
+  border-radius:.25rem;
+  background:#eee9dd;
+  color:#584d3b;
+  font: .72rem/1.35 system-ui,sans-serif;
+  text-align:center;
+}
+main > section li.book-row:not(:has(> .book-jacket)):not(.book-row--text) > .book-copy {
+  grid-column:2;
+  grid-row:1;
+  min-width:0;
+}
+main > section li.book-row > .book-copy { min-width:0; overflow-wrap:break-word; }

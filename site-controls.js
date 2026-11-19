@@ -13,37 +13,65 @@
   }
 
 
-  // Compact accessible navigation: preserve every existing destination.
-  if (navigation && !navigation.querySelector('.site-nav-more')) {
+  // Five-item information architecture; retain all existing content destinations.
+  if (navigation && !navigation.classList.contains('site-nav-grouped')) {
     const links = [...navigation.querySelectorAll(':scope > a')];
-    const primaryHrefs = new Set(['./','./#about','./#publications','reading-lists.html','consultancy.html','contact.html']);
-    const more = document.createElement('details');
-    more.className = 'site-nav-more';
-    const summary = document.createElement('summary');
-    summary.textContent = 'Explore more';
-    const panel = document.createElement('div');
-    panel.className = 'site-nav-more-panel';
-    panel.setAttribute('aria-label', 'More website pages');
-    links.forEach(link => {
-      const copy = link.cloneNode(true);
-      panel.append(copy);
-      if (!primaryHrefs.has(link.getAttribute('href'))) link.remove();
-    });
-    more.append(summary, panel);
-    navigation.append(more);
-    const close = event => {
-      if (!more.contains(event.target)) more.open = false;
+    const byHref = new Map(links.map(a => [a.getAttribute('href'), a]));
+    const makeLink = (href, label) => {
+      const existing = byHref.get(href);
+      const link = existing ? existing.cloneNode(true) : document.createElement('a');
+      link.href = href;
+      if (label) link.textContent = label;
+      return link;
     };
-    document.addEventListener('click', close);
-    more.addEventListener('keydown', event => {
-      if (event.key === 'Escape') {
-        more.open = false;
-        summary.focus();
+    const group = (label, items) => {
+      const details = document.createElement('details');
+      details.className = 'site-nav-more';
+      const summary = document.createElement('summary');
+      summary.textContent = label;
+      const panel = document.createElement('div');
+      panel.className = 'site-nav-more-panel';
+      panel.setAttribute('aria-label', label + ' pages');
+      items.forEach(([href, name]) => panel.append(makeLink(href, name)));
+      details.append(summary, panel);
+      details.addEventListener('keydown', event => {
+        if (event.key === 'Escape') { details.open = false; summary.focus(); }
+      });
+      return details;
+    };
+    const about = group('About', [
+      ['./#about', 'About me'],
+      ['./#publications', 'Publications'],
+      ['./#presentations', 'Presentations'],
+      ['conferences.html', 'Conferences']
+    ]);
+    const resources = group('Resources', [
+      ['educational-resources.html', 'Resources overview'],
+      ['reading-lists.html', 'Picturebook Reading List'],
+      ['saved-books.html', 'Visitors’ Saved Books'],
+      ['reading-tools.html', 'Reading Tools'],
+      ['authors.html', 'Authors'],
+      ['illustrators.html', 'Illustrators'],
+      ['book-awards.html', 'Book Awards'],
+      ['professional-bodies.html', 'Professional Bodies'],
+      ['journals.html', 'Journals'],
+      ['academic-books.html', 'Academic Books']
+    ]);
+    navigation.replaceChildren(makeLink('./', 'Home'), about, resources,
+      makeLink('consultancy.html', 'Consultancy'), makeLink('contact.html', 'Contact'));
+    navigation.classList.add('site-nav-compact', 'site-nav-grouped');
+    document.addEventListener('click', event => {
+      for (const details of [about, resources]) {
+        if (!details.contains(event.target)) details.open = false;
       }
     });
-    const current = panel.querySelector('[aria-current="page"]');
-    if (current) summary.textContent = 'Explore more · ' + current.textContent;
-    navigation.classList.add('site-nav-compact');
+    for (const details of [about, resources]) {
+      details.addEventListener('toggle', () => {
+        if (details.open) for (const other of [about, resources]) {
+          if (other !== details) other.open = false;
+        }
+      });
+    }
   }
 
   const header = navigation?.closest('.site-brand');

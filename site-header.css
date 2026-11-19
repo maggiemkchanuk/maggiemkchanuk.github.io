@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
 :root {
   --woodland-ink: #273a38;
   --woodland-leaf: #51694f;
@@ -794,3 +794,29 @@ body main#page-top > h1 + p {
     padding: .5rem 0 0 !important;
   }
 }
+
+/* CLPE-inspired consistent, normal-width geometric sans-serif typography.
+   Applies to all pages; keeps page artwork, content, and layout intact. */
+html body,
+html body :is(main, header, nav, section, article, aside, footer, div, p, a, span, li, ul, ol, dt, dd, label, input, select, textarea, button, summary, small, figcaption, blockquote, cite, th, td),
+html body :is(h1,h2,h3,h4,h5,h6),
+html body :is(h1,h2,h3,h4,h5,h6) :is(strong,b,em),
+html body header.site-brand :is(.site-name, h1.site-name, a.site-name),
+html body header.site-brand .site-nav,
+html body header.site-brand .site-nav > a,
+html body header.site-brand .site-nav > a[aria-current="page"] {
+  font-family: "Poppins", "Century Gothic", Arial, sans-serif !important;
+  font-style: normal !important;
+  font-stretch: normal !important;
+  letter-spacing: normal !important;
+}
+html body :is(h1,h2,h3,h4,h5,h6) { font-weight: 600 !important; }
+html body header.site-brand :is(.site-name, h1.site-name, a.site-name) {
+  font-weight: 700 !important;
+}
+html body header.site-brand .site-nav > a,
+html body header.site-brand .site-nav > a[aria-current="page"] {
+  font-weight: 600 !important;
+  font-size: 1rem !important;
+}
+html body :is(p,li,dd,dt,blockquote) { line-height: 1.65; }

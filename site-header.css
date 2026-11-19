@@ -1979,3 +1979,14 @@ html body main#page-top > header.site-brand .site-name {
   font-size:clamp(1.65rem,7vw,2.7rem) !important;
  }
 }
+
+/* Requested site-name typography: Oswald Regular, italic, natural title case. */
+html body header.site-brand .site-name,
+html body main header.site-brand .site-name,
+html body main#page-top > header.site-brand .site-name {
+ font-family:'Oswald','Arial Narrow',Arial,sans-serif !important;
+ font-weight:400 !important;
+ font-style:italic !important;
+ text-transform:none !important;
+ letter-spacing:.005em !important;
+}

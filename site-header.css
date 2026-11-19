@@ -884,13 +884,12 @@ html body header.site-brand > a.site-name {
   }
 }
 
-/* Canonical typography and navigation across pages, 2026-11-19.
-   All content headings match the original About heading. */
+/* Match the bold Poppins About heading shown in the reference screenshot. */
 html body main :is(h1,h2,h3,h4,h5,h6),
 html body main :is(h1,h2,h3,h4,h5,h6) :is(strong,b,em) {
-  font-family: Georgia, "Times New Roman", serif !important;
+  font-family: "Poppins", Arial, sans-serif !important;
   font-style: normal !important;
-  font-weight: 400 !important;
+  font-weight: 700 !important;
   letter-spacing: normal !important;
 }
 html body main header.site-brand > .site-name,

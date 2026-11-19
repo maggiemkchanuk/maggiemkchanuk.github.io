@@ -3014,3 +3014,32 @@ html body main .book-row > .book-copy > h3 + .credit,
 html body main .book-row > .book-copy > .book-title-row + .credit{
  margin-top:0 !important;
 }
+
+/* 2026-11-19: keep the mobile menu control centred and dropdown links legible.
+   Scoped to the JS-generated navigation; desktop tabs remain unchanged. */
+@media(max-width:700px){
+ html body main header.site-brand > button.site-mobile-menu-toggle{
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  align-self:center!important;
+  margin:.65rem auto .3rem!important;
+  min-width:7.5rem!important;
+  text-align:center!important;
+ }
+ html body main header.site-brand nav.accessible-nav.mobile-open{
+  box-sizing:border-box!important;
+  width:100%!important;
+  max-width:100%!important;
+  margin-inline:auto!important;
+ }
+ html body main header.site-brand nav.accessible-nav.mobile-open details[open] > .site-nav-more-panel{
+  box-sizing:border-box!important;
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+ }
+ html body main header.site-brand nav.accessible-nav.mobile-open .site-nav-more-panel > a{
+  min-width:0!important;
+  text-transform:none!important;
+  letter-spacing:0!important;
+ }
+}

@@ -2881,3 +2881,51 @@ html body main > .profile > p {
   word-break:normal!important;
  }
 }
+
+/* 2026-11-19: unified soft palette based on Save to My List and Contact.
+   Header and tabs only; preserve content cards, cover colours and accessibility. */
+html body main header.site-brand{
+ --banner-colour:#f7f5ef !important;
+ --banner-edge:#b8c5b7 !important;
+ background:linear-gradient(115deg,#f9f6eb 0%,#f4eee8 45%,#edf1e6 100%) !important;
+ border-color:#d7ddd2 !important;
+ border-top:2px solid #b8c5b7 !important;
+ border-radius:1rem !important;
+ box-shadow:0 4px 16px rgba(49,91,72,.045) !important;
+}
+html body main header.site-brand nav.accessible-nav,
+html body main header.site-brand nav.site-nav-grouped{
+ border-top-color:#d7ddd2 !important;
+}
+html body main header.site-brand nav.accessible-nav > a,
+html body main header.site-brand nav.accessible-nav > details > summary,
+html body main header.site-brand nav.site-nav-grouped > a,
+html body main header.site-brand nav.site-nav-grouped > details > summary{
+ background:#f7f5ef !important;
+ color:#315b48 !important;
+ border-color:#d7ddd2 !important;
+ border-radius:.65rem !important;
+}
+html body main header.site-brand nav.accessible-nav > a:hover,
+html body main header.site-brand nav.accessible-nav > details > summary:hover,
+html body main header.site-brand nav.site-nav-grouped > a:hover,
+html body main header.site-brand nav.site-nav-grouped > details > summary:hover{
+ background:#edf1e6 !important;
+ color:#18352a !important;
+}
+html body main header.site-brand nav.accessible-nav > a[aria-current="page"],
+html body main header.site-brand nav.site-nav-grouped > a[aria-current="page"]{
+ background:#e4ece0 !important;
+ color:#18352a !important;
+ border-color:#b8c5b7 !important;
+}
+html body main header.site-brand .site-nav-more-panel{
+ background:#fcfbf6 !important;
+ border-color:#d7ddd2 !important;
+ border-radius:.7rem !important;
+}
+html body main header.site-brand .site-nav-more-panel a:hover,
+html body main header.site-brand .site-nav-more-panel a:focus-visible{
+ background:#edf1e6 !important;
+ color:#18352a !important;
+}

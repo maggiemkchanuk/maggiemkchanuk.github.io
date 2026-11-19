@@ -604,26 +604,26 @@ main:has(> .site-brand) > :is(.site-brand, .site-actions) {
 }
 
 
-/* Stable navigation columns across pages: prevents Authors from drifting when a tab becomes active. */
+/* Compact navigation: keep links inline, not in tall grid columns. */
 .site-brand .site-nav {
-  display:grid!important;
-  grid-template-columns:repeat(4,minmax(0,1fr))!important;
-  align-items:stretch!important;
-  gap:.35rem .65rem!important;
+  display:flex!important;
+  flex-wrap:wrap!important;
+  justify-content:flex-start!important;
+  align-items:center!important;
+  gap:.42rem .85rem!important;
   width:100%!important;
   box-sizing:border-box!important;
 }
 .site-brand .site-nav > a {
-  display:flex!important;
-  align-items:center!important;
+  display:inline-block!important;
+  flex:0 0 auto!important;
+  width:auto!important;
   min-width:0!important;
-  padding:.18rem .25rem!important;
-  box-sizing:border-box!important;
+  margin:0!important;
+  padding:0!important;
   font-weight:400!important;
-  line-height:1.35!important;
-  overflow-wrap:anywhere!important;
+  font-size:inherit!important;
+  line-height:1.45!important;
+  white-space:nowrap!important;
 }
-.site-brand .site-nav > a[aria-current="page"] { font-weight:400!important; }
-@media(max-width:640px) {
-  .site-brand .site-nav { grid-template-columns:repeat(2,minmax(0,1fr))!important; }
-}
+.site-brand .site-nav > a[aria-current="page"] {font-weight:400!important;}

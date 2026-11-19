@@ -24,8 +24,12 @@ body{background:linear-gradient(135deg,#f4e6dc,#f9f6eb 40%,#edf1e6 75%,#e8edf5)}
 <meta name="twitter:card" content="summary_large_image">
 <script src="home-sharing.js?v=2" defer></script><style id="portrait-caption-match-graduation-20261119">.about-portrait figcaption{white-space:nowrap;font-size:.85rem;line-height:1.45;margin-top:.3rem;font-weight:400;text-align:center}</style><style id="mobile-about-photo-alignment">
 @media(max-width:520px){
- .about-layout .about-portrait{justify-self:end;margin-left:auto;margin-right:clamp(.3rem,4vw,1.2rem)}
- .about-layout .graduation-photo{justify-self:start;margin-left:clamp(.3rem,4vw,1.2rem);margin-right:auto}
+ .about-layout{display:grid!important;grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;gap:.65rem!important;align-items:start}
+ .about-layout .about-copy{grid-column:1/-1!important;grid-row:1!important}
+ .about-layout .graduation-photo{grid-column:1!important;grid-row:2!important;justify-self:start!important;width:100%!important;max-width:10rem!important;margin:.2rem 0 0!important}
+ .about-layout .about-portrait{grid-column:2!important;grid-row:2!important;justify-self:end!important;width:100%!important;max-width:10rem!important;margin:.2rem 0 0!important}
+ .about-layout :is(.graduation-photo,.about-portrait) img{width:100%!important;height:auto!important;display:block}
+ .about-layout :is(.graduation-photo,.about-portrait) figcaption{font-size:.76rem!important;line-height:1.35!important;text-align:center!important;margin-top:.3rem!important}
 }
 </style>
 </head>

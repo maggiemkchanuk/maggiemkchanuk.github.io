@@ -8,7 +8,7 @@
   if (readingList && !navigation.querySelector('a[href="saved-books.html"]')) {
     const savedLink = document.createElement('a');
     savedLink.href = 'saved-books.html';
-    savedLink.textContent = 'Visitors’ Saved Books';
+    savedLink.textContent = 'Save to My List';
     readingList.after(savedLink);
   }
 
@@ -62,7 +62,7 @@
       ['educational-resources.html', 'Others']
     ]);
     navigation.replaceChildren(homeMenu, books, academic, education,
-      makeLink('saved-books.html', 'Save Your Books'), makeLink('contact.html', 'Contact'));
+      makeLink('saved-books.html', 'Save to My List'), makeLink('contact.html', 'Contact'));
     navigation.classList.remove('site-nav', 'site-nav-compact', 'site-nav-grouped');
     navigation.classList.add('accessible-nav');
     // Mobile-only disclosure: one MENU button reveals the full navigation.

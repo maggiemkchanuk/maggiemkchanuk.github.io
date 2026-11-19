@@ -1901,3 +1901,59 @@ html body main header.site-brand > .site-mobile-menu-toggle {
   text-transform:none !important; letter-spacing:normal !important;
  }
 }
+
+/* 2026-11-19: Desktop navigation repair. Keep ALL six top-level items in one row.
+   Expanded submenu occupies its own row below the primary navigation. */
+@media (min-width:701px) {
+ html body main header.site-brand > nav.accessible-nav {
+  display:grid !important;
+  grid-template-columns:repeat(6,max-content) !important;
+  justify-content:space-between !important;
+  align-items:start !important;
+  column-gap:clamp(.5rem,1.4vw,1.4rem) !important;
+  row-gap:0 !important;
+  width:100% !important;
+  max-width:100% !important;
+  box-sizing:border-box !important;
+ }
+ html body main header.site-brand > nav.accessible-nav > a,
+ html body main header.site-brand > nav.accessible-nav > details,
+ html body main#page-top > header.site-brand > nav.accessible-nav > details[open] {
+  display:block !important;
+  grid-row:1 !important;
+  flex:none !important;
+  width:auto !important;
+  min-width:0 !important;
+  max-width:none !important;
+  height:auto !important;
+  margin:0 !important;
+  padding:0 !important;
+  position:static !important;
+ }
+ html body main header.site-brand > nav.accessible-nav > details[open] > .site-nav-more-panel {
+  display:flex !important;
+  position:absolute !important;
+  top:100% !important;
+  left:0 !important;
+  right:0 !important;
+  width:100% !important;
+  max-width:100% !important;
+  box-sizing:border-box !important;
+  z-index:2 !important;
+  margin:0 !important;
+  padding:.75rem 0 .85rem !important;
+  background:#fffefa !important;
+  border:0 !important;
+  border-top:1px solid #b9ad8c !important;
+  box-shadow:none !important;
+ }
+ html body main header.site-brand > nav.accessible-nav:has(> details[open]) {
+  padding-bottom:4rem !important;
+  position:relative !important;
+ }
+ html body main header.site-brand > nav.accessible-nav > details > summary,
+ html body main header.site-brand > nav.accessible-nav > a {
+  white-space:nowrap !important;
+  font-size:clamp(.68rem,1.03vw,.91rem) !important;
+ }
+}

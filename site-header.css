@@ -2900,3 +2900,24 @@ html body main header.site-brand nav.site-nav-grouped > a[aria-current="page"]{
 html body main header.site-brand .site-nav-more-panel a{
  color:#315b48 !important;
 }
+
+/* 2026-11-19: match the actual Save to My List / Contact heading ink.
+   Override old charcoal wordmark/nav declarations; do not recolour tab surfaces. */
+html body main header.site-brand a.site-name,
+html body main header.site-brand h1.site-name,
+html body main header.site-brand .site-name,
+html body main header.site-brand > p{
+ color:#315b48 !important;
+}
+html body main header.site-brand nav.accessible-nav > a,
+html body main header.site-brand nav.accessible-nav > details > summary,
+html body main header.site-brand nav.site-nav-grouped > a,
+html body main header.site-brand nav.site-nav-grouped > details > summary,
+html body main header.site-brand nav.accessible-nav .site-nav-more-panel a,
+html body main header.site-brand nav.site-nav-grouped .site-nav-more-panel a{
+ color:#315b48 !important;
+}
+html body main header.site-brand nav.accessible-nav > a[aria-current="page"],
+html body main header.site-brand nav.site-nav-grouped > a[aria-current="page"]{
+ color:#315b48 !important;
+}

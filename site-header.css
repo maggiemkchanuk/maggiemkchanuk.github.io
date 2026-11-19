@@ -1726,3 +1726,24 @@ html body main > header.site-brand > nav.accessible-nav .site-nav-more-panel {
  max-height:65vh !important; overflow:auto !important;
  }
 }
+
+/* Final borderless navigation: no frames around either navigation level. */
+html body main header.site-brand nav.accessible-nav .site-nav-more-panel,
+html body main#page-top > header.site-brand > nav.accessible-nav .site-nav-more-panel {
+ border:0 !important; border-radius:0 !important;
+ box-shadow:none !important; background:#fffdfa !important;
+}
+html body main header.site-brand nav.accessible-nav .site-nav-more-panel a,
+html body main#page-top > header.site-brand > nav.accessible-nav .site-nav-more-panel a {
+ border:0 !important; outline:0 solid transparent;
+ border-radius:0 !important; box-shadow:none !important;
+ background:transparent !important; padding:.6rem .65rem !important;
+ text-decoration:none !important;
+}
+html body main header.site-brand nav.accessible-nav .site-nav-more-panel a:hover,
+html body main header.site-brand nav.accessible-nav .site-nav-more-panel a[aria-current="page"] {
+ background:#eee8f3 !important; text-decoration:underline !important;
+}
+html body main header.site-brand nav.accessible-nav .site-nav-more-panel a:focus-visible {
+ outline:3px solid #54377f !important; outline-offset:2px !important;
+}

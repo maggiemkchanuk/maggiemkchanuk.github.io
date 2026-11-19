@@ -2722,3 +2722,12 @@ html body main#page-top > header.site-brand > a.site-name {
  text-shadow: none !important;
  -webkit-text-stroke: 0 !important;
 }
+
+/* Keep the rightmost desktop dropdown within the viewport on narrow laptops. */
+@media (min-width:701px) {
+ html body main header.site-brand nav.accessible-nav > details:last-of-type > .site-nav-more-panel {
+  left:auto !important;
+  right:0 !important;
+  max-width:min(22rem,calc(100vw - 2rem)) !important;
+ }
+}

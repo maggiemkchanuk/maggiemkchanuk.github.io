@@ -708,11 +708,11 @@ main#page-top > header.site-brand:is(.brand-authors, .brand-consultancy) > .site
 }
 .site-brand .site-nav > a:hover,
 .site-brand .site-nav > a[aria-current="page"] {
-  color: #54377f !important;
-  text-decoration-color: #54377f;
+  color: #315b48 !important;
+  text-decoration-color: #315b48;
 }
 .site-brand .site-nav > a:focus-visible {
-  outline: 3px solid #54377f;
+  outline: 3px solid #315b48;
   outline-offset: 4px;
 }
 .site-brand .site-name,
@@ -873,7 +873,7 @@ html body header.site-brand > a.site-name {
   font-style: italic !important;
   font-weight: 600 !important;
   text-transform: none !important;
-  color: #54377f !important;
+  color: #315b48 !important;
   font-size: clamp(2rem, 4.6vw, 3.8rem) !important;
   letter-spacing: normal !important;
   line-height: 1.12 !important;
@@ -901,7 +901,7 @@ html body main header.site-brand > a.site-name {
   font-family: "Poppins", Arial, sans-serif !important;
   font-style: italic !important;
   font-weight: 600 !important;
-  color: #54377f !important;
+  color: #315b48 !important;
   text-transform: none !important;
   font-size: clamp(2rem, 4.6vw, 3.8rem) !important;
   white-space: nowrap !important;
@@ -962,7 +962,7 @@ html body header.site-brand > a.site-name,
 html body main header.site-brand > .site-name,
 html body main header.site-brand > h1.site-name,
 html body main header.site-brand > a.site-name {
-  color: #54377f !important;
+  color: #315b48 !important;
   text-transform: none !important;
   font-size: clamp(2rem, 4.6vw, 3.8rem) !important;
 }
@@ -1036,7 +1036,7 @@ html body main header.site-brand > a.site-name {
   font-style: normal !important;
   font-size: clamp(1.9rem, 4vw, 3.2rem) !important;
   letter-spacing: -.015em !important;
-  color: #54377f !important;
+  color: #315b48 !important;
   text-transform: none !important;
 }
 
@@ -1054,7 +1054,7 @@ html body main header.site-brand > a.site-name {
   letter-spacing: .005em !important;
   line-height: 1.16 !important;
   text-transform: none !important;
-  color: #54377f !important;
+  color: #315b48 !important;
   white-space: nowrap !important;
 }
 @media (max-width: 620px) {
@@ -1092,7 +1092,7 @@ html body main > header.site-brand > .site-name {
   font-family: "Roboto Condensed", "Arial Narrow", sans-serif !important;
   font-weight: 500 !important;
   font-style: italic !important;
-  color: #54377f !important;
+  color: #315b48 !important;
   font-size: clamp(2.2rem, 4.65vw, 3.8rem) !important;
   letter-spacing: .005em !important;
   text-transform: none !important;
@@ -1190,7 +1190,7 @@ html body main > header.site-brand > .site-name {
   font-size: clamp(2rem, 4vw, 3.2rem) !important;
   letter-spacing: 0 !important;
   line-height: 1.2 !important;
-  color: #54377f !important;
+  color: #315b48 !important;
 }
 @media (max-width: 649px) {
   html body main#page-top > header.site-brand > .site-name,
@@ -1262,7 +1262,7 @@ html body main header.site-brand .site-nav-more > summary {
 }
 html body main header.site-brand .site-nav-more > summary:focus-visible,
 html body main header.site-brand .site-nav-more-panel a:focus-visible {
-  outline:3px solid #54377f;
+  outline:3px solid #315b48;
   outline-offset:2px;
 }
 html body main header.site-brand .site-nav-more-panel {
@@ -1382,7 +1382,7 @@ html body main#page-top > header.site-brand > a.site-name {
   font-size:clamp(1.85rem,3.5vw,3rem) !important;
   line-height:1.25 !important;
   letter-spacing:0 !important;
-  color:#54377f !important;
+  color:#315b48 !important;
 }
 html body main header.site-brand > nav.site-nav.site-nav-grouped {
   display:flex !important;
@@ -1562,7 +1562,7 @@ html body main header.site-brand nav.accessible-nav > details > summary:hover,
 html body main header.site-brand nav.accessible-nav > details[open] > summary {background:#ece6ee !important}
 html body main header.site-brand nav.accessible-nav a:focus-visible,
 html body main header.site-brand nav.accessible-nav summary:focus-visible {
- outline:3px solid #54377f !important; outline-offset:2px !important;
+ outline:3px solid #315b48 !important; outline-offset:2px !important;
 }
 html body main header.site-brand nav.accessible-nav .site-nav-more-panel {
  display:grid; position:absolute !important; z-index:200 !important;
@@ -1624,7 +1624,7 @@ html body main > header.site-brand > .site-name {
  font-style:normal !important; font-weight:750 !important;
  font-size:clamp(1.65rem,3.8vw,3.2rem) !important;
  line-height:1.18 !important; letter-spacing:-.035em !important;
- color:#54377f !important; overflow-wrap:normal !important;
+ color:#315b48 !important; overflow-wrap:normal !important;
 }
 html body main#page-top > header.site-brand > nav.accessible-nav,
 html body main > header.site-brand > nav.accessible-nav {
@@ -1666,7 +1666,7 @@ html body main header.site-brand nav.accessible-nav > details > summary::-webkit
 html body main header.site-brand nav.accessible-nav > a:hover,
 html body main header.site-brand nav.accessible-nav > details > summary:hover,
 html body main header.site-brand nav.accessible-nav > details[open] > summary {
- background:transparent !important; color:#54377f !important;
+ background:transparent !important; color:#315b48 !important;
  text-decoration:underline !important; text-underline-offset:.35em !important;
 }
 html body main#page-top > header.site-brand > nav.accessible-nav .site-nav-more-panel,
@@ -1747,7 +1747,7 @@ html body main header.site-brand nav.accessible-nav .site-nav-more-panel a[aria-
  background:#eee8f3 !important; text-decoration:underline !important;
 }
 html body main header.site-brand nav.accessible-nav .site-nav-more-panel a:focus-visible {
- outline:3px solid #54377f !important; outline-offset:2px !important;
+ outline:3px solid #315b48 !important; outline-offset:2px !important;
 }
 
 /* Editorial reference: uppercase academic identity and clean text navigation. */

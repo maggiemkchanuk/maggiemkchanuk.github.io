@@ -1,6 +1,6 @@
 (() => {
   const storageKey = 'picturebook-saved-books';
-  const siteHome = 'https://maggiemkchanuk.github.io/';
+  const siteHome = 'https://maggiemkchan.com/';
   const siteName = 'Maggie M. K. Chan';
 
   // Keep affiliate disclosures consistent on every page using this shared script.

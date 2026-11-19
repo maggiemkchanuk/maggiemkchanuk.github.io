@@ -3043,3 +3043,16 @@ html body main .book-row > .book-copy > .book-title-row + .credit{
   letter-spacing:0!important;
  }
 }
+
+/* 2026-11-19: match site wordmark and navigation ink to the About heading (#653b55).
+   Keep Georgia bold italic wordmark and existing focus/hover indicators. */
+html body main header.site-brand .site-name,
+html body main header.site-brand h1.site-name,
+html body main header.site-brand a.site-name,
+html body main header.site-brand nav.accessible-nav > a,
+html body main header.site-brand nav.accessible-nav > details > summary,
+html body main header.site-brand nav.site-nav-grouped > a,
+html body main header.site-brand nav.site-nav-grouped > details > summary,
+html body main header.site-brand .site-nav-more-panel a {
+ color:#653b55 !important;
+}

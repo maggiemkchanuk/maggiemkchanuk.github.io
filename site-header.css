@@ -1020,3 +1020,19 @@ html body main .presentation-list article h3 {
    padding: .45rem .2rem !important;
  }
 }
+
+/* Refined, lighter wordmark ONLY; no changes to tabs or page headings. */
+html body header.site-brand > .site-name,
+html body header.site-brand > h1.site-name,
+html body header.site-brand > a.site-name,
+html body main header.site-brand > .site-name,
+html body main header.site-brand > h1.site-name,
+html body main header.site-brand > a.site-name {
+  font-family: "Poppins", Arial, sans-serif !important;
+  font-weight: 500 !important;
+  font-style: normal !important;
+  font-size: clamp(1.9rem, 4vw, 3.2rem) !important;
+  letter-spacing: -.015em !important;
+  color: #54377f !important;
+  text-transform: none !important;
+}

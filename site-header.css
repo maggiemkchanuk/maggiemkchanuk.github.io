@@ -2626,3 +2626,24 @@ html body main header.site-brand nav.site-nav-grouped summary:hover {color:#3744
   overflow-wrap:break-word !important;
  }
 }
+
+/* Keep all decorative botanical artwork inside its own header, even on narrow screens. */
+html body main > header.site-brand {overflow:hidden !important;clip-path:inset(0 round .5rem) !important;}
+html body main > header.site-brand::before,
+html body main > header.site-brand::after {max-width:100% !important;pointer-events:none !important;}
+/* Improve the existing high-contrast serif wordmark without replacing its distinctive letterforms. */
+html body main > header.site-brand > .site-name,
+html body main#page-top > header.site-brand > .site-name {
+ -webkit-text-stroke:.28px currentColor !important;
+ letter-spacing:.018em !important;
+ text-shadow:none !important;
+}
+@media(max-width:700px){
+ html body main > header.site-brand > .site-name,
+ html body main#page-top > header.site-brand > .site-name {
+  -webkit-text-stroke:.42px currentColor !important;
+  letter-spacing:.012em !important;
+ }
+ html body main > header.site-brand::before,
+ html body main > header.site-brand::after {right:0 !important;max-width:42% !important;}
+}

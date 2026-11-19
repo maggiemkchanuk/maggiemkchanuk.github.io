@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=Roboto+Condensed:ital,wght@1,500&display=swap');
 :root {
   --woodland-ink: #273a38;
@@ -1195,5 +1196,25 @@ html body main > header.site-brand > .site-name {
   html body main#page-top > header.site-brand > a.site-name,
   html body main > header.site-brand > .site-name {
     font-size: clamp(1.35rem, 5vw, 1.95rem) !important;
+  }
+}
+
+/* Artistic wordmark only: elegant literary italic, with readable fallback. */
+html body main#page-top > header.site-brand > .site-name,
+html body main#page-top > header.site-brand > h1.site-name,
+html body main#page-top > header.site-brand > a.site-name,
+html body main > header.site-brand > .site-name {
+  font-family: "Cormorant Garamond", Georgia, serif !important;
+  font-style: italic !important;
+  font-weight: 600 !important;
+  letter-spacing: .008em !important;
+  font-size: clamp(2.15rem, 4.4vw, 3.55rem) !important;
+}
+@media (max-width: 649px) {
+  html body main#page-top > header.site-brand > .site-name,
+  html body main#page-top > header.site-brand > h1.site-name,
+  html body main#page-top > header.site-brand > a.site-name,
+  html body main > header.site-brand > .site-name {
+    font-size: clamp(1.45rem, 5.5vw, 2.15rem) !important;
   }
 }

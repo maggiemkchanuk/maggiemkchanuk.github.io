@@ -2339,3 +2339,30 @@ html body main header.site-brand nav.site-nav a {
   min-height:42px !important;
  }
 }
+
+/* Compact desktop header: wide and shallow, without shrinking the navigation width. */
+@media (min-width:701px) {
+ html body main > header.site-brand {
+  padding:.55rem 1.15rem .45rem !important;
+  margin-bottom:.55rem !important;
+ }
+ html body main > header.site-brand > .site-name,
+ html body main#page-top > header.site-brand > .site-name {
+  height:clamp(46px,5vw,62px) !important;
+  margin-bottom:.1rem !important;
+ }
+ html body main > header.site-brand > p {
+  margin:.12rem 0 0 !important;
+  min-height:0 !important;
+  line-height:1.3 !important;
+ }
+ html body main > header.site-brand > nav.accessible-nav {
+  margin:.3rem 0 0 !important;
+  padding:.3rem 0 !important;
+  min-height:0 !important;
+ }
+ html body main > header.site-brand > nav.accessible-nav:has(>details[open]) {
+  margin:.3rem 0 0 !important;
+  padding:.3rem 0 !important;
+ }
+}

@@ -2707,3 +2707,18 @@ html body main > header.site-brand::after {
  }
  html body main header.site-brand nav.accessible-nav > details[open]{height:auto !important;}
 }
+
+/* Bookshop.org-inspired site wordmark: readable, classic upright serif.
+   Scoped to the name only; navigation and body typography stay unchanged. */
+html body main header.site-brand .site-name,
+html body main#page-top > header.site-brand > .site-name,
+html body main#page-top > header.site-brand > h1.site-name,
+html body main#page-top > header.site-brand > a.site-name {
+ font-family:Georgia, "Times New Roman", serif !important;
+ font-style:normal !important;
+ font-weight:400 !important;
+ letter-spacing:0 !important;
+ line-height:1.18 !important;
+ text-shadow:none !important;
+ -webkit-text-stroke:0 !important;
+}

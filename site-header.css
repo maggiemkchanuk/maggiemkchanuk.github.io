@@ -603,31 +603,6 @@ main:has(> .site-brand) > :is(.site-brand, .site-actions) {
   text-underline-offset: .2em;
 }
 
-
-/* Compact navigation: keep links inline, not in tall grid columns. */
-.site-brand .site-nav {
-  display:flex!important;
-  flex-wrap:wrap!important;
-  justify-content:flex-start!important;
-  align-items:center!important;
-  gap:.42rem .85rem!important;
-  width:100%!important;
-  box-sizing:border-box!important;
-}
-.site-brand .site-nav > a {
-  display:inline-block!important;
-  flex:0 0 auto!important;
-  width:auto!important;
-  min-width:0!important;
-  margin:0!important;
-  padding:0!important;
-  font-weight:400!important;
-  font-size:inherit!important;
-  line-height:1.45!important;
-  white-space:nowrap!important;
-}
-.site-brand .site-nav > a[aria-current="page"] {font-weight:400!important;}
-
 /* Authors/illustrators: missing jacket markup must not squeeze copy into the jacket column. */
 main > section li.book-row:not(:has(> .book-jacket)):not(.book-row--text)::before {
   content:"Cover pending";

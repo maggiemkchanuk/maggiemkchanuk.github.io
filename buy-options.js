@@ -68,7 +68,7 @@
       addRetailer(retailers, 'Amazon UK', amazonSearch, true);
     }
     const commission = menu.querySelector('.buy-commission');
-    if (commission) commission.innerHTML = 'I may earn a commission on qualifying purchases. <a href="affiliate-disclosure.html">Affiliate disclosure</a>';
+    if (commission) commission.innerHTML = 'I may earn a commission on qualifying purchases, at no extra cost to you. <a href="affiliate-disclosure.html">Affiliate disclosure</a>';
   }
 
   for (const link of document.querySelectorAll('a[href]')) {

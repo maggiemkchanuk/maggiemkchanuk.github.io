@@ -945,6 +945,34 @@ html body main li.book-row .book-copy > .book-title-row + p.credit{
 <aside class="affiliate-notice" aria-label="Affiliate advertising disclosure"><p>As an Amazon Associate and an affiliate of Bookshop.org UK, I may earn a commission from qualifying purchases through affiliate links. <a href="affiliate-disclosure.html">Affiliate disclosure</a></p></aside>
 <p><a href="reading-tools.html" id="reading-companions">Explore the Reading Tools &amp; Companions page</a>.</p>
 </main><script>
+/* Keep missing book covers visible as labelled placeholders rather than blank spaces. */
+(function () {
+  function showMissingCover(img) {
+    if (!img.classList.contains('cover-image')) return;
+    if (img.dataset.coverFallbackPending !== 'done' &&
+        (img.getAttribute('onerror') || '').includes('this.src=')) {
+      img.dataset.coverFallbackPending = 'done';
+      return;
+    }
+    let label = img.nextElementSibling;
+    if (!label || !label.classList.contains('cover-pending')) {
+      label = document.createElement('span');
+      label.className = 'cover-pending';
+      img.insertAdjacentElement('afterend', label);
+    }
+    label.textContent = 'Cover unavailable';
+    label.hidden = false;
+    img.hidden = true;
+  }
+  document.addEventListener('error', function (event) {
+    if (event.target instanceof HTMLImageElement) showMissingCover(event.target);
+  }, true);
+  document.querySelectorAll('img.cover-image').forEach(function (img) {
+    if (img.complete && img.naturalWidth === 0) showMissingCover(img);
+  });
+})();
+</script>
+<script>
 const filter = document.getElementById('filter-books');
 const countryFilter = document.getElementById('country-books');
 const languageFilter = document.getElementById('language-books');

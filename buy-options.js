@@ -31,7 +31,7 @@
       wrapper.className = 'affiliate-purchases';
       wrapper.innerHTML = '<details class="buy-options"><summary>Buy <span class="buy-chevron" aria-hidden="true">▾</span></summary><div class="buy-menu"><div class="buy-retailers"></div><p class="buy-commission"></p></div></details>';
       wrapper.querySelector('summary').setAttribute('aria-label', `Buy ${title}`);
-      (book.querySelector('.book-copy') || book.querySelector('h3').parentElement).append(wrapper);
+      (book.querySelector('.academic-cover-slot, .book-copy') || book.querySelector('h3').parentElement).append(wrapper);
       menu = wrapper.querySelector('.buy-menu');
     }
     menu.dataset.bookTitle = title;

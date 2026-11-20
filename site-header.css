@@ -2880,7 +2880,15 @@ html body main#page-top:has(.brand-illustrators, .brand-authors) section li.book
 }
 
 /* At tablet widths, reserve two stable rows so the last tabs stay on screen. */
-@media (min-width: 701px) and (max-width: 900px) {
+@media (min-width: 701px) and (max-width: 960px) {
+ html body main#page-top > header.site-brand:has(> .accessible-nav) {
+  box-sizing: border-box !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  width: calc(100vw - 2rem) !important;
+  max-width: none !important;
+  margin-inline: 0 !important;
+ }
  html body main#page-top > header.site-brand > nav.accessible-nav {
   display: grid !important;
   grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
@@ -2888,6 +2896,10 @@ html body main#page-top:has(.brand-illustrators, .brand-authors) section li.book
   gap: 0 .3rem !important;
   height: 88px !important;
   min-height: 88px !important;
+ }
+ html body main#page-top > header.site-brand > nav.accessible-nav > :is(a, details) {
+  grid-area: auto !important;
+  justify-self: start !important;
  }
  html body main#page-top > header.site-brand > nav.accessible-nav > details > summary,
  html body main#page-top > header.site-brand > nav.accessible-nav > a {

@@ -2,7 +2,7 @@
   const amazonTag = 'maggiemkchanu-21';
   const bookshopStore = 'https://uk.bookshop.org/shop/maggiemkchanuk';
 
-  function addRetailer(list, name, href, action, sponsored) {
+  function addRetailer(list, name, href, sponsored) {
     const link = document.createElement('a');
     link.className = 'buy-retailer';
     link.href = href;
@@ -11,10 +11,7 @@
     const retailer = document.createElement('span');
     retailer.className = 'buy-retailer-name';
     retailer.textContent = name;
-    const label = document.createElement('span');
-    label.className = 'buy-retailer-price';
-    label.textContent = action;
-    link.append(retailer, label);
+    link.append(retailer);
     list.append(link);
   }
 
@@ -54,20 +51,21 @@
     if (!search) continue;
 
     if (bookshop) {
+      bookshop.textContent = 'Bookshop.org UK';
       bookshop.rel = 'sponsored noopener';
     } else if (!product && title) {
-      addRetailer(retailers, 'Bookshop.org UK', bookshopStore, 'Search from my Bookshop (Ad) ↗', true);
+      addRetailer(retailers, 'Bookshop.org UK', bookshopStore, true);
     }
     const amazonProduct = product && book.querySelector('a[href*="amazon.co.uk/dp/"]');
     if (amazonProduct) {
-      addRetailer(retailers, 'Amazon UK', amazonProduct.href, 'View current price (Ad) ↗', true);
+      addRetailer(retailers, 'Amazon UK', amazonProduct.href, true);
       amazonProduct.closest('p').remove();
     } else if (!retailers.querySelector('a[href*="amazon.co.uk/"]')) {
       const amazonSearch = new URL('https://www.amazon.co.uk/s');
       amazonSearch.searchParams.set('k', search);
       if (!product) amazonSearch.searchParams.set('i', 'stripbooks');
       amazonSearch.searchParams.set('tag', amazonTag);
-      addRetailer(retailers, 'Amazon UK', amazonSearch, isbn ? 'Search by ISBN (Ad) ↗' : 'Search by title (Ad) ↗', true);
+      addRetailer(retailers, 'Amazon UK', amazonSearch, true);
     }
     const commission = menu.querySelector('.buy-commission');
     if (commission) commission.innerHTML = 'I may earn a commission on qualifying purchases. <a href="affiliate-disclosure.html">Affiliate disclosure</a>';
@@ -83,6 +81,7 @@
       link.rel = 'sponsored noopener';
     }
     if (url.hostname === 'www.amazon.co.uk' || url.hostname === 'amazon.co.uk') {
+      if (link.closest('.buy-retailers')) link.textContent = 'Amazon UK';
       url.searchParams.set('tag', amazonTag);
       link.href = url.href;
       link.rel = 'sponsored noopener';

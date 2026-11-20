@@ -2845,3 +2845,36 @@ html body main :is(.book-copy, .academic-copy-slot, .resource-card) a:not(.buy-r
  text-decoration: underline;
  text-underline-offset: .16em;
 }
+
+@media (max-width: 700px) {
+ html body main#page-top > header.site-brand:has(> .accessible-nav) {
+  box-sizing: border-box !important;
+  position: relative !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  width: calc(100% + 1rem) !important;
+  max-width: calc(100vw - 1.5rem) !important;
+  margin-inline: 0 !important;
+  padding-inline: 1.15rem !important;
+ }
+}
+
+html body main#page-top:has(.brand-illustrators, .brand-authors) section > ul:has(> li.book-row) {
+ display: grid !important;
+ grid-template-columns: minmax(0, 1fr) !important;
+ gap: .75rem !important;
+ align-items: start !important;
+}
+@media (min-width: 760px) {
+ html body main#page-top:has(.brand-illustrators, .brand-authors) section > ul:has(> li.book-row) {
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+ }
+}
+html body main#page-top:has(.brand-illustrators, .brand-authors) section li.book-row {
+ --jacket-width: clamp(4.75rem, 22vw, 7rem);
+ grid-template-columns: minmax(0, var(--jacket-width)) minmax(0, 1fr) !important;
+ column-gap: .8rem !important;
+ align-self: start !important;
+ height: auto !important;
+ min-height: 0 !important;
+}

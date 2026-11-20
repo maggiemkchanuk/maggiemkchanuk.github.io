@@ -3083,7 +3083,7 @@ html body main header.site-brand .site-nav-more-panel a {
  }
  html body main header.site-brand nav.accessible-nav.mobile-open details[open] > .site-nav-more-panel > a{
   display:flex!important;align-items:center!important;
-  font-size:.72rem!important;font-weight:400!important;line-height:1.25!important;
+  font-size:.875rem!important;font-weight:400!important;line-height:1.4!important;
   min-height:2.5rem!important;height:auto!important;
   padding:.35rem .3rem!important;margin:0!important;
   letter-spacing:0!important;

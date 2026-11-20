@@ -104,6 +104,7 @@
       year: /^(?:18|19|20)\d{2}$/.test(String(value.year || '')) ? String(value.year) : '',
       publisher: clean(value.publisher),
       description: clean(value.description),
+      cover: clean(value.cover),
       creators: clean(value.creators)
     };
   };
@@ -143,14 +144,15 @@
       // Dates and formats can appear before a genuine imprint: prefer a stated publisher.
       if (publisher && /^(?:\d{1,2}\s+\w+|format\b)/i.test(publisher)) publisher = '';
     }
-    const copy = book.querySelector('.book-copy') || book;
+    const copy = book.querySelector('.book-copy, .academic-copy-slot > div') || book;
     const paragraphs = [...copy.querySelectorAll(':scope > p')];
     const description = clean(book.dataset.description ||
-      paragraphs.find(p => !p.className &&
+      paragraphs.find(p => (!p.className || p.classList.contains('book-description')) &&
         !p.closest('.affiliate-purchases') &&
         clean(p.textContent).length > 35)?.textContent || '');
-    const creators = clean(book.dataset.creators || copy.querySelector(':scope > .credit')?.textContent || book.querySelector('.credit')?.textContent || '');
-    return {title, year: /^(?:18|19|20)\d{2}$/.test(year) ? year : '', publisher, description, creators};
+    const creators = clean(book.dataset.creators || copy.querySelector(':scope > .credit')?.textContent || book.querySelector('.credit')?.textContent || copy.querySelector('h3 + p:not([class])')?.textContent || '');
+    const cover = book.querySelector('.book-jacket img, .academic-cover-slot img')?.getAttribute('src') || '';
+    return {title, cover, year: /^(?:18|19|20)\d{2}$/.test(year) ? year : '', publisher, description, creators};
   }
 
   function updateButton(button, url) {
@@ -161,17 +163,30 @@
   }
 
   function appendBookDetails(doc, item, record) {
+    if (record.cover) {
+      const url = new URL(record.cover, siteHome);
+      if (url.protocol === 'https:') {
+        const image = doc.createElement('img');
+        image.src = url.href;
+        image.alt = '';
+        image.width = 80;
+        image.style.cssText = 'float:left;margin:0 .85rem .4rem 0;height:auto';
+        item.style.display = 'flow-root';
+        item.prepend(image);
+      }
+    }
     const meta = doc.createElement('p');
     meta.className = 'saved-book-meta';
-    meta.textContent = 'Year: ' + (record.year || 'Not verified') +
-      ' · Publisher: ' + (record.publisher || 'Not verified');
+    meta.textContent = [record.year, record.publisher].filter(Boolean).join(' · ');
     const description = doc.createElement('p');
     description.className = 'saved-book-description';
-    description.textContent = record.description || 'Description not available in the source entry.';
+    description.textContent = record.description || '';
     const creators = doc.createElement('p');
     creators.className = 'saved-book-creators';
-    creators.textContent = 'Author / illustrator credits: ' + (record.creators || 'Not listed in the source entry');
-    item.append(creators, meta, description);
+    creators.textContent = record.creators || '';
+    for (const line of [creators, meta, description]) {
+      if (line.textContent) item.append(line);
+    }
   }
 
   function render() {
@@ -275,6 +290,7 @@
           if (!old) continue;
           // Preserve known data when a source entry is incomplete.
           const next = {title: fresh.title || old.title,
+            cover: fresh.cover || old.cover,
             year: fresh.year || old.year,
             publisher: fresh.publisher || old.publisher,
             description: fresh.description || old.description,

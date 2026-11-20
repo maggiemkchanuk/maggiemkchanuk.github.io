@@ -2938,3 +2938,47 @@ html body main#page-top > header.site-brand > nav#site-mobile-navigation.accessi
   margin-block: .1rem !important;
  }
 }
+
+/* Use the image’s own proportions so the purchase control follows the artwork. */
+html body main section li.book-row > .book-jacket {
+  align-self: start !important;
+  justify-content: flex-start !important;
+}
+html body main section li.book-row > .book-jacket > img:not([hidden]),
+html body main .cards > article > .academic-cover-slot > img:not([hidden]) {
+  display: block;
+  width: 100% !important;
+  height: auto !important;
+  aspect-ratio: auto !important;
+}
+html body main section li.book-row > .book-jacket > .affiliate-purchases {
+  margin: .3rem 0 0 !important;
+}
+html body main .cards > article.purchase-below-cover:has(> .resource-book-copy) {
+  display: grid;
+  grid-template-columns: minmax(4.75rem, 23%) minmax(0, 1fr);
+  align-items: start;
+  gap: .75rem;
+}
+html body main .cards > article > .book-jacket {
+  align-self: start;
+  width: 100%;
+}
+html body main .cards > article > .book-jacket :is(img.cover-image, figure img) {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: auto;
+  object-fit: contain;
+}
+html body main .cards > article > .book-jacket > figure {
+  width: 100%;
+  margin: 0;
+}
+html body main .cards > article > .resource-book-copy {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+html body main .cards > article > .resource-book-copy > h3 {
+  margin-top: 0;
+}

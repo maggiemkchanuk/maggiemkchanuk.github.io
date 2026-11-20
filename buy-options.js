@@ -113,6 +113,14 @@
     if (jacket) {
       jacket.append(purchase);
       book.classList.add('purchase-below-cover');
+      if (book.matches('.cards > article[data-buy-isbn], .cards > article[data-buy-product]')) {
+        const copy = document.createElement('div');
+        copy.className = 'resource-book-copy';
+        for (const child of [...book.childNodes]) {
+          if (child !== jacket) copy.append(child);
+        }
+        book.append(copy);
+      }
     }
   }
 

@@ -3116,11 +3116,12 @@ html body main header.site-brand .site-nav-more-panel a {
   gap:.1rem .3rem!important;padding:.15rem .3rem!important;margin:0 0 .25rem!important;
  }
  html body main > header.site-brand > nav.accessible-nav.mobile-open > details[open] > .site-nav-more-panel > a{
-  font:400 .72rem/1.25 Inter,Arial,sans-serif!important;
+  font:400 .875rem/1.4 Inter,Arial,sans-serif!important;
   display:flex!important;align-items:center!important;
   height:auto!important;min-height:2.5rem!important;
   padding:.3rem .25rem!important;margin:0!important;
   text-transform:none!important;letter-spacing:0!important;
+  overflow-wrap:anywhere;min-width:0!important;
  }
 }
 
@@ -3135,13 +3136,3 @@ html body main > header.site-brand > nav.site-nav-grouped :is(a,summary){
  color:#315b48!important;
 }
 
-/* 2026-11-20: readable mobile dropdown links without changing desktop tabs.
-   This overrides the legacy .72rem rule above and retains two columns. */
-@media screen and (max-width:700px){
- html body main > header.site-brand > nav.accessible-nav.mobile-open > details[open] > .site-nav-more-panel > a{
-  font-size:.875rem!important;
-  line-height:1.4!important;
-  overflow-wrap:anywhere;
-  min-width:0!important;
- }
-}

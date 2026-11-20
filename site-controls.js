@@ -42,140 +42,44 @@
   });
   catalogueObserver.observe(document.body, {childList:true,subtree:true});
 
-  const navigation = document.querySelector('.site-nav');
-  const readingList = navigation?.querySelector('a[href="reading-lists.html"]');
-  if (readingList && !navigation.querySelector('a[href="saved-books.html"]')) {
-    const savedLink = document.createElement('a');
-    savedLink.href = 'saved-books.html';
-    savedLink.textContent = 'Save to My List';
-    readingList.after(savedLink);
-  }
+  const navigation = document.querySelector('.accessible-nav');
+  const mobileToggle = document.querySelector('.site-mobile-menu-toggle');
+  if (navigation && mobileToggle) {
+    const groups = [...navigation.querySelectorAll(':scope > details')];
+    const mobileViewport = window.matchMedia('(max-width: 700px)');
 
+    function setMobileMenu(open) {
+      navigation.classList.toggle('mobile-open', open);
+      mobileToggle.setAttribute('aria-expanded', String(open));
+      mobileToggle.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
+      mobileToggle.textContent = open ? '× MENU' : '☰ MENU';
+      if (!open) for (const group of groups) group.open = false;
+    }
 
-  // Five-item information architecture; retain all existing content destinations.
-  if (navigation && !navigation.classList.contains('site-nav-grouped')) {
-    const links = [...navigation.querySelectorAll(':scope > a')];
-    const byHref = new Map(links.map(a => [a.getAttribute('href'), a]));
-    const makeLink = (href, label) => {
-      const existing = byHref.get(href);
-      const link = existing ? existing.cloneNode(true) : document.createElement('a');
-      link.href = href;
-      if (label) link.textContent = label;
-      return link;
-    };
-    const group = (label, items) => {
-      const details = document.createElement('details');
-      details.className = 'site-nav-more';
-      const summary = document.createElement('summary');
-      summary.textContent = label;
-      const panel = document.createElement('div');
-      panel.className = 'site-nav-more-panel';
-      panel.setAttribute('aria-label', label + ' pages');
-      items.forEach(([href, name]) => panel.append(makeLink(href, name)));
-      details.append(summary, panel);
-      details.addEventListener('keydown', event => {
-        if (event.key === 'Escape') { details.open = false; summary.focus(); }
-      });
-      return details;
-    };
-    const homeMenu = group('Home', [
-      ['./#about', 'About'],
-      ['./#publications', 'Publications'],
-      ['./#presentations', 'Presentations'],
-      ['consultancy.html', 'Consultancy']
-    ]);
-    const books = group('Book Resources', [
-      ['reading-lists.html', 'Picturebook Reading List'],
-      ['authors.html', 'Authors'],
-      ['illustrators.html', 'Illustrators'],
-      ['book-awards.html', 'Book Awards']
-    ]);
-    const academic = group('Academic Resources', [
-      ['academic-books.html', 'Academic Books'],
-      ['journals.html', 'Journals'],
-      ['professional-bodies.html', 'Professional Bodies'],
-      ['conferences.html', 'Conferences']
-    ]);
-    const education = group('Educational Resources', [
-      ['reading-tools.html', 'Reading Tools'],
-      ['educational-resources.html', 'Others']
-    ]);
-    navigation.replaceChildren(homeMenu, books, academic, education,
-      makeLink('saved-books.html', 'Save to My List'), makeLink('contact.html', 'Contact'));
-    navigation.classList.remove('site-nav', 'site-nav-compact', 'site-nav-grouped');
-    navigation.classList.add('accessible-nav');
-    // Mobile-only disclosure: one MENU button reveals the full navigation.
-    const mobileToggle = document.createElement('button');
-    mobileToggle.type = 'button';
-    mobileToggle.className = 'site-mobile-menu-toggle';
-    mobileToggle.setAttribute('aria-expanded', 'false');
-    mobileToggle.setAttribute('aria-controls', 'site-mobile-navigation');
-    mobileToggle.setAttribute('aria-label', 'Open navigation menu');
-    mobileToggle.textContent = '☰ MENU';
-    navigation.id = 'site-mobile-navigation';
-    navigation.before(mobileToggle);
-    const closeMobile = () => {
-      mobileToggle.setAttribute('aria-expanded', 'false');
-      mobileToggle.setAttribute('aria-label', 'Open navigation menu');
-      mobileToggle.textContent = '☰ MENU';
-      navigation.classList.remove('mobile-open');
-      for (const details of [homeMenu, books, academic, education]) details.open = false;
-    };
-    mobileToggle.addEventListener('click', () => {
-      if (navigation.classList.contains('mobile-open')) closeMobile();
-      else {
-        navigation.classList.add('mobile-open');
-        mobileToggle.setAttribute('aria-expanded', 'true');
-        mobileToggle.setAttribute('aria-label', 'Close navigation menu');
-        mobileToggle.textContent = '× MENU';
-      }
+    mobileToggle.addEventListener('click', () => setMobileMenu(!navigation.classList.contains('mobile-open')));
+    mobileViewport.addEventListener('change', () => setMobileMenu(false));
+    navigation.addEventListener('click', event => {
+      if (mobileViewport.matches && event.target.closest('a')) setMobileMenu(false);
     });
     navigation.addEventListener('keydown', event => {
-      if (event.key === 'Escape' && navigation.classList.contains('mobile-open')) {
-        closeMobile(); mobileToggle.focus();
+      if (event.key !== 'Escape') return;
+      const group = event.target.closest('details[open]');
+      if (group) {
+        group.open = false;
+        group.querySelector('summary').focus();
+      } else if (navigation.classList.contains('mobile-open')) {
+        setMobileMenu(false);
+        mobileToggle.focus();
       }
     });
-    navigation.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-      if (window.matchMedia('(max-width: 700px)').matches) closeMobile();
-    }));
     document.addEventListener('click', event => {
-      for (const details of [homeMenu, books, academic, education]) {
-        if (!details.contains(event.target)) details.open = false;
-      }
+      for (const group of groups) if (!group.contains(event.target)) group.open = false;
     });
-    for (const details of [homeMenu, books, academic, education]) {
-      details.addEventListener('toggle', () => {
-        if (details.open) for (const other of [homeMenu, books, academic, education]) {
-          if (other !== details) other.open = false;
-        }
+    for (const group of groups) {
+      group.addEventListener('toggle', () => {
+        if (group.open) for (const other of groups) if (other !== group) other.open = false;
       });
     }
-  }
-
-  const header = navigation?.closest('.site-brand');
-  if (header) {
-    if (!header.querySelector(':scope > p')) {
-      const description = document.createElement('p');
-      description.textContent = 'Children’s literature, literacy and childhood';
-      navigation.before(description);
-    }
-    const bookmark = document.createElement('details');
-    bookmark.className = 'site-bookmark';
-    const label = document.createElement('summary');
-    label.textContent = 'Bookmark this website';
-    const instructions = document.createElement('p');
-    const home = document.createElement('a');
-    home.href = siteHome;
-    home.textContent = 'Open the homepage';
-    instructions.append(home, ' and press Ctrl+D on Windows or Command+D on Mac. On a phone or tablet, use Add Bookmark in the browser’s Share or menu button.');
-    bookmark.append(label, instructions);
-    let actions = header.nextElementSibling;
-    if (!actions?.classList.contains('site-actions')) {
-      actions = document.createElement('div');
-      actions.className = 'site-actions';
-      header.after(actions);
-    }
-    actions.prepend(bookmark);
   }
 
   // A saved record retains its source location and verified bibliographic details.

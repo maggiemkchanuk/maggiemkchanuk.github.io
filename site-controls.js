@@ -58,8 +58,18 @@
 
     mobileToggle.addEventListener('click', () => setMobileMenu(!navigation.classList.contains('mobile-open')));
     mobileViewport.addEventListener('change', () => setMobileMenu(false));
+    // Keep the current menu visible until a cross-page navigation replaces it.
     navigation.addEventListener('click', event => {
-      if (mobileViewport.matches && event.target.closest('a')) setMobileMenu(false);
+      const link = event.target.closest('a');
+      if (!mobileViewport.matches || !link || !link.hash) return;
+      const destination = new URL(link.href);
+      if (destination.origin === location.origin && destination.pathname === location.pathname &&
+          destination.search === location.search) {
+        setMobileMenu(false);
+      }
+    });
+    window.addEventListener('pageshow', event => {
+      if (event.persisted && mobileViewport.matches) setMobileMenu(false);
     });
     navigation.addEventListener('keydown', event => {
       if (event.key !== 'Escape') return;

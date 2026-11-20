@@ -3136,3 +3136,18 @@ html body main > header.site-brand > nav.site-nav-grouped :is(a,summary){
  color:#315b48!important;
 }
 
+
+/* 2026-11-20: shared book-entry rhythm. Remove phantom title-to-credit
+   spacing without changing gaps between separate catalogue entries. */
+html body main :is(.book-copy,.book-card,.catalog-card,.academic-book,.resource-card,.academic-copy) > h3,
+html body main :is(.book-copy,.book-card,.catalog-card,.academic-book,.resource-card,.academic-copy) > .book-title-row,
+html body main .academic-cover-slot + h3 {
+ margin-bottom:0!important;
+ padding-bottom:0!important;
+}
+html body main :is(.book-copy,.book-card,.catalog-card,.academic-book,.resource-card,.academic-copy) > h3 + :is(p,.credit,.edition,.book-origin),
+html body main :is(.book-copy,.book-card,.catalog-card,.academic-book,.resource-card,.academic-copy) > .book-title-row + :is(p,.credit,.edition,.book-origin),
+html body main .book-copy > .book-title-row + .credit {
+ margin-top:0!important;
+ padding-top:0!important;
+}

@@ -2982,3 +2982,9 @@ html body main .cards > article > .resource-book-copy {
 html body main .cards > article > .resource-book-copy > h3 {
   margin-top: 0;
 }
+
+/* Keep book detail links smaller than the synopsis, including on mobile. */
+html body main#page-top section :is(li.book-row, article) a.book-details-link:not(.buy-retailer) {
+  font-size: .76rem !important;
+  line-height: 1.45;
+}

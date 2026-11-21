@@ -563,7 +563,7 @@ main:has(> .site-brand) > :is(.site-brand, .site-actions) {
 
 /* Authors/illustrators: missing jacket markup must not squeeze copy into the jacket column. */
 main > section li.book-row:not(:has(> .book-jacket)):not(.book-row--text)::before {
-  content:"Cover pending";
+  content:"";
   grid-column:1;
   grid-row:1;
   display:grid;

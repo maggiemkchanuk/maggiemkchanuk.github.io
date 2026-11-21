@@ -453,8 +453,8 @@ filterAuthorBooks();
    const li=document.createElement('li');li.className='book-row';
    const jacket=document.createElement('div');jacket.className='book-jacket';
    if(book.cover && /^\/?book-covers\/[\w.\/-]+$/i.test(book.cover)){
-    const img=document.createElement('img');img.className='cover-image';img.src=book.cover;img.alt='Cover of '+book.title;img.loading='lazy';img.width=96;img.height=144;img.onerror=()=>{img.remove();jacket.textContent='Cover pending verification';};jacket.append(img);
-   } else jacket.textContent='Cover pending verification';
+    const img=document.createElement('img');img.className='cover-image';img.src=book.cover;img.alt='Cover of '+book.title;img.loading='lazy';img.width=96;img.height=144;img.onerror=()=>{img.remove();jacket.textContent='';};jacket.append(img);
+   } else jacket.textContent='';
    const copy=document.createElement('div');copy.className='book-copy';
    const title=document.createElement('h3');title.textContent=book.title;copy.append(title);
    const credit=document.createElement('p');credit.className='credit';credit.textContent=[book.author,book.illustrator&&('Illustrated by '+book.illustrator)].filter(Boolean).join(' · ');copy.append(credit);

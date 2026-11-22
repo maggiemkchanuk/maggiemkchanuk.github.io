@@ -3222,3 +3222,66 @@ html body main#page-top :is(.literature-page-banner,.literature-subpage-banner,.
     align-self: center;
   }
 }
+
+
+/* Unified illustration + title + introductory links: one shared card. */
+html body main#page-top > .unified-page-intro {
+  box-sizing: border-box;
+  background: #faf7ef;
+  border: 1px solid #e1ded3;
+  border-radius: 1.15rem;
+  padding: clamp(.7rem, 2vw, 1.2rem);
+  margin: .45rem 0 .8rem;
+  overflow: visible;
+}
+html body main#page-top > .unified-page-intro :is(.literature-page-banner,.literature-subpage-banner) {
+  box-sizing: border-box;
+  background: transparent !important;
+  border: 0 !important;
+  border-bottom: 1px solid #738b79 !important;
+  border-radius: 0 !important;
+  padding: .15rem 0 .45rem !important;
+  margin: 0 0 .45rem !important;
+  min-height: 0 !important;
+}
+html body main#page-top > .unified-page-intro > :is(p,.compact-page-intro,.reading-intro,.academic-intro,.search-tools,.research-filter,nav) {
+  margin-block: .35rem !important;
+}
+html body main#page-top > .unified-page-intro > nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .4rem .55rem;
+}
+html body main#page-top > .unified-page-intro :is(.search-tools,.research-filter) {
+  margin-block: .4rem !important;
+}
+html body main#page-top > .unified-page-intro :is(.literature-page-banner,.literature-subpage-banner) > img {
+  border: 0 !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  mix-blend-mode: multiply;
+}
+@media (max-width: 700px) {
+ html body main#page-top > .unified-page-intro {
+   padding: .65rem .75rem;
+   margin-block: .3rem .65rem;
+ }
+ html body main#page-top > .unified-page-intro :is(.literature-page-banner,.literature-subpage-banner) {
+   display: grid !important;
+   grid-template-columns: minmax(0, 1fr) minmax(0, 42%) !important;
+   align-items: center !important;
+   gap: .35rem !important;
+ }
+ html body main#page-top > .unified-page-intro :is(.literature-page-banner,.literature-subpage-banner) > img {
+   max-width: 100% !important;
+   max-height: 5.8rem !important;
+   width: 100% !important;
+   height: auto !important;
+   object-fit: contain;
+ }
+ html body main#page-top > .unified-page-intro :is(.literature-page-banner,.literature-subpage-banner) > h1 {
+   font-family: Nunito, Inter, system-ui, sans-serif !important;
+   font-weight: 800 !important;
+   text-align: left !important;
+ }
+}

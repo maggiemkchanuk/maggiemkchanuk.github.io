@@ -41,12 +41,14 @@ main section li.book-row .book-copy .affiliate-purchases{margin:.35rem 0 0!impor
 main section li.book-row .book-copy .buy-options>summary{font-size:.85rem!important}
 </style><style id="authors-featured-photos-20261119">
 /* Three personal author photographs above the page heading; preserve reading order on narrow screens. */
-.authors-featured-photos{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.65fr) minmax(0,1fr);align-items:start;gap:clamp(.55rem,2vw,1.25rem);margin:1.25rem 0 1.8rem;padding:clamp(.7rem,2vw,1.3rem);border:1px solid rgba(70,92,81,.14);border-radius:1.4rem;background:rgba(255,255,255,.42)}
+.authors-featured-photos{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.35fr) minmax(0,1fr);align-items:start;gap:clamp(.55rem,2vw,1.25rem);margin:1.25rem 0 1.8rem;padding:clamp(.7rem,2vw,1.3rem);border:1px solid rgba(70,92,81,.14);border-radius:1.4rem;background:rgba(255,255,255,.42)}
 .authors-featured-photos figure{margin:0;min-width:0;text-align:center}
-.authors-featured-photos figure:nth-child(2) img{height:clamp(15rem,35vw,23rem);filter:drop-shadow(0 12px 18px rgba(29,45,42,.17))}
-.authors-featured-photos img{display:block;width:100%;height:clamp(10rem,23vw,15rem);object-fit:contain;object-position:center;border-radius:1.15rem;filter:drop-shadow(0 8px 12px rgba(29,45,42,.13))}
+.authors-featured-photos figure:nth-child(2) img{filter:drop-shadow(0 12px 18px rgba(29,45,42,.17))}
+.authors-featured-photos img{display:block;width:100%;height:auto;object-fit:contain;object-position:center;border-radius:1.15rem;filter:drop-shadow(0 8px 12px rgba(29,45,42,.13))}
 .authors-featured-photos figcaption{font:500 .82rem/1.4 Inter,system-ui,sans-serif;color:#42594f;margin:.45rem 0 0}
-@media(max-width:520px){.authors-featured-photos{gap:.4rem}.authors-featured-photos img{height:clamp(7rem,31vw,10rem)}.authors-featured-photos figure:nth-child(2) img{height:clamp(10.5rem,46vw,15rem)}.authors-featured-photos figcaption{font-size:.72rem}}
+html body main#page-top .unified-page-intro .authors-featured-photos figure img{height:auto!important;object-fit:contain!important}
+@media(max-width:700px){html body main#page-top .unified-page-intro .authors-featured-photos{grid-template-columns:minmax(0,1fr) minmax(0,1.35fr) minmax(0,1fr)!important}}
+@media(max-width:520px){.authors-featured-photos figcaption{font-size:.72rem}}
 </style><style id="authors-compact-natural-cards-20261119">
 /* Author bibliographies: two readable columns, natural-height cards and concise summaries. */
 @media(min-width:760px){

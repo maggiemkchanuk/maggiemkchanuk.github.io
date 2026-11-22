@@ -3145,3 +3145,30 @@ html body main#page-top :is(.literature-page-banner,.literature-subpage-banner):
   justify-self: center;
  }
 }
+
+@media (max-width: 700px) {
+ html body main#page-top > header.site-brand:has(> nav.accessible-nav) > :is(.site-name, .site-name + p, button.site-mobile-menu-toggle) {
+  box-sizing: border-box !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  margin-inline: 0 !important;
+  align-self: stretch !important;
+  justify-self: stretch !important;
+  text-align: center !important;
+ }
+ html body main#page-top > header.site-brand:has(> nav.accessible-nav) > button.site-mobile-menu-toggle { margin-block: .25rem 0 !important; padding-block: .35rem !important; }
+ html body main#page-top :is(.literature-page-banner,.literature-subpage-banner) {
+  margin: .15rem 0 .25rem !important;
+  padding: .25rem 0 !important;
+  min-height: 0 !important;
+ }
+ html body main#page-top :is(.literature-page-banner,.literature-subpage-banner) > h1 {
+  padding-inline: 0 !important;
+  text-align: left !important;
+ }
+ html body main#page-top .literature-page-banner > img { max-height: 4.25rem; }
+ html body main#page-top :is(.reading-intro,.academic-intro,.search-tools,.research-filter,.author-study-nav) { margin-block: .3rem !important; row-gap: .3rem !important; }
+ html body main#page-top :is(.compact-page-intro,.reading-intro-copy > p,.academic-intro-copy > p) { margin-block: .15rem .3rem !important; }
+ html body main#page-top > header:not(.site-brand):has(> :is(.literature-page-banner,.literature-subpage-banner)) { margin-block: 0 .35rem !important; padding-block: 0 !important; }
+}

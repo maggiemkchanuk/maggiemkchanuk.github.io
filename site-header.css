@@ -3028,10 +3028,12 @@ html body main#page-top > header.site-brand > :is(h1.site-name, a.site-name) {
 }
 html body main#page-top > header.site-brand > .site-name + p {
  font-family: Inter, system-ui, sans-serif !important;
- font-size: clamp(.85rem, 2vw, 1.2rem) !important;
+ font-size: clamp(.68rem, 1.55vw, 1.08rem) !important;
  font-style: normal !important;
  text-align: left !important;
  margin: .25rem 0 .4rem !important;
+ max-inline-size: 26ch;
+ text-wrap: balance;
 }
 html body main#page-top :is(.literature-page-banner,.old-college-banner) > :is(h1,h2) {
  font-family: Inter, system-ui, sans-serif !important;

@@ -335,7 +335,11 @@
     buttons.set(href, button);
   }
 
-  download?.addEventListener('click', exportList);
+  download?.addEventListener('click', () => {
+    // Browsers generate PDF via the native print sheet; no HTML file is downloaded.
+    window.alert('To save your book list as a PDF, choose “Save as PDF” in the print window. On iPhone, open the print preview and use Share → Save to Files.');
+    window.print();
+  });
   print?.addEventListener('click', () => window.print());
   window.addEventListener('storage', event => {
     if (event.key !== storageKey) return;

@@ -3103,3 +3103,27 @@ html body main#page-top .literature-subpage-banner > h1 {
   color: #1d1d1d !important;
  }
 }
+
+/* Shorten the route from the masthead to the page content. */
+html body main#page-top > header.site-brand:has(> nav.accessible-nav) {
+ margin-bottom: .25rem !important;
+}
+html body main#page-top > .site-actions {
+ margin-block: .15rem .25rem !important;
+ padding-block: 0 !important;
+}
+html body main#page-top :is(.literature-subpage-banner,.literature-page-banner) {
+ margin-block: .25rem .45rem;
+}
+html body main#page-top .literature-subpage-banner { padding-block: .45rem; }
+html body main#page-top :is(.literature-page-banner,.literature-subpage-banner):not(:has(img)) {
+ min-height: 0;
+}
+@media (max-width: 700px) {
+ html body main#page-top > header.site-brand:has(> nav.accessible-nav) {
+  padding-block: .45rem !important;
+ }
+ html body main#page-top > header.site-brand > button.site-mobile-menu-toggle {
+  margin-top: .25rem !important;
+ }
+}

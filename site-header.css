@@ -2992,3 +2992,45 @@ html body main#page-top section :is(li.book-row, article) a.book-details-link:no
   font-size: .76rem !important;
   line-height: 1.45;
 }
+
+/* Shared page and navigation palette. The site name remains live text. */
+html body:has(main > header.site-brand) {
+  background: #f8f9f6 !important;
+}
+html body main#page-top > header.site-brand:has(> .accessible-nav) {
+  background: #fff !important;
+  border: 0 !important;
+  border-bottom: 1px solid #d7dfd8 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+html body main#page-top > header.site-brand::before,
+html body main#page-top > header.site-brand::after {
+  content: none !important;
+  display: none !important;
+}
+html body main#page-top > header.site-brand > nav#site-mobile-navigation {
+  background: transparent !important;
+  border: 0 !important;
+  border-top: 1px solid #e1e7e0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+html body main#page-top > header.site-brand > nav#site-mobile-navigation :is(a, summary) {
+  text-transform: none !important;
+  letter-spacing: 0 !important;
+}
+html body main#page-top > header.site-brand > nav#site-mobile-navigation > :is(a,details > summary) {
+  border: 0 !important;
+  border-radius: .25rem !important;
+  background: transparent !important;
+}
+html body main#page-top > header.site-brand > nav#site-mobile-navigation details[open] > summary,
+html body main#page-top > header.site-brand > nav#site-mobile-navigation :is(a,summary):is(:hover,:focus-visible) {
+  background: #e9f0e9 !important;
+}
+html body main#page-top > header.site-brand > nav#site-mobile-navigation .site-nav-more-panel {
+  background: #fff !important;
+  border: 1px solid #d7dfd8 !important;
+  border-radius: .35rem !important;
+}

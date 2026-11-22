@@ -3191,3 +3191,34 @@ html body main#page-top > .site-actions:empty { display: none !important; }
   padding-top: 0 !important;
  }
 }
+
+
+/* Integrate illustrated page motifs into their existing heading panels.
+   Photographs and book-cover images deliberately remain untouched. */
+html body main#page-top :is(.literature-page-banner,.literature-subpage-banner,.old-college-banner) > img[src^="data:image/"],
+html body main#page-top :is(.literature-page-banner,.literature-subpage-banner,.old-college-banner) > img[src$=".svg"],
+html body main#page-top :is(.literature-page-banner,.literature-subpage-banner,.old-college-banner) > img[src$=".webp"] {
+  display: block;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  outline: none;
+  padding: 0 !important;
+  margin-block: 0 !important;
+  mix-blend-mode: multiply;
+  object-fit: contain;
+  -webkit-mask-image: radial-gradient(ellipse 78% 80% at center, #000 62%, transparent 100%);
+  mask-image: radial-gradient(ellipse 78% 80% at center, #000 62%, transparent 100%);
+}
+html body main#page-top :is(.literature-page-banner,.literature-subpage-banner,.old-college-banner):has(> img[src^="data:image/"]),
+html body main#page-top :is(.literature-page-banner,.literature-subpage-banner,.old-college-banner):has(> img[src$=".svg"]),
+html body main#page-top :is(.literature-page-banner,.literature-subpage-banner,.old-college-banner):has(> img[src$=".webp"]) {
+  overflow: hidden;
+  isolation: isolate;
+}
+@media (max-width: 700px) {
+  html body main#page-top :is(.literature-page-banner,.literature-subpage-banner,.old-college-banner) > img[src^="data:image/"] {
+    max-width: 100%;
+    align-self: center;
+  }
+}

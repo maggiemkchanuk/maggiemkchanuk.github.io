@@ -57,6 +57,14 @@ html body main .literature-page-banner:not(:has(img)) { grid-template-columns: 1
  html body main#page-top #about > .old-college-banner h2 { text-align: left !important; justify-self: start; }
 }
 </style>
+<style id="compact-page-intro-layout">
+@media (max-width: 700px) {
+ html body main#page-top :is(.literature-page-banner,.literature-subpage-banner) { margin-block: .2rem .3rem !important; }
+ html body main#page-top :is(.compact-page-intro,.literature-subpage-banner + p,.literature-page-banner + p,header:has(> :is(.literature-page-banner,.literature-subpage-banner)) > p) { margin-block: .2rem .45rem !important; line-height: 1.45 !important; }
+ html body main#page-top :is(.search-tools,.research-filter,.author-study-nav) { margin-block: .45rem !important; }
+ html body main#page-top #book-count { margin-block: .25rem !important; }
+}
+</style>
 </head>
 <body class="saved-books-page">
 <main id="page-top">

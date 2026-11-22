@@ -3229,6 +3229,31 @@ html body main#page-top :is(.literature-page-banner,.literature-subpage-banner,.
 }
 
 
+/* Blend the whale as a single layer after its paper tones are neutralised. */
+html body main#page-top > .unified-page-intro:has(.whale-banner-art) {
+  isolation: isolate;
+}
+html body main#page-top .literature-page-banner > .whale-banner-art {
+  display: block;
+  min-width: 0;
+  justify-self: stretch;
+  mix-blend-mode: multiply;
+}
+html body main#page-top .whale-banner-art > img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 6.5rem;
+  object-fit: contain;
+  object-position: right center;
+  filter: brightness(1.10);
+}
+@media (max-width: 700px) {
+  html body main#page-top .whale-banner-art > img {
+    max-height: 5.1rem;
+  }
+}
+
 /* Unified illustration + title + introductory links: one shared card. */
 html body main#page-top > .unified-page-intro {
   box-sizing: border-box;

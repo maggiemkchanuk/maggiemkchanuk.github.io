@@ -2547,34 +2547,6 @@ html body main header.site-brand nav.site-nav-grouped > a[aria-current="page"]{
  color:#315b48 !important;
 }
 
-/* Vintage Literary Botanical: let the existing bird and floral illustration
-   lead the header; retain subtle editorial rules and tiny diamonds in sections.
-   No geometric blocks in the site banner. */
-html body main > header.site-brand{
- background-image:none !important;
- background-color:var(--banner-colour,#f3ead9) !important;
-}
-html body main > section > h2,
-html body main > section > header > h2{
- position:relative;
- padding-bottom:.5rem;
- border-bottom:1px solid rgba(112,139,129,.30);
-}
-html body main > section > h2::after,
-html body main > section > header > h2::after{
- content:"";
- position:absolute;
- width:.36rem;height:.36rem;
- right:.18rem;bottom:-.22rem;
- background:#b8c7b5;
- transform:rotate(45deg);
- border:1px solid #f7f5ef;
-}
-@media(max-width:700px){
- html body main > section > h2::after,
- html body main > section > header > h2::after{width:.3rem;height:.3rem;bottom:-.18rem}
-}
-
 /* 2026-11-19: distinguish the five primary navigation groups.
    Spacing applies to real tabs, not the decorative header illustration. */
 @media(min-width:701px){
@@ -3171,4 +3143,51 @@ html body main#page-top :is(.literature-page-banner,.literature-subpage-banner):
  html body main#page-top :is(.reading-intro,.academic-intro,.search-tools,.research-filter,.author-study-nav) { margin-block: .3rem !important; row-gap: .3rem !important; }
  html body main#page-top :is(.compact-page-intro,.reading-intro-copy > p,.academic-intro-copy > p) { margin-block: .15rem .3rem !important; }
  html body main#page-top > header:not(.site-brand):has(> :is(.literature-page-banner,.literature-subpage-banner)) { margin-block: 0 .35rem !important; padding-block: 0 !important; }
+}
+
+/* Keep save buttons anchored to their book titles on every catalogue. */
+html body main .book-title-row {
+ position: relative;
+ box-sizing: border-box;
+}
+html body main .book-title-row > .save-book-button {
+ margin: 0;
+}
+
+/* Remove decorative dividers without changing form or card borders. */
+html body main#page-top > :is(.site-brand, .site-actions, header, section),
+html body main#page-top > header.site-brand > nav.accessible-nav,
+html body main#page-top > section > :is(h2, header > h2) {
+ border-block-color: transparent !important;
+}
+html body main#page-top > .site-actions:empty { display: none !important; }
+
+@media (max-width: 700px) {
+ html body main#page-top > header.site-brand:has(> nav.accessible-nav) {
+  left: auto !important;
+  transform: none !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  margin-inline: 0 !important;
+  padding-inline: .7rem !important;
+ }
+ html body main#page-top > header.site-brand:has(> nav.accessible-nav) > button.site-mobile-menu-toggle {
+  inset-inline: auto !important;
+  transform: none !important;
+  display: flex !important;
+  box-sizing: border-box !important;
+  width: 100% !important;
+  max-width: none !important;
+  margin-inline: 0 !important;
+ }
+ html body main#page-top > header:not(.site-brand):has(> .literature-page-banner) {
+  margin: 0 0 .3rem !important;
+  padding: 0 !important;
+ }
+ html body main#page-top > .compact-page-intro + nav { margin-block: .35rem .55rem !important; }
+ html body main#page-top > nav[aria-label="Resource topics"] { gap: .25rem .7rem !important; }
+ html body main#page-top > nav[aria-label="Resource topics"] ~ section {
+  margin-top: .75rem !important;
+  padding-top: 0 !important;
+ }
 }

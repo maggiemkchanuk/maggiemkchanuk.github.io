@@ -3401,7 +3401,7 @@ html body main#page-top:has(> .site-brand:is(.brand-academic,.brand-reading))
   > .unified-page-intro .literature-page-banner > h1 {
   padding-inline: 0 !important;
 }
-html body main#page-top:has(> .site-brand:is(.brand-authors,.brand-illustrators,.brand-awards)) {
+html body main#page-top:has(> .site-brand:is(.brand-reading,.brand-authors,.brand-illustrators,.brand-awards)) {
   box-sizing: border-box;
   width: min(58rem, 100% - 2.5rem);
   max-width: none;

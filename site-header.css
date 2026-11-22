@@ -301,7 +301,7 @@ main:has(> .brand-home) {
   --home-banner-width: min(68rem, calc(100vw - 2rem));
   margin-top: clamp(.85rem, 2vw, 1.5rem);
 }
-main:has(> .brand-home) > :is(.brand-home, .site-actions) {
+main:has(> .brand-home) > .brand-home {
   box-sizing: border-box;
   width: var(--home-banner-width);
   margin-inline: calc((100% - var(--home-banner-width)) / 2);
@@ -422,6 +422,8 @@ main:has(> :is(.brand-tools, .brand-awards)) {
 
 .site-brand:has(+ .site-actions) { margin-bottom: 0; }
 .site-actions {
+  box-sizing: border-box;
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
@@ -514,7 +516,7 @@ main:has(> .site-brand) {
   --navigation-width: min(68rem, calc(100vw - 2rem));
   margin-top: 1rem;
 }
-main:has(> .site-brand) > :is(.site-brand, .site-actions) {
+main:has(> .site-brand) > .site-brand {
   box-sizing: border-box;
   width: var(--navigation-width);
   margin-inline: calc((100% - var(--navigation-width)) / 2);

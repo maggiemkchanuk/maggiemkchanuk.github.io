@@ -38,6 +38,8 @@ main h3 {
 
 .site-brand {
   position: relative;
+  /* Keep dropdowns above the page content outside the header’s stacking context. */
+  z-index: 1100;
   isolation: isolate;
   overflow: clip;
   margin: 0 clamp(-2rem, -4vw, -.65rem) 1.65rem;

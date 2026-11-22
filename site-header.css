@@ -3343,3 +3343,27 @@ html body main#page-top > .unified-page-intro :is(.literature-page-banner,.liter
    row-gap: .35rem !important;
  }
 }
+
+
+/* Saved-list controls belong to the heading card, without a divider. */
+html body main#page-top > .unified-page-intro:has(.saved-book-help) .literature-page-banner {
+  border-bottom: 0 !important;
+  padding-bottom: 0 !important;
+  margin-bottom: .3rem !important;
+}
+html body main#page-top > .unified-page-intro > .saved-books-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .5rem;
+  margin: .6rem 0 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+}
+html body main#page-top > .unified-page-intro > .saved-books-actions button {
+  max-width: 100%;
+  min-height: 44px;
+}
+html body main#page-top > section#visitor-saved-books > .saved-books-intro:empty {
+  display: none !important;
+}

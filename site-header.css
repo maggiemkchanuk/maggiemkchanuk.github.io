@@ -3399,3 +3399,69 @@ html body main#page-top > .unified-page-intro > nav > a {
    row-gap: .35rem !important;
  }
 }
+
+
+/* 2026-11 compact layout pass: preserve typography and imagery. */
+html body main#page-top > .unified-page-intro {
+  margin-block: .3rem .55rem !important;
+  padding: clamp(.6rem, 1.5vw, .95rem) !important;
+}
+html body main#page-top > .unified-page-intro :is(.literature-page-banner,.literature-subpage-banner) {
+  padding: 0 0 .3rem !important;
+  margin: 0 0 .35rem !important;
+  min-height: 0 !important;
+}
+html body main#page-top > .unified-page-intro :is(.literature-page-banner,.literature-subpage-banner) > img {
+  max-height: 6.5rem !important;
+  object-fit: contain !important;
+}
+html body main#page-top > .unified-page-intro > :is(p,nav,form,div:not(.literature-page-banner):not(.literature-subpage-banner)) {
+  margin-block: .3rem !important;
+}
+html body main#page-top > .unified-page-intro :is(p, label, h2, h3) {
+  margin-top: .25rem !important;
+  margin-bottom: .25rem !important;
+}
+html body main#page-top > .unified-page-intro :is(input,select,button) {
+  max-width: 100%;
+}
+html body main#page-top > .authors-featured-photos {
+  margin-block: .35rem .5rem !important;
+  padding: .55rem !important;
+}
+html body main#page-top > .authors-featured-photos figure {
+  margin: 0 !important;
+}
+html body main#page-top > .authors-featured-photos figcaption {
+  margin-top: .25rem !important;
+}
+@media (max-width:700px) {
+ html body main#page-top > .unified-page-intro {
+   padding: .55rem .7rem !important;
+   margin-block: .2rem .45rem !important;
+ }
+ html body main#page-top > .unified-page-intro :is(.literature-page-banner,.literature-subpage-banner) > img {
+   max-height: 5.1rem !important;
+ }
+ html body main#page-top > .authors-featured-photos {
+   display: grid !important;
+   grid-template-columns: minmax(0,1fr) minmax(0,1.45fr) minmax(0,1fr) !important;
+   align-items: start !important;
+   gap: .45rem !important;
+ }
+ html body main#page-top > .authors-featured-photos figure:nth-child(2) {
+   align-self: start !important;
+ }
+ html body main#page-top > .authors-featured-photos figure:nth-child(2) img,
+ html body main#page-top > .authors-featured-photos figure img {
+   height: clamp(7rem, 30vw, 10rem) !important;
+   object-fit: cover !important;
+ }
+ html body main#page-top > .authors-featured-photos figure:nth-child(2) img {
+   object-fit: contain !important;
+ }
+ html body main#page-top > .authors-featured-photos figcaption {
+   margin: .2rem 0 0 !important;
+   line-height: 1.25 !important;
+ }
+}

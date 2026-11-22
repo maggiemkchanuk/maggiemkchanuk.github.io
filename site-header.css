@@ -3014,3 +3014,29 @@ html body main#page-top > header.site-brand > nav#site-mobile-navigation.accessi
   text-decoration: underline !important;
   text-underline-offset: .4em;
 }
+
+/* Keep the masthead typography consistent across the principal pages. */
+html body main#page-top > header.site-brand > :is(h1.site-name, a.site-name) {
+ font-family: Inter, system-ui, sans-serif !important;
+ font-style: normal !important;
+ font-weight: 700 !important;
+ font-size: clamp(1.65rem, 4.2vw, 3rem) !important;
+ line-height: 1.1 !important;
+ letter-spacing: -.035em !important;
+ text-align: left !important;
+ margin: 0 !important;
+}
+html body main#page-top > header.site-brand > .site-name + p {
+ font-family: Inter, system-ui, sans-serif !important;
+ font-size: clamp(.85rem, 2vw, 1.2rem) !important;
+ font-style: normal !important;
+ text-align: left !important;
+ margin: .25rem 0 .4rem !important;
+}
+html body main#page-top :is(.literature-page-banner,.old-college-banner) > :is(h1,h2) {
+ font-family: Inter, system-ui, sans-serif !important;
+ font-style: normal !important;
+ font-weight: 600 !important;
+ font-size: clamp(1.2rem, 3.3vw, 2rem) !important;
+ color: #1d1d1d !important;
+}

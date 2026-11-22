@@ -3057,3 +3057,11 @@ html body main#page-top :is(.literature-page-banner,.old-college-banner) > :is(h
   font-size: clamp(1.4rem, 5.5vw, 1.85rem) !important;
  }
 }
+
+/* The utility row now contains only the sharing controls. */
+html body main#page-top > .site-actions > .site-bookmark { display: none !important; }
+html body main#page-top > .site-actions {
+ margin: .2rem 0 .35rem !important;
+ padding-block: 0 !important;
+ gap: 0 !important;
+}

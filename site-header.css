@@ -3214,7 +3214,12 @@ html body main#page-top :is(.literature-page-banner,.literature-subpage-banner,.
 html body main#page-top :is(.literature-page-banner,.literature-subpage-banner,.old-college-banner):has(> img[src$=".svg"]),
 html body main#page-top :is(.literature-page-banner,.literature-subpage-banner,.old-college-banner):has(> img[src$=".webp"]) {
   overflow: hidden;
-  isolation: isolate;
+}
+
+/* Neutralise the paper tones in embedded illustrations before multiplying
+   them into the page panel. White then leaves the panel colour untouched. */
+html body main#page-top :is(.literature-page-banner,.literature-subpage-banner,.old-college-banner) > img[src^="data:image/"] {
+  filter: brightness(1.08);
 }
 @media (max-width: 700px) {
   html body main#page-top :is(.literature-page-banner,.literature-subpage-banner,.old-college-banner) > img[src^="data:image/"] {

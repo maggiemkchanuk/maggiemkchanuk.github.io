@@ -3430,22 +3430,22 @@ html body main#page-top > .unified-page-intro :is(p, label, h2, h3) {
 html body main#page-top > .unified-page-intro :is(input,select,button) {
   max-width: 100%;
 }
-html body main#page-top > .authors-featured-photos {
+html body main#page-top .authors-featured-photos {
   margin-block: .35rem .5rem !important;
   padding: .55rem !important;
 }
-html body main#page-top > .authors-featured-photos figure {
+html body main#page-top .authors-featured-photos figure {
   margin: 0 !important;
 }
-html body main#page-top > .authors-featured-photos figcaption {
+html body main#page-top .authors-featured-photos figcaption {
   margin-top: .25rem !important;
 }
-html body main#page-top > .authors-featured-photos figure:nth-child(2) img {
+html body main#page-top .authors-featured-photos figure:nth-child(2) img {
   width: min(100%, 30rem);
   height: auto !important;
   margin-inline: auto;
 }
-html body main#page-top > .authors-featured-photos figcaption a {
+html body main#page-top .authors-featured-photos figcaption a {
   color: #315b48;
   text-decoration: underline;
   text-underline-offset: .15em;
@@ -3458,20 +3458,20 @@ html body main#page-top > .authors-featured-photos figcaption a {
  html body main#page-top > .unified-page-intro :is(.literature-page-banner,.literature-subpage-banner) > img {
    max-height: 5.1rem !important;
  }
- html body main#page-top > .authors-featured-photos {
+ html body main#page-top .authors-featured-photos {
    display: grid !important;
    grid-template-columns: minmax(0,1fr) minmax(0,1.45fr) minmax(0,1fr) !important;
    align-items: start !important;
    gap: .45rem !important;
  }
- html body main#page-top > .authors-featured-photos figure:nth-child(2) {
+ html body main#page-top .authors-featured-photos figure:nth-child(2) {
    align-self: start !important;
  }
- html body main#page-top > .authors-featured-photos figure:not(:nth-child(2)) img {
+ html body main#page-top .authors-featured-photos figure:not(:nth-child(2)) img {
    height: clamp(7rem, 30vw, 10rem) !important;
    object-fit: cover !important;
  }
- html body main#page-top > .authors-featured-photos figcaption {
+ html body main#page-top .authors-featured-photos figcaption {
    margin: .2rem 0 0 !important;
    line-height: 1.25 !important;
  }

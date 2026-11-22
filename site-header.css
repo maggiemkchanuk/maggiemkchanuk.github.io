@@ -3229,15 +3229,11 @@ html body main#page-top :is(.literature-page-banner,.literature-subpage-banner,.
 }
 
 
-/* Blend the whale as a single layer after its paper tones are neutralised. */
-html body main#page-top > .unified-page-intro:has(.whale-banner-art) {
-  isolation: isolate;
-}
+/* Retain the whale banner’s grid sizing. */
 html body main#page-top .literature-page-banner > .whale-banner-art {
   display: block;
   min-width: 0;
   justify-self: stretch;
-  mix-blend-mode: multiply;
 }
 html body main#page-top .whale-banner-art > img {
   display: block;
@@ -3246,7 +3242,6 @@ html body main#page-top .whale-banner-art > img {
   max-height: 6.5rem;
   object-fit: contain;
   object-position: right center;
-  filter: brightness(1.10);
 }
 @media (max-width: 700px) {
   html body main#page-top .whale-banner-art > img {
@@ -3522,3 +3517,12 @@ html body main .cards article :is(.meta,.edition) {
   line-height: 1.45 !important;
 }
 html body main .book-row .book-copy :is(.edition,.book-editions,.edition-note,.book-origin) a { color: #315b48 !important; }
+
+/* These illustrations already carry transparent pixels around the artwork. */
+html body main#page-top :is(.unified-page-intro,#about)
+  :is(.literature-page-banner,.old-college-banner) img[src^="banner-art/"] {
+  mix-blend-mode: normal !important;
+  filter: none !important;
+  -webkit-mask-image: none !important;
+  mask-image: none !important;
+}

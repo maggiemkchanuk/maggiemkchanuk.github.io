@@ -3032,8 +3032,9 @@ html body main#page-top > header.site-brand > .site-name + p {
  font-style: normal !important;
  text-align: left !important;
  margin: .25rem 0 .4rem !important;
- max-inline-size: 26ch;
- text-wrap: balance;
+ max-inline-size: none;
+ white-space: nowrap !important;
+ text-wrap: nowrap;
 }
 html body main#page-top :is(.literature-page-banner,.old-college-banner) > :is(h1,h2) {
  font-family: Inter, system-ui, sans-serif !important;
@@ -3041,4 +3042,18 @@ html body main#page-top :is(.literature-page-banner,.old-college-banner) > :is(h
  font-weight: 600 !important;
  font-size: clamp(1.2rem, 3.3vw, 2rem) !important;
  color: #1d1d1d !important;
+}
+
+@media (max-width: 700px) {
+ html body main#page-top > header.site-brand > :is(h1.site-name, a.site-name) {
+  font-size: clamp(1.55rem, 7.6vw, 2.65rem) !important;
+  white-space: nowrap !important;
+ }
+ html body main#page-top > header.site-brand > .site-name + p {
+  font-size: clamp(.64rem, 3.25vw, 1rem) !important;
+  letter-spacing: -.02em;
+ }
+ html body main#page-top :is(.literature-page-banner,.old-college-banner) > :is(h1,h2) {
+  font-size: clamp(1.4rem, 5.5vw, 1.85rem) !important;
+ }
 }

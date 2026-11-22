@@ -2992,3 +2992,25 @@ html body main#page-top section :is(li.book-row, article) a.book-details-link:no
   font-size: .76rem !important;
   line-height: 1.45;
 }
+
+/* Neutral masthead above the illustrated page content. */
+html body main#page-top > header.site-brand:has(> nav.accessible-nav) {
+  background: #fff !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+html body main#page-top > header.site-brand > :is(h1.site-name, a.site-name),
+html body main#page-top > header.site-brand > .site-name + p {
+  color: #1d1d1d !important;
+}
+html body main#page-top > header.site-brand > nav#site-mobile-navigation.accessible-nav > a,
+html body main#page-top > header.site-brand > nav#site-mobile-navigation.accessible-nav > details.site-nav-more > summary {
+  color: #1d1d1d !important;
+  font-weight: 500 !important;
+  letter-spacing: normal !important;
+}
+html body main#page-top > header.site-brand > nav#site-mobile-navigation.accessible-nav > a[aria-current="page"],
+html body main#page-top > header.site-brand > nav#site-mobile-navigation.accessible-nav > details.site-nav-more:has(a[aria-current="page"]) > summary {
+  text-decoration: underline !important;
+  text-underline-offset: .4em;
+}

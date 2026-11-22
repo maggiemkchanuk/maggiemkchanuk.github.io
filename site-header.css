@@ -3285,3 +3285,61 @@ html body main#page-top > .unified-page-intro :is(.literature-page-banner,.liter
    text-align: left !important;
  }
 }
+
+
+/* Single-divider illustrated panels: remove inherited header and navigation rules. */
+html body main#page-top > .unified-page-intro {
+  background: #faf7ef !important;
+}
+html body main#page-top > .unified-page-intro > header {
+  border: 0 !important;
+  border-top: 0 !important;
+  border-bottom: 0 !important;
+  box-shadow: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+}
+html body main#page-top > .unified-page-intro :is(.literature-page-banner,.literature-subpage-banner) {
+  border: 0 !important;
+  border-bottom: 1px solid #809585 !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  margin-bottom: .5rem !important;
+}
+html body main#page-top > .unified-page-intro > nav,
+html body main#page-top > .unified-page-intro > header + nav,
+html body main#page-top > .unified-page-intro > header > p {
+  border: 0 !important;
+  border-top: 0 !important;
+  border-bottom: 0 !important;
+  box-shadow: none !important;
+}
+html body main#page-top > .unified-page-intro > nav {
+  padding: .2rem 0 0 !important;
+  margin: .35rem 0 0 !important;
+}
+html body main#page-top > .unified-page-intro > header > p {
+  margin: .3rem 0 .5rem !important;
+  padding: 0 !important;
+}
+html body main#page-top > .unified-page-intro > .saved-book-help {
+  margin: .4rem 0 .15rem !important;
+  padding: 0 !important;
+  max-width: 68ch;
+}
+html body main#page-top > .unified-page-intro :is(.literature-page-banner,.literature-subpage-banner) > img[src^="data:image/"] {
+  -webkit-mask-image: radial-gradient(ellipse 78% 80% at 50% 50%, #000 53%, transparent 100%) !important;
+  mask-image: radial-gradient(ellipse 78% 80% at 50% 50%, #000 53%, transparent 100%) !important;
+  mix-blend-mode: multiply !important;
+  background: transparent !important;
+}
+@media (max-width:700px) {
+ html body main#page-top > .unified-page-intro > header > .literature-page-banner {
+   margin-top: 0 !important;
+   padding-top: 0 !important;
+ }
+ html body main#page-top > .unified-page-intro > nav {
+   row-gap: .35rem !important;
+ }
+}

@@ -3127,3 +3127,21 @@ html body main#page-top :is(.literature-page-banner,.literature-subpage-banner):
   margin-top: .25rem !important;
  }
 }
+
+@media (max-width: 700px) {
+ html body main#page-top > header.site-brand:has(> nav.accessible-nav) > :is(.site-name, .site-name + p) {
+  text-align: center !important;
+  align-self: center !important;
+  justify-self: center !important;
+  margin-inline: auto !important;
+ }
+ html body main#page-top #about > .old-college-banner:has(img) {
+  grid-template-areas: "title" "art";
+  grid-template-columns: minmax(0, 1fr);
+  justify-items: center;
+ }
+ html body main#page-top #about > .old-college-banner:has(img) h2 {
+  text-align: center !important;
+  justify-self: center;
+ }
+}

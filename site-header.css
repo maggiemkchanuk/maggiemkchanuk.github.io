@@ -3396,6 +3396,18 @@ html body main#page-top > .unified-page-intro :is(.literature-page-banner,.liter
   font-family: Nunito, Inter, system-ui, sans-serif !important;
   font-weight: 800 !important;
 }
+/* Align catalogue titles with the introductory copy and sibling resource pages. */
+html body main#page-top:has(> .site-brand:is(.brand-academic,.brand-reading))
+  > .unified-page-intro .literature-page-banner > h1 {
+  padding-inline: 0 !important;
+}
+html body main#page-top:has(> .site-brand:is(.brand-authors,.brand-illustrators,.brand-awards)) {
+  box-sizing: border-box;
+  width: min(58rem, 100% - 2.5rem);
+  max-width: none;
+  margin-inline: auto;
+  padding-inline: 0;
+}
 html body main#page-top > .unified-page-intro > nav > a {
   margin: 0 !important;
 }

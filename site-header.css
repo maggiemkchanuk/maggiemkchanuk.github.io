@@ -3440,6 +3440,16 @@ html body main#page-top > .authors-featured-photos figure {
 html body main#page-top > .authors-featured-photos figcaption {
   margin-top: .25rem !important;
 }
+html body main#page-top > .authors-featured-photos figure:nth-child(2) img {
+  width: min(100%, 30rem);
+  height: auto !important;
+  margin-inline: auto;
+}
+html body main#page-top > .authors-featured-photos figcaption a {
+  color: #315b48;
+  text-decoration: underline;
+  text-underline-offset: .15em;
+}
 @media (max-width:700px) {
  html body main#page-top > .unified-page-intro {
    padding: .55rem .7rem !important;
@@ -3457,13 +3467,9 @@ html body main#page-top > .authors-featured-photos figcaption {
  html body main#page-top > .authors-featured-photos figure:nth-child(2) {
    align-self: start !important;
  }
- html body main#page-top > .authors-featured-photos figure:nth-child(2) img,
- html body main#page-top > .authors-featured-photos figure img {
+ html body main#page-top > .authors-featured-photos figure:not(:nth-child(2)) img {
    height: clamp(7rem, 30vw, 10rem) !important;
    object-fit: cover !important;
- }
- html body main#page-top > .authors-featured-photos figure:nth-child(2) img {
-   object-fit: contain !important;
  }
  html body main#page-top > .authors-featured-photos figcaption {
    margin: .2rem 0 0 !important;
@@ -3471,12 +3477,10 @@ html body main#page-top > .authors-featured-photos figcaption {
  }
 }
 
-/* Consistent neutral catalogue metadata: editions are not links. */
-html body main .book-row .book-copy .edition,
-html body main .book-row .book-copy .book-editions,
-html body main .book-row .book-copy .edition-note,
-html body main .book-row .book-copy .book-origin {
-  color: #59635d !important;
+/* Match publication details across the catalogue and resource cards. */
+html body main .book-row .book-copy :is(.meta,.edition,.book-editions,.edition-note,.book-origin),
+html body main .cards article :is(.meta,.edition) {
+  color: #315b48 !important;
   font-size: .83rem !important;
   line-height: 1.45 !important;
 }

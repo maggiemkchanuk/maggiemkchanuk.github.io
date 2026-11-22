@@ -3263,7 +3263,6 @@ html body main#page-top > .unified-page-intro :is(.literature-page-banner,.liter
   box-sizing: border-box;
   background: transparent !important;
   border: 0 !important;
-  border-bottom: 1px solid #738b79 !important;
   border-radius: 0 !important;
   padding: .15rem 0 .45rem !important;
   margin: 0 0 .45rem !important;
@@ -3312,7 +3311,7 @@ html body main#page-top > .unified-page-intro :is(.literature-page-banner,.liter
 }
 
 
-/* Single-divider illustrated panels: remove inherited header and navigation rules. */
+/* Remove inherited rules from the illustrated introductions. */
 html body main#page-top > .unified-page-intro {
   background: #faf7ef !important;
 }
@@ -3327,7 +3326,6 @@ html body main#page-top > .unified-page-intro > header {
 }
 html body main#page-top > .unified-page-intro :is(.literature-page-banner,.literature-subpage-banner) {
   border: 0 !important;
-  border-bottom: 1px solid #809585 !important;
   box-shadow: none !important;
   background: transparent !important;
   margin-bottom: .5rem !important;

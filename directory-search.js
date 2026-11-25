@@ -16,7 +16,7 @@
     section,
     heading: normalise(section.querySelector('h2')?.textContent || ''),
     entries: Array.from(section.querySelectorAll('article'), article => ({
-      article, text: normalise(article.textContent),
+      article, text: normalise(`${article.textContent} ${article.getAttribute('data-search-aliases') || ''}`),
       location: normalise(article.querySelector('.organisation-location')?.textContent || '').split(/[^a-z]+/),
       countries: country ? countriesFor(article.querySelector('.organisation-location')?.textContent.trim() || '') : []
     })),

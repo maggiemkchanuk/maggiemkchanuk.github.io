@@ -67,6 +67,8 @@
       amazonSearch.searchParams.set('tag', amazonTag);
       addRetailer(retailers, 'Amazon UK', amazonSearch, true);
     }
+    const amazon = retailers.querySelector('a[href*="amazon.co.uk/"]');
+    if (amazon && amazon !== retailers.firstElementChild) retailers.prepend(amazon);
     const commission = menu.querySelector('.buy-commission');
     if (commission) commission.innerHTML = 'I may earn a commission on qualifying purchases, at no extra cost to you. <a href="affiliate-disclosure.html">Affiliate disclosure</a>';
   }
@@ -81,7 +83,8 @@
       link.rel = 'sponsored noopener';
     }
     if (url.hostname === 'www.amazon.co.uk' || url.hostname === 'amazon.co.uk') {
-      if (link.closest('.buy-retailers')) link.textContent = 'Amazon UK';
+      const name = link.querySelector('.buy-retailer-name');
+      if (link.closest('.buy-retailers')) (name || link).textContent = 'Amazon UK';
       url.searchParams.set('tag', amazonTag);
       link.href = url.href;
       link.rel = 'sponsored noopener';

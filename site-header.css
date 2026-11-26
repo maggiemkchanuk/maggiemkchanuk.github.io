@@ -346,7 +346,8 @@ main:has(> :is(.brand-tools, .brand-awards)) {
 .buy-menu { margin-top: .6rem; padding: .8rem; border: 1px solid #cbd2c9; border-radius: .5rem; }
 .buy-retailer { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1rem .2rem; color: #18352a; text-decoration: none; border-bottom: 1px solid #d8ddd5; }
 .buy-retailer:hover { background: #f3f5ef; }
-.buy-retailer-name { font-weight: 600; }
+.buy-retailers .buy-retailer,
+.buy-retailers .buy-retailer-name { font-weight: 400; }
 .buy-retailer-price { font-size: .85rem; text-align: right; }
 .buy-edition, .buy-commission { color: #42594f; font-size: .78rem; line-height: 1.5; margin: .8rem 0 0; }
 .buy-commission { padding-top: .8rem; border-top: 1px solid #d8ddd5; }
@@ -3523,4 +3524,36 @@ html body main#page-top :is(.unified-page-intro,#about)
   filter: none !important;
   -webkit-mask-image: none !important;
   mask-image: none !important;
+}
+
+
+/* Use the creator bibliography typography for desktop catalogue cards. */
+@media (min-width: 701px) {
+  html body main#page-top:has(> header.brand-reading) section li.book-row .book-copy > p {
+    font-family: Inter, system-ui, sans-serif !important;
+    font-size: .88rem !important;
+    line-height: 1.5 !important;
+  }
+  html body main#page-top:has(> header.brand-reading) section li.book-row .book-copy > p:not([class]),
+  html body main#page-top:has(> header.brand-reading) section li.book-row .book-copy > p.description {
+    line-height: 1.4 !important;
+  }
+  html body main#page-top:has(> header.brand-reading) section li.book-row .book-copy > .credit {
+    font-size: .82rem !important;
+    line-height: 1.45 !important;
+  }
+  html body main#page-top:has(> header.brand-reading) section li.book-row .book-copy > :is(.meta, .edition, .book-origin) {
+    font-size: .83rem !important;
+    line-height: 1.45 !important;
+  }
+  html body main#page-top:has(> header.brand-reading) section li.book-row .book-copy .credit a {
+    font: inherit !important;
+  }
+  html body main#page-top:has(> header.brand-reading) section li.book-row .book-copy h3,
+  html body main#page-top:has(> header.brand-reading) section li.book-row .book-copy h3 a {
+    font-family: Inter, system-ui, sans-serif !important;
+    font-size: clamp(1.1rem, 1.04rem + .3vw, 1.25rem) !important;
+    font-weight: 700 !important;
+    line-height: 1.3 !important;
+  }
 }

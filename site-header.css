@@ -3543,7 +3543,7 @@ html body main#page-top :is(.unified-page-intro,#about)
     line-height: 1.45 !important;
   }
   html body main#page-top:has(> header.brand-reading) section li.book-row .book-copy > :is(.meta, .edition, .book-origin) {
-    font-size: .83rem !important;
+    font-size: .78rem !important;
     line-height: 1.45 !important;
   }
   html body main#page-top:has(> header.brand-reading) section li.book-row .book-copy .credit a {

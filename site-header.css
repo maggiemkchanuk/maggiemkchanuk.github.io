@@ -3549,11 +3549,26 @@ html body main#page-top :is(.unified-page-intro,#about)
   html body main#page-top:has(> header.brand-reading) section li.book-row .book-copy .credit a {
     font: inherit !important;
   }
-  html body main#page-top:has(> header.brand-reading) section li.book-row .book-copy h3,
-  html body main#page-top:has(> header.brand-reading) section li.book-row .book-copy h3 a {
-    font-family: Inter, system-ui, sans-serif !important;
-    font-size: clamp(1.1rem, 1.04rem + .3vw, 1.25rem) !important;
-    font-weight: 700 !important;
-    line-height: 1.3 !important;
-  }
+}
+
+/* Keep book titles at the desktop display size at every viewport width. */
+html body main#page-top :is(.book-row .book-copy, .academic-copy-slot, .resource-book-copy, article[data-buy-isbn]) h3,
+html body main#page-top .saved-book-heading > a {
+  font-family: Inter, system-ui, sans-serif !important;
+  font-size: 1.25rem !important;
+  font-weight: 700 !important;
+  line-height: 1.3 !important;
+  letter-spacing: 0 !important;
+  overflow-wrap: anywhere !important;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+html body main#page-top :is(.book-row .book-copy, .academic-copy-slot, .resource-book-copy, article[data-buy-isbn]) h3 :is(a, span, em, strong, b, i) {
+  font-family: inherit !important;
+  font-size: inherit !important;
+  font-weight: inherit !important;
+  line-height: inherit !important;
+  letter-spacing: inherit !important;
+  overflow-wrap: inherit !important;
 }

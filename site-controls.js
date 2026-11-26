@@ -92,6 +92,29 @@
     }
   }
 
+  // Clear catalogue filters when an in-page link points to a hidden result.
+  const catalogueSearch = document.querySelector('#filter-books, #academic-filter');
+  if (catalogueSearch) {
+    const filters = [catalogueSearch, ...document.querySelectorAll('#country-books, #language-books, #award-books')];
+    document.addEventListener('click', event => {
+      const link = event.target.closest('a[href*="#"]');
+      if (!link || event.defaultPrevented || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+      const destination = new URL(link.href);
+      if (!destination.hash || destination.origin !== location.origin ||
+          destination.pathname !== location.pathname || destination.search !== location.search) return;
+
+      let target;
+      try {
+        target = document.getElementById(decodeURIComponent(destination.hash.slice(1)));
+      } catch {
+        return;
+      }
+      if (!target?.closest('[hidden]') || !filters.some(filter => filter.value)) return;
+      for (const filter of filters) filter.value = '';
+      catalogueSearch.dispatchEvent(new Event('input', {bubbles: true}));
+    });
+  }
+
   // A saved record retains its source location and verified bibliographic details.
   // Older saved lists contained titles only; migrate them without losing a selection.
   const clean = value => (value || '').replace(/\s+/g, ' ').trim();

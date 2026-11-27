@@ -3552,7 +3552,7 @@ html body main#page-top :is(.unified-page-intro,#about)
 }
 
 /* Keep book titles at the desktop display size at every viewport width. */
-html body main#page-top :is(.book-row .book-copy, .academic-copy-slot, .resource-book-copy, article[data-buy-isbn]) h3,
+html body main#page-top :is(.book-row .book-copy, .academic-copy-slot, .resource-book-copy, article[data-buy-isbn], article[data-buy-product], .cards article:where(.brand-tools ~ section article:has(h3 > a))) h3,
 html body main#page-top .saved-book-heading > a {
   font-family: Inter, system-ui, sans-serif !important;
   font-size: 1.25rem !important;
@@ -3564,7 +3564,7 @@ html body main#page-top .saved-book-heading > a {
   text-size-adjust: 100%;
 }
 
-html body main#page-top :is(.book-row .book-copy, .academic-copy-slot, .resource-book-copy, article[data-buy-isbn]) h3 :is(a, span, em, strong, b, i) {
+html body main#page-top :is(.book-row .book-copy, .academic-copy-slot, .resource-book-copy, article[data-buy-isbn], article[data-buy-product], .cards article:where(.brand-tools ~ section article:has(h3 > a))) h3 :is(a, span, em, strong, b, i) {
   font-family: inherit !important;
   font-size: inherit !important;
   font-weight: inherit !important;
